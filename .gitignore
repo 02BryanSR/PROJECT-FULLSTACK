@@ -1,0 +1,55 @@
+# ======================
+# FRONTEND (Angular)
+# ======================
+workspace-angular/bsr-frontend/node_modules/
+workspace-angular/bsr-frontend/dist/
+workspace-angular/bsr-frontend/.angular/
+workspace-angular/bsr-frontend/.vscode/
+workspace-angular/bsr-frontend/.cache/
+
+# Logs frontend
+workspace-angular/bsr-frontend/npm-debug.log*
+workspace-angular/bsr-frontend/yarn-debug.log*
+workspace-angular/bsr-frontend/yarn-error.log*
+
+# ======================
+# BACKEND (Java / Spring)
+# ======================
+workspace-java/project-bsr/target/
+workspace-java/project-bsr/*.log
+
+# Maven
+workspace-java/project-bsr/.mvn/wrapper/maven-wrapper.jar
+
+# ======================
+# ECLIPSE / WORKSPACE
+# ======================
+workspace-java/.metadata/
+workspace-java/.recommenders/
+
+# ======================
+# IDEs (general)
+# ======================
+.vscode/
+.idea/
+*.iml
+
+# ======================
+# OS
+# ======================
+.DS_Store
+Thumbs.db
+
+# ======================
+# ENV / SECRETOS
+# ======================
+.env
+.env.local
+.env.*.local
+
+# ======================
+# OTROS
+# ======================
+*.tmp
+*.swp
+*.bak
