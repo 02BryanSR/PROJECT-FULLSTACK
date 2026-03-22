@@ -1,0 +1,28 @@
+﻿<header class="hidden bg-transparent px-6 py-4 text-white md:px-10 lg:block lg:px-12.5">
+  <div class="relative items-center text-sm uppercase tracking-[0.2em] text-white lg:flex">
+    <nav class="flex items-center gap-5">
+      @for (link of navLinks; track link.route) {
+        <a [routerLink]="link.route" class="text-white">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div
+      class="pointer-events-none absolute left-1/2 -translate-x-1/2 text-xl font-bold tracking-[0.25em] text-white"
+    >
+      B S R
+    </div>
+
+    <div class="ml-auto flex items-center gap-5 text-white">
+      <button
+        type="button"
+        aria-label="Buscar"
+        class="inline-flex items-center justify-center text-white"
+      >
+        <app-icon name="icon-search" class="h-5 w-5"></app-icon>
+      </button>
+
+      <app-icon name="icon-bag" class="h-5 w-5 text-white"></app-icon>
+      <app-user-dropdown></app-user-dropdown>
+    </div>
+  </div>
+</header>

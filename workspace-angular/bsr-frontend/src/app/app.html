@@ -1,1 +1,9 @@
+@if (showHeader()) {
+  <div class="fixed inset-x-0 top-0 z-50">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+  </div>
+}
+
 <router-outlet />
+<app-toast />

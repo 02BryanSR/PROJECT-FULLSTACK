@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+
+@import './app/styles/abstracts/variables.css';
+@import './app/styles/base/base.css';
+@import './app/styles/base/typography.css';
+@import './app/styles/layout/dashboard.css';

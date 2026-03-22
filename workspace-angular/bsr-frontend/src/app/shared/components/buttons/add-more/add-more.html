@@ -1,0 +1,7 @@
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
+
+<button [type]="type()" [disabled]="disabled()" [class]="classes()" (click)="handleClick()">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</button>

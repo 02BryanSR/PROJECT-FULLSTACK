@@ -1,0 +1,130 @@
+<section
+  class="w-full min-w-0 flex flex-col h-[calc(100vh-72px-48px-210px)] overflow-hidden bg-white rounded-base p-4 mb-3 mt-0 border border-[#00000014] shadow-[0_3px_9px_rgba(0,0,0,0.25)]"
+>
+  <div class="flex-1 overflow-auto">
+    <article
+      class="sticky top-0 z-20 flex h-6.5 items-center gap-14 px-1 bg-white shadow-[0_1px_0_0_rgba(0,0,0,0.1)]"
+    >
+      <label class="flex items-center gap-2 select-none">
+        <input
+          type="checkbox"
+          class="h-3.75 w-3.75 rounded border-neutral-300"
+          [checked]="allSelected()"
+          (change)="toggleAll.emit($any($event.target).checked)"
+        />
+        <span class="text-2xs font-medium text-gray-500">Seleccionar</span>
+      </label>
+
+      <div class="relative">
+        <button
+          type="button"
+          (click)="toggleActions.emit(); $event.stopPropagation()"
+          class="flex items-center gap-2 text-2xs font-medium text-gray-500 cursor-pointer"
+        >
+          Acciones
+          <app-icon name="ellipsis-horizontal" class="w-4 h-4 text-gray-500 rotate-90"></app-icon>
+        </button>
+
+        @if (actionsOpen()) {
+          <ul
+            class="absolute top-full left-0 mt-2 w-40 bg-white border border-neutral-200 rounded-base shadow z-30"
+          >
+            @for (item of actions(); track item.value) {
+              <li
+                (click)="action.emit(item.value)"
+                class="px-3 py-2 text-sm cursor-pointer hover:bg-black/5"
+                [class.text-red-600]="item.danger"
+              >
+                {{ item.label }}
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    </article>
+
+    <table class="min-w-7xl w-full border-collapse table-fixed">
+      <thead
+        class="sticky top-6.5 z-10 bg-white text-neutral-250 font-medium text-2xs text-left align-middle shadow-[0_1px_0_0_rgba(0,0,0,0.08)]"
+      >
+        <tr>
+          <th class="px-1 py-2 w-10"></th>
+
+          @for (column of columns(); track column.key) {
+            <th class="px-1 py-2 font-medium">
+              @if (column.sortable) {
+                <button
+                  type="button"
+                  class="inline-flex items-center gap-1.5 bg-transparent border-0 p-0 cursor-pointer select-none"
+                  (click)="sort.emit(column.key)"
+                >
+                  <span>{{ column.label }}</span>
+                  <app-icon
+                    name="sort-desc"
+                    class="w-4 h-4 text-neutral-400 transition-transform duration-200"
+                    [class.rotate-180]="sortKey() === column.key && sortDir() === 'asc'"
+                  ></app-icon>
+                </button>
+              } @else {
+                <span>{{ column.label }}</span>
+              }
+            </th>
+          }
+        </tr>
+      </thead>
+
+      <tbody class="font-medium text-sm text-left align-middle text-slate-900">
+        @if (data().length === 0) {
+          <tr>
+            <td
+              [attr.colspan]="columns().length + 1"
+              class="px-4 py-6 text-center text-sm text-neutral-250"
+            >
+              {{ emptyMessage() }}
+            </td>
+          </tr>
+        } @else {
+          @for (row of data(); track getRowId(row, $index)) {
+            <tr class="border-t border-b border-black/8">
+              <td class="px-1 py-5 w-10">
+                <input
+                  type="checkbox"
+                  class="h-4 w-4 rounded border-neutral-300"
+                  [checked]="isSelected(row, $index)"
+                  (change)="rowSelection.emit(getRowId(row, $index))"
+                />
+              </td>
+
+              @for (column of columns(); track column.key) {
+                <td
+                  [class]="
+                    column.key === 'date'
+                      ? 'px-1 py-5 truncate cursor-pointer hover:underline'
+                      : 'px-1 py-5 truncate'
+                  "
+                  (click)="column.key === 'date' && rowClick.emit(getRowId(row, $index))"
+                >
+                  @switch (column.type ?? 'text') {
+                    @case ('badge') {
+                      <span
+                        class="inline-flex items-center rounded-full px-2.5 py-1 text-2xs font-medium"
+                        [ngClass]="getCellClass(row, column.key)"
+                      >
+                        {{ getCellValue(row, column.key) }}
+                      </span>
+                    }
+                    @default {
+                      {{ getCellValue(row, column.key) }}
+                    }
+                  }
+                </td>
+              }
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <ng-content select="[tableFooter]"></ng-content>
+</section>
