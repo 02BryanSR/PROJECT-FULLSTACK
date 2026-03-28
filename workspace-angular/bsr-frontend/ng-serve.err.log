@@ -451,3 +451,3590 @@
         ╵                [32m~~~~~~~~~~~~~[0m
 
 [39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: RouterLinkActive is not used within the template of Header[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.ts:11:39:
+[37m      11 │ ...orts: [IconComponent, RouterLink, [32mRouterLinkActive[37m, UserDropdown],
+         ╵                                      [32m~~~~~~~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Header'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.html:26:17:
+[37m      26 │         (click)="[32mopenSearch[37m()"
+         ╵                  [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Header.
+
+    src/app/layouts/components/header/header.ts:9:15:
+[37m      9 │   templateUrl: [32m'./header.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8001: 'app-icon' is not a known element:
+1. If 'app-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.html:29:8:
+[37m      29 │         [32m<app-icon name="icon-search" class="h-5 w-5">[37m</app-icon>
+         ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Header.
+
+    src/app/layouts/components/header/header.ts:9:15:
+[37m      9 │   templateUrl: [32m'./header.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Header'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.html:35:17:
+[37m      35 │         (click)="[32mopenBag[37m()"
+         ╵                  [32m~~~~~~~[0m
+
+  Error occurs in the template of component Header.
+
+    src/app/layouts/components/header/header.ts:9:15:
+[37m      9 │   templateUrl: [32m'./header.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG8001: 'app-icon' is not a known element:
+1. If 'app-icon' is an Angular component, then verify that it is included in the '@Component.imports' of this component.
+2. If 'app-icon' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@Component.schemas' of this component to suppress this message.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.html:38:8:
+[37m      38 │         [32m<app-icon name="icon-bag" class="h-5 w-5 text-white">[37m</app...
+         ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Header.
+
+    src/app/layouts/components/header/header.ts:9:15:
+[37m      9 │   templateUrl: [32m'./header.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Header'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.html:39:13:
+[37m      39 │         @if ([32mcartService[37m.cartCount() > 0) {
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Header.
+
+    src/app/layouts/components/header/header.ts:9:15:
+[37m      9 │   templateUrl: [32m'./header.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Header'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.html:43:15:
+[37m      43 │             {{ [32mcartService[37m.cartCount() }}
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Header.
+
+    src/app/layouts/components/header/header.ts:9:15:
+[37m      9 │   templateUrl: [32m'./header.html'[37m,
+        ╵                [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'catalog' does not exist on type '{ auth: { login: string; register: string; me: string; }; }'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/core/services/product-catalog.service.ts:40:34:
+[37m      40 │       .get<unknown>(API_ENDPOINTS.[32mcatalog[37m.products, {
+         ╵                                   [32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'catalog' does not exist on type '{ auth: { login: string; register: string; me: string; }; }'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/core/services/product-catalog.service.ts:40:34:
+[37m      40 │       .get<unknown>(API_ENDPOINTS.[32mcatalog[37m.products, {
+         ╵                                   [32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NgClass is not used within the template of ProductCard[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/shared/components/product-card/product-card.ts:11:41:
+[37m      11 │   imports: [CurrencyPipe, IconComponent, [32mNgClass[37m, RouterLink],
+         ╵                                          [32m~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'catalog' does not exist on type '{ auth: { login: string; register: string; me: string; }; }'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/core/services/product-catalog.service.ts:40:34:
+[37m      40 │       .get<unknown>(API_ENDPOINTS.[32mcatalog[37m.products, {
+         ╵                                   [32m~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:20:15:
+[37m      20 │       (click)="[32mopenSearch[37m()"
+         ╵                [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:29:15:
+[37m      29 │       (click)="[32mopenBag[37m()"
+         ╵                [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:32:11:
+[37m      32 │       @if ([32mcartService[37m.cartCount() > 0) {
+         ╵            [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:36:13:
+[37m      36 │           {{ [32mcartService[37m.cartCount() }}
+         ╵              [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openSearch' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:83:19:
+[37m      83 │           (click)="[32mopenSearch[37m()"
+         ╵                    [32m~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'openBag' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:92:19:
+[37m      92 │           (click)="[32mopenBag[37m()"
+         ╵                    [32m~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:95:15:
+[37m      95 │           @if ([32mcartService[37m.cartCount() > 0) {
+         ╵                [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2339: Property 'cartService' does not exist on type 'Sidebar'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.html:99:17:
+[37m      99 │               {{ [32mcartService[37m.cartCount() }}
+         ╵                  [32m~~~~~~~~~~~[0m
+
+  Error occurs in the template of component Sidebar.
+
+    src/app/layouts/components/sidebar/sidebar.ts:10:15:
+[37m      10 │   templateUrl: [32m'./sidebar.html'[37m,
+         ╵                [32m~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: AccountMenuComponent is not used within the template of Header[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/header/header.ts:12:12:
+[37m      12 │   imports: [[32mAccountMenuComponent[37m, IconComponent, RouterLink, Route...
+         ╵             [32m~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m
+[1m[31m[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "src/material-theme.scss"[0m
+
+    angular:styles/global:styles:1:8:
+[37m      1 │ @import [32m'src/material-theme.scss'[37m;
+        ╵         [32m~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+  You can mark the path "src/material-theme.scss" as external to exclude it from the bundle, which will remove this error and leave the unresolved path in the bundle.
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mTS2307: Cannot find module '../../../shared/components/user-dropdown/user-dropdown' or its corresponding type declarations.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:5:29:
+[37m      5 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG1010: 'imports' must be an array of components, directives, pipes, or NgModules.
+  Value could not be determined statically.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+  Unknown reference.
+
+    src/app/layouts/components/sidebar/sidebar.ts:9:39:
+[37m      9 │   imports: [IconComponent, RouterLink, [32mUserDropdown[37m],
+        ╵                                        [32m~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mNG2008: Could not find stylesheet file './sidebar.css'.[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:11:12:
+[37m      11 │   styleUrl: [32m'./sidebar.css'[37m,
+         ╵             [32m~~~~~~~~~~~~~~~[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mCould not resolve "../../../shared/components/user-dropdown/user-dropdown"[0m
+
+    src/app/layouts/components/sidebar/sidebar.ts:6:29:
+[37m      6 │ ...own } from [32m'../../../shared/components/user-dropdown/user-dropdo[37m...
+        ╵               [32m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+
+[39m[22m

@@ -1,0 +1,58 @@
+<section class="relative" (clickOutside)="close()">
+  <button
+    type="button"
+    (click)="toggle()"
+    [attr.aria-expanded]="isOpen()"
+    aria-haspopup="true"
+    aria-label="Menu de usuario"
+    class="relative inline-flex items-center justify-center py-2 text-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100"
+  >
+    <app-icon name="user" class="h-7 w-7 text-white"></app-icon>
+  </button>
+
+  @if (isOpen()) {
+    <section
+      class="absolute right-0 z-50 mt-3 w-80 origin-top-right overflow-hidden rounded-[1.5rem] bg-neutral-100 shadow-xl"
+    >
+      <article class="space-y-4 p-6">
+        @if (authService.isAuthenticated()) {
+          <header>
+            <p class="text-sm text-neutral-500">Sesion iniciada como</p>
+            <strong class="mt-1 block break-all text-base font-semibold text-neutral-900">
+              {{ authService.currentUser()?.email }}
+            </strong>
+            <p class="mt-1 text-xs uppercase tracking-[0.22em] text-neutral-400">
+              {{ authService.currentUser()?.rol }}
+            </p>
+          </header>
+
+          <nav class="flex flex-col gap-2">
+            <button
+              type="button"
+              (click)="handleLogout()"
+              class="flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-black"
+            >
+              <app-icon name="logout" class="h-4 w-4"></app-icon>
+              <span>Cerrar sesion</span>
+            </button>
+          </nav>
+        } @else {
+          <header>
+            <p class="text-sm text-neutral-500">Todavia no has iniciado sesion.</p>
+            <strong class="mt-1 block text-base font-semibold text-neutral-900">
+              Identificate para acceder a tu cuenta y continuar desde aqui.
+            </strong>
+          </header>
+
+          <a
+            routerLink="/login"
+            (click)="close()"
+            class="flex items-center justify-center rounded-full bg-neutral-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-black"
+          >
+            Iniciar sesion
+          </a>
+        }
+      </article>
+    </section>
+  }
+</section>

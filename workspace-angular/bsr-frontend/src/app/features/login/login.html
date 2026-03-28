@@ -1,32 +1,32 @@
-<section
-  class="relative min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_1fr] overflow-visible items-center lg:h-screen bg"
+﻿<section
+  class="relative grid min-h-screen grid-cols-1 items-center overflow-visible bg lg:h-screen lg:grid-cols-[1fr_1fr]"
 >
-  <section class="hidden lg:flex relative z-10 justify-center items-center lg:min-h-0 lg:p-0">
+  <section class="relative z-10 hidden justify-center items-center lg:flex lg:min-h-0 lg:p-0">
     <img
       src="/images/portada.png"
       alt="background"
-      class="max-h-[60vh] w-auto max-w-none object-left rounded-3xl"
+      class="max-h-[60vh] w-auto max-w-none rounded-3xl object-left"
     />
   </section>
 
   <section
-    class="relative z-10 flex justify-center items-start min-h-screen px-8 py-9.5 lg:items-center lg:min-h-0 lg:p-0"
+    class="relative z-10 flex min-h-screen items-start justify-center px-8 py-9.5 lg:min-h-0 lg:items-center lg:p-0"
   >
-    <article class="w-full max-w-90 max-h-233 flex flex-col lg:max-h-125">
+    <article class="flex max-h-233 w-full max-w-90 flex-col lg:max-h-125">
       <header class="flex flex-col items-center text-center">
-        <h1 class="font-semibold text-ink-900 text-[32px] leading-10.5 text-center">
-          Iniciar sesión
+        <h1 class="text-center text-[32px] font-semibold leading-10.5 text-ink-900">
+          Iniciar sesion
         </h1>
-        <p class="text-neutral-250 text-center w-68.75 mx-auto sm:w-auto lg:hidden">
+        <p class="mx-auto w-68.75 text-center text-neutral-250 sm:w-auto lg:hidden">
           Descubre las ultimas tendencias de moda
         </p>
       </header>
 
       <form class="space-y-6" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <section>
-          <div class="flex items-center justify-between mt-16 lg:mt-8">
+          <div class="mt-16 flex items-center justify-between lg:mt-8">
             <label
-              class="block font-medium text-md mt-16 lg:mt-8"
+              class="mt-16 block text-[15px] font-medium lg:mt-8"
               [ngClass]="
                 emailCtrl.touched && emailCtrl.invalid
                   ? 'text-danger-600'
@@ -41,12 +41,12 @@
             @if (
               emailCtrl.touched && (emailCtrl.errors?.['required'] || emailCtrl.errors?.['email'])
             ) {
-              <span class="text-sm text-danger-600 ml-3 whitespace-nowrap">
+              <span class="ml-3 whitespace-nowrap text-sm text-danger-600">
                 {{
                   emailCtrl.errors?.['required']
                     ? 'El email es obligatorio.'
                     : emailCtrl.errors?.['email']
-                      ? 'El formato del e-mail no es válido.'
+                      ? 'El formato del e-mail no es valido.'
                       : ''
                 }}
               </span>
@@ -72,9 +72,9 @@
 
             @if (emailValid) {
               <span
-                class="ml-2 w-5 h-5 rounded-full bg-primary-300 lg:bg-primary-500 flex items-center justify-center shrink-0"
+                class="ml-2 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-300 lg:bg-primary-500"
               >
-                <app-icon name="icon-check" class="w-3 h-3 text-white"></app-icon>
+                <app-icon name="icon-check" class="h-3 w-3 text-white"></app-icon>
               </span>
             }
           </div>
@@ -83,7 +83,7 @@
         <section>
           <div class="flex items-center justify-between">
             <label
-              class="block font-medium text-md"
+              class="block text-[15px] font-medium"
               [ngClass]="
                 passwordCtrl.touched && passwordCtrl.invalid
                   ? 'text-danger-600'
@@ -92,12 +92,12 @@
                     : 'text-neutral-600'
               "
             >
-              Contraseña
+              Contrasena
             </label>
 
             @if (passwordCtrl.touched && passwordCtrl.invalid) {
-              <span class="text-sm text-danger-600 ml-3 whitespace-nowrap">
-                {{ passwordCtrl.errors?.['required'] ? 'La contraseña es obligatoria.' : '' }}
+              <span class="ml-3 whitespace-nowrap text-sm text-danger-600">
+                {{ passwordCtrl.errors?.['required'] ? 'La contrasena es obligatoria.' : '' }}
               </span>
             }
           </div>
@@ -115,16 +115,16 @@
             <input
               [type]="showPassword() ? 'text' : 'password'"
               formControlName="password"
-              placeholder="Introduce aquí tu contraseña"
+              placeholder="Introduce aqui tu contrasena"
               class="w-full py-3 text-sm placeholder:text-neutral-300 focus:outline-none"
             />
             <button
               type="button"
               (click)="togglePassword()"
-              class="text-neutral-300 hover:text-neutral-400 ml-2"
-              aria-label="Mostrar/ocultar contraseña"
+              class="ml-2 text-neutral-300 hover:text-neutral-400"
+              aria-label="Mostrar u ocultar contrasena"
             >
-              <app-icon name="eye" class="w-4 h-4"></app-icon>
+              <app-icon name="eye" class="h-4 w-4"></app-icon>
             </button>
           </div>
         </section>
@@ -132,7 +132,7 @@
         <button
           type="submit"
           [disabled]="isSubmitting()"
-          class="w-full h-11.75 mt-13 bg-primary-300 text-white font-semibold rounded-md flex items-center justify-center disabled:opacity-60 disabled:cursor-not-allowed lg:bg-primary-500 lg:mt-8.5 lg:w-68.75 lg:mx-auto"
+          class="mt-13 flex h-11.75 w-full items-center justify-center rounded-md bg-primary-300 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 lg:mx-auto lg:mt-8.5 lg:w-68.75 lg:bg-primary-500"
         >
           {{ isSubmitting() ? 'Entrando...' : 'Empezar' }}
         </button>
@@ -142,12 +142,12 @@
             routerLink="/forgot-password"
             class="text-sm text-primary-500 transition-colors hover:text-primary-700 hover:underline"
           >
-            Recuperar contraseña
+            Recuperar contrasena
           </a>
         </div>
 
         <p class="text-center text-sm text-neutral-600">
-          ¿Eres nuevo?
+          Eres nuevo?
           <a
             routerLink="/register"
             class="font-medium text-primary-500 transition-colors hover:text-primary-700 hover:underline"

@@ -1,26 +1,21 @@
 ﻿import { Component, inject, signal } from '@angular/core';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
+import { PRIMARY_NAV_LINKS } from '../../../core/constants/navigation.constants';
+import { AccountMenuComponent } from '../../../shared/components/account-menu/account-menu';
 import { IconComponent } from '../../../shared/components/icon/icon';
-import { UserDropdown } from '../../../shared/components/user-dropdown/user-dropdown';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [IconComponent, RouterLink, UserDropdown],
+  standalone: true,
+  imports: [AccountMenuComponent, IconComponent, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.html',
-  styleUrl: './sidebar.css',
 })
 export class Sidebar {
   private readonly router = inject(Router);
 
   readonly isOpen = signal(false);
-  readonly navLinks = [
-    { label: 'HOME', route: '/home' },
-    { label: 'MUJER', route: '/mujer' },
-    { label: 'HOMBRE', route: '/hombre' },
-    { label: 'NIÑOS', route: '/ninos' },
-    { label: 'ACCESORIOS', route: '/accesorios' },
-  ];
+  readonly navLinks = PRIMARY_NAV_LINKS;
 
   constructor() {
     this.router.events
@@ -35,4 +30,5 @@ export class Sidebar {
   close(): void {
     this.isOpen.set(false);
   }
+
 }

@@ -1,12 +1,7 @@
 @theme {
   --default-font-family: var(--font-poppins);
 }
-:root {
-  --p-select-option-selected-background: var(--color-neutral-150) !important;
-  --p-select-option-selected-color: var(--color-neutral-150) !important;
-  --p-select-option-selected-focus-background: var(--color-neutral-150) !important;
-  --p-select-option-selected-focus-color: var(--color-neutral-150) !important;
-}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary-500) transparent;

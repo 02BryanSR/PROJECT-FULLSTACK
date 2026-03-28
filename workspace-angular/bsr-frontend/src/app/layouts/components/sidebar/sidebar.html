@@ -8,32 +8,28 @@
     <app-icon name="icon-hamburger" class="h-7 w-7"></app-icon>
   </button>
 
-  <div class="text-center text-xs font-bold uppercase tracking-[0.25em] text-white md:text-sm">
+  <p class="text-center text-xs font-bold uppercase tracking-[0.25em] text-white md:text-sm">
     BOLD STYLE REVOLUTION
-  </div>
+  </p>
 
-  <div class="flex items-center gap-4 text-white">
-    <button
-      type="button"
-      aria-label="Buscar"
-      class="inline-flex items-center justify-center text-white"
-    >
-      <app-icon name="icon-search" class="h-5 w-5"></app-icon>
-    </button>
-
-    <app-icon name="icon-bag" class="h-5 w-5 text-white"></app-icon>
-    <app-user-dropdown></app-user-dropdown>
-  </div>
+  <nav class="flex items-center gap-4 text-white" aria-label="Sesion">
+    <app-account-menu></app-account-menu>
+  </nav>
 </div>
 
 @if (isOpen()) {
-  <div class="fixed inset-0 z-70 bg-black/45 lg:hidden" (click)="close()"></div>
+  <button
+    type="button"
+    aria-label="Cerrar menu"
+    class="fixed inset-0 z-70 bg-black/45 lg:hidden"
+    (click)="close()"
+  ></button>
 
   <aside
     class="fixed inset-y-0 left-0 z-80 flex w-[min(88vw,24rem)] flex-col bg-[#0c0c0c] px-6 py-6 text-white shadow-2xl lg:hidden"
   >
-    <div class="flex items-center justify-between">
-      <div class="text-sm font-bold uppercase tracking-[0.25em]">BOLD STYLE REVOLUTION</div>
+    <header class="flex items-center justify-between">
+      <p class="text-sm font-bold uppercase tracking-[0.25em]">BOLD STYLE REVOLUTION</p>
 
       <button
         type="button"
@@ -43,28 +39,28 @@
       >
         <app-icon name="icon-close" class="h-6 w-6"></app-icon>
       </button>
-    </div>
+    </header>
 
-    <nav class="mt-10 flex flex-col gap-6 text-lg uppercase tracking-[0.22em]">
-      @for (link of navLinks; track link.route) {
-        <a [routerLink]="link.route" class="text-white" (click)="close()">{{ link.label }}</a>
-      }
+    <nav class="mt-10 text-lg uppercase tracking-[0.22em]" aria-label="Navegacion movil">
+      <ul class="flex flex-col gap-6">
+        @for (link of navLinks; track link.route) {
+          <li>
+            <a
+              [routerLink]="link.route"
+              routerLinkActive="border-white text-white"
+              class="border-b border-transparent pb-2 text-white/85 transition hover:border-white hover:text-white"
+              (click)="close()"
+            >
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
     </nav>
 
-    <div class="mt-auto border-t border-white/15 pt-6">
-      <div class="mb-4 text-xs uppercase tracking-[0.25em] text-white/60">Acciones</div>
-      <div class="flex items-center gap-5 text-white">
-        <button
-          type="button"
-          aria-label="Buscar"
-          class="inline-flex items-center justify-center text-white"
-        >
-          <app-icon name="icon-search" class="h-5 w-5"></app-icon>
-        </button>
-
-        <app-icon name="icon-bag" class="h-5 w-5 text-white"></app-icon>
-        <app-user-dropdown></app-user-dropdown>
-      </div>
-    </div>
+    <footer class="mt-auto border-t border-white/15 pt-6">
+      <p class="mb-4 text-xs uppercase tracking-[0.25em] text-white/60">Sesion</p>
+      <app-account-menu></app-account-menu>
+    </footer>
   </aside>
 }

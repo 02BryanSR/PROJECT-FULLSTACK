@@ -1,4 +1,0 @@
-.wrap { padding: 20px; display: grid; gap: 12px; }
-.head { display: flex; align-items: center; justify-content: space-between; }
-table { width: 100%; border-radius: 12px; overflow: hidden; }
-.actions { display: flex; gap: 6px; }

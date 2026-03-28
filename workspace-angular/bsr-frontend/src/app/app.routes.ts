@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
-import { Category } from './features/category/category';
 
 export const routes: Routes = [
   {
@@ -21,54 +19,26 @@ export const routes: Routes = [
     loadComponent: () => import('./features/main/main').then((m) => m.Main),
   },
   {
-    path: 'mujer',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./features/shop-section/shop-section').then((m) => m.ShopSection),
-    data: {
-      title: 'Mujer',
-      eyebrow: 'Coleccion',
-      description:
-        'Aqui podras montar la landing y el catalogo de mujer con el mismo lenguaje visual de la portada principal.',
-    },
+    path: 'women',
+    loadComponent: () => import('./features/women/women').then((m) => m.Women),
   },
   {
-    path: 'hombre',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./features/shop-section/shop-section').then((m) => m.ShopSection),
-    data: {
-      title: 'Hombre',
-      eyebrow: 'Coleccion',
-      description:
-        'Esta seccion queda lista para que conectes la propuesta de hombre, campanas destacadas y grid de producto.',
-    },
+    path: 'men',
+    loadComponent: () => import('./features/men/men').then((m) => m.Men),
   },
   {
-    path: 'ninos',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./features/shop-section/shop-section').then((m) => m.ShopSection),
-    data: {
-      title: 'Ninos',
-      eyebrow: 'Coleccion',
-      description:
-        'La ruta de ninos ya esta lista para que construyas una pagina propia con productos, campanas y bloques editoriales.',
-    },
+    path: 'kids',
+    loadComponent: () => import('./features/kids/kids').then((m) => m.Kids),
   },
   {
-    path: 'accesorios',
-    canActivate: [authGuard],
+    path: 'accessories',
     loadComponent: () =>
-      import('./features/shop-section/shop-section').then((m) => m.ShopSection),
-    data: {
-      title: 'Accesorios',
-      eyebrow: 'Coleccion',
-      description:
-        'Aqui puedes montar la seccion de accesorios con banners, filtros y contenido promocional mas adelante.',
-    },
+      import('./features/accessories/accessories').then((m) => m.Accessories),
   },
-  { path: 'categorias', component: Category, canActivate: [authGuard] },
+  { path: 'mujer', redirectTo: 'women', pathMatch: 'full' },
+  { path: 'hombre', redirectTo: 'men', pathMatch: 'full' },
+  { path: 'ninos', redirectTo: 'kids', pathMatch: 'full' },
+  { path: 'accesorios', redirectTo: 'accessories', pathMatch: 'full' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },
 ];

@@ -1,4 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
+﻿import { HttpErrorResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import {
@@ -19,7 +19,6 @@ import { IconComponent } from '../../shared/components/icon/icon';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterLink, IconComponent],
   templateUrl: './login.html',
-  styleUrl: './login.css',
 })
 export class Login {
   private readonly fb = inject(NonNullableFormBuilder);
@@ -83,9 +82,7 @@ export class Login {
           void this.router.navigate([this.authService.getHomeRoute()]);
         },
         error: (error: HttpErrorResponse) => {
-          this.toastService.showError(
-            error.error?.message ?? 'Ha ocurrido un error. Inténtalo de nuevo.',
-          );
+          this.toastService.showError(error.error?.message ?? 'Ha ocurrido un error. Intentalo de nuevo.');
         },
       });
   }

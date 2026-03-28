@@ -18,6 +18,14 @@ export interface AuthResponse {
 export interface UserInfoResponse {
   email: string;
   role: string;
+  name?: string | null;
+  firstName?: string | null;
+  lastName?: string | null;
+  nombre?: string | null;
+  apellidos?: string | null;
+  telefono?: string | null;
+  phone?: string | null;
+  avatarUrl?: string | null;
 }
 
 export interface JwtPayload {

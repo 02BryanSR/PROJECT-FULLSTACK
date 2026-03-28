@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+﻿import { Injectable, signal } from '@angular/core';
 
 export interface ToastState {
   visible: boolean;
@@ -20,7 +20,7 @@ export class ToastService {
 
   showError(message: string, duration = 4000): void {
     this.show({
-      title: 'Algo salió mal',
+      title: 'Algo salio mal',
       message,
       duration,
     });

@@ -62,12 +62,17 @@ export class AuthService {
     );
   }
 
-  logout(options: { redirectToLogin?: boolean } = {}): void {
-    const { redirectToLogin = true } = options;
+  logout(options: { redirectToLogin?: boolean; redirectToPath?: string | null } = {}): void {
+    const { redirectToLogin = true, redirectToPath } = options;
 
     this.authStorage.clear();
     this.tokenState.set(null);
     this.currentUserState.set(null);
+
+    if (redirectToPath) {
+      void this.router.navigate([redirectToPath]);
+      return;
+    }
 
     if (redirectToLogin) {
       void this.router.navigate(['/login']);
@@ -100,7 +105,7 @@ export class AuthService {
     const role = this.currentUserState()?.rol;
 
     if (!role) {
-      return '/login';
+      return '/home';
     }
 
     return this.roleRedirects[role];
@@ -193,9 +198,11 @@ export class AuthService {
     return {
       id: null,
       email: response.email,
-      nombre: null,
-      apellidos: null,
+      nombre: response.nombre ?? response.firstName ?? response.name ?? null,
+      apellidos: response.apellidos ?? response.lastName ?? null,
       rol: this.mapRole(response.role),
+      telefono: response.telefono ?? response.phone ?? null,
+      avatarUrl: response.avatarUrl ?? null,
     };
   }
 
