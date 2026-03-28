@@ -1,5 +1,4 @@
-import { Component, input } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed, input } from '@angular/core';
 
 export interface CategoryShowcasePanel {
   eyebrow: string;
@@ -16,7 +15,6 @@ export interface CategoryShowcaseImage {
 @Component({
   selector: 'app-category-showcase',
   standalone: true,
-  imports: [RouterLink],
   templateUrl: './category-showcase.html',
 })
 export class CategoryShowcaseComponent {
@@ -29,4 +27,21 @@ export class CategoryShowcaseComponent {
   readonly highlights = input.required<readonly string[]>();
   readonly panels = input.required<readonly CategoryShowcasePanel[]>();
   readonly gallery = input.required<readonly CategoryShowcaseImage[]>();
+
+  readonly responsiveGallery = computed(() => {
+    const heroSrc = this.heroImage().trim();
+    const seen = new Set(heroSrc ? [heroSrc] : []);
+
+    return this.gallery().filter((image) => {
+      const imageSrc = image.src?.trim();
+
+      if (!imageSrc || seen.has(imageSrc)) {
+        return false;
+      }
+
+      seen.add(imageSrc);
+
+      return true;
+    });
+  });
 }

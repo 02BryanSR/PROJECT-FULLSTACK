@@ -43,7 +43,7 @@ public class SecurityConfig {
 				.sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.exceptionHandling(ex -> ex.authenticationEntryPoint(entryPoint).accessDeniedHandler(deniedHandler))
 				.authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/login", "/api/auth/register").permitAll()
-						.requestMatchers(HttpMethod.GET, "/api/products/**", "/api/categories/**").permitAll()
+						.requestMatchers(HttpMethod.GET, "/api/products/**", "/api/categories/**", "/uploads/**").permitAll()
 						.anyRequest().authenticated());
 
 		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);

@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import {
-  CategoryShowcaseComponent,
-  CategoryShowcaseImage,
-  CategoryShowcasePanel,
-} from '../category-showcase/category-showcase';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map, of, switchMap } from 'rxjs';
+import { type CategorySlug } from '../../core/interfaces/catalog.interface';
+import { CatalogService } from '../../core/services/catalog.service';
+import { buildCategoryShowcaseContent } from '../category-showcase/category-showcase-content';
+import { CategoryShowcaseComponent } from '../category-showcase/category-showcase';
+
+const CATEGORY_SLUG: CategorySlug = 'women';
 
 @Component({
   selector: 'app-women',
@@ -12,48 +15,20 @@ import {
   templateUrl: './women.html',
 })
 export class Women {
-  readonly highlights: readonly string[] = [
-    'Light tailoring',
-    'Satin textures',
-    'Evening layers',
-  ];
+  private readonly catalogService = inject(CatalogService);
 
-  readonly panels: readonly CategoryShowcasePanel[] = [
-    {
-      eyebrow: 'Edit',
-      title: 'New essentials',
-      description:
-        'A refined mix of clean silhouettes and versatile staples designed for everyday dressing with a sharper point of view.',
-    },
-    {
-      eyebrow: 'Capsule',
-      title: 'After dark',
-      description:
-        'Fluid dresses, subtle shine and structured shapes ready to support a stronger evening fashion story.',
-    },
-    {
-      eyebrow: 'Focus',
-      title: 'Weekend reset',
-      description:
-        'Relaxed pieces with a premium edge, ideal for editorial blocks, featured collections and future product grids.',
-    },
-  ];
+  readonly showcase = toSignal(
+    this.catalogService.getCategoryBySlug(CATEGORY_SLUG).pipe(
+      switchMap((category) => {
+        if (!category) {
+          return of(buildCategoryShowcaseContent(CATEGORY_SLUG, null, []));
+        }
 
-  readonly gallery: readonly CategoryShowcaseImage[] = [
-    {
-      src: '/images/home-1-2.jpg',
-      alt: 'Women collection hero look',
-      caption: 'Main edit',
-    },
-    {
-      src: '/images/home-3-2.jpg',
-      alt: 'Women collection editorial look',
-      caption: 'Fluid silhouettes',
-    },
-    {
-      src: '/images/home-4-1.jpg',
-      alt: 'Women collection premium details',
-      caption: 'Premium details',
-    },
-  ];
+        return this.catalogService
+          .getProductsByCategoryId(category.id)
+          .pipe(map((products) => buildCategoryShowcaseContent(CATEGORY_SLUG, category, products)));
+      }),
+    ),
+    { initialValue: buildCategoryShowcaseContent(CATEGORY_SLUG, null, []) },
+  );
 }

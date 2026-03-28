@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { ClickOutsideDirective } from '../../directives/click-outside';
@@ -11,6 +11,8 @@ import { IconComponent } from '../icon/icon';
   templateUrl: './account-menu.html',
 })
 export class AccountMenuComponent {
+  readonly dark = input(false);
+  readonly panelAlign = input<'left' | 'right'>('right');
   readonly authService = inject(AuthService);
   readonly isOpen = signal(false);
 

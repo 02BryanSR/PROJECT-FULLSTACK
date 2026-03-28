@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import {
-  CategoryShowcaseComponent,
-  CategoryShowcaseImage,
-  CategoryShowcasePanel,
-} from '../category-showcase/category-showcase';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map, of, switchMap } from 'rxjs';
+import { type CategorySlug } from '../../core/interfaces/catalog.interface';
+import { CatalogService } from '../../core/services/catalog.service';
+import { buildCategoryShowcaseContent } from '../category-showcase/category-showcase-content';
+import { CategoryShowcaseComponent } from '../category-showcase/category-showcase';
+
+const CATEGORY_SLUG: CategorySlug = 'accessories';
 
 @Component({
   selector: 'app-accessories',
@@ -12,48 +15,20 @@ import {
   templateUrl: './accessories.html',
 })
 export class Accessories {
-  readonly highlights: readonly string[] = [
-    'Statement bags',
-    'Mixed textures',
-    'Final details',
-  ];
+  private readonly catalogService = inject(CatalogService);
 
-  readonly panels: readonly CategoryShowcasePanel[] = [
-    {
-      eyebrow: 'Edit',
-      title: 'Finish the look',
-      description:
-        'A strong visual base for bags, eyewear, belts and jewelry that completes the styling story across the store.',
-    },
-    {
-      eyebrow: 'Capsule',
-      title: 'Statement pieces',
-      description:
-        'Designed to support hero accessories, seasonal highlights and quick-purchase products with more visual impact.',
-    },
-    {
-      eyebrow: 'Focus',
-      title: 'Daily essentials',
-      description:
-        'Ready to expand with filters, featured blocks and a richer catalog experience for accessories.',
-    },
-  ];
+  readonly showcase = toSignal(
+    this.catalogService.getCategoryBySlug(CATEGORY_SLUG).pipe(
+      switchMap((category) => {
+        if (!category) {
+          return of(buildCategoryShowcaseContent(CATEGORY_SLUG, null, []));
+        }
 
-  readonly gallery: readonly CategoryShowcaseImage[] = [
-    {
-      src: '/images/home-5.jpg',
-      alt: 'Accessories collection hero look',
-      caption: 'Statement accents',
-    },
-    {
-      src: '/images/home-2-2.jpg',
-      alt: 'Accessories collection textured look',
-      caption: 'Texture focus',
-    },
-    {
-      src: '/images/home2-4.jpg',
-      alt: 'Accessories collection final styling details',
-      caption: 'Final details',
-    },
-  ];
+        return this.catalogService
+          .getProductsByCategoryId(category.id)
+          .pipe(map((products) => buildCategoryShowcaseContent(CATEGORY_SLUG, category, products)));
+      }),
+    ),
+    { initialValue: buildCategoryShowcaseContent(CATEGORY_SLUG, null, []) },
+  );
 }

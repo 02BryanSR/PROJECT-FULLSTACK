@@ -3,145 +3,158 @@ package com.project.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")
 public class ProductEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@NotBlank
-	@Column(nullable = false, unique = true)
-	private String name;
+    @NotBlank
+    @Column(nullable = false, unique = true, length = 150)
+    private String name;
 
-	@NotNull
-	@Column(nullable = false)
-	private BigDecimal price;
+    @NotNull
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal price;
 
-	@NotNull
-	@Column(nullable = false)
-	private Integer stock;
+    @NotNull
+    @Column(nullable = false)
+    private Integer stock;
 
-	@Column(name = "create_date", nullable = false, updatable = false)
-	private LocalDateTime createDate;
+    @Size(max = 500)
+    @Column(name = "image_url", length = 500)
+    private String imageUrl;
 
-	@Column(name = "update_date", nullable = false)
-	private LocalDateTime updateDate;
+    @Column(name = "create_date", nullable = false, updatable = false)
+    private LocalDateTime createDate;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "category_id", nullable = false)
-	private CategoryEntity category;
+    @Column(name = "update_date", nullable = false)
+    private LocalDateTime updateDate;
 
-	@OneToMany(mappedBy = "product")
-	private List<OrderDetailEntity> orderDetails;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity category;
 
-	@OneToMany(mappedBy = "product")
-	private List<CartItemEntity> cartItems;
+    @OneToMany(mappedBy = "product")
+    private List<OrderDetailEntity> orderDetails;
 
-	@PrePersist
-	protected void onCreate() {
-		this.createDate = LocalDateTime.now();
-		this.updateDate = LocalDateTime.now();
-	}
+    @OneToMany(mappedBy = "product")
+    private List<CartItemEntity> cartItems;
 
-	@PreUpdate
-	protected void onUpdate() {
-		this.updateDate = LocalDateTime.now();
-	}
+    @PrePersist
+    protected void onCreate() {
+        this.createDate = LocalDateTime.now();
+        this.updateDate = LocalDateTime.now();
+    }
 
-	public ProductEntity() {
+    @PreUpdate
+    protected void onUpdate() {
+        this.updateDate = LocalDateTime.now();
+    }
 
-	}
+    public ProductEntity() {
+    }
 
-	public ProductEntity(Long id, @NotBlank String name, @NotNull BigDecimal price, @NotNull Integer stock,
-			LocalDateTime createDate, LocalDateTime updateDate, CategoryEntity category,
-			List<OrderDetailEntity> orderDetails, List<CartItemEntity> cartItems) {
+    public ProductEntity(Long id, String name, BigDecimal price, Integer stock, String imageUrl,
+                         LocalDateTime createDate, LocalDateTime updateDate, CategoryEntity category,
+                         List<OrderDetailEntity> orderDetails, List<CartItemEntity> cartItems) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
+        this.imageUrl = imageUrl;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.category = category;
+        this.orderDetails = orderDetails;
+        this.cartItems = cartItems;
+    }
 
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.stock = stock;
-		this.createDate = createDate;
-		this.updateDate = updateDate;
-		this.category = category;
-		this.orderDetails = orderDetails;
-		this.cartItems = cartItems;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public @NotBlank String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setName(@NotBlank String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public @NotNull BigDecimal getPrice() {
+        return price;
+    }
 
-	public BigDecimal getPrice() {
-		return price;
-	}
+    public void setPrice(@NotNull BigDecimal price) {
+        this.price = price;
+    }
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
+    public @NotNull Integer getStock() {
+        return stock;
+    }
 
-	public Integer getStock() {
-		return stock;
-	}
+    public void setStock(@NotNull Integer stock) {
+        this.stock = stock;
+    }
 
-	public void setStock(Integer stock) {
-		this.stock = stock;
-	}
+    public String getImageUrl() {
+        return imageUrl;
+    }
 
-	public LocalDateTime getCreateDate() {
-		return createDate;
-	}
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
-	public void setCreateDate(LocalDateTime createDate) {
-		this.createDate = createDate;
-	}
+    public LocalDateTime getCreateDate() {
+        return createDate;
+    }
 
-	public LocalDateTime getUpdateDate() {
-		return updateDate;
-	}
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
+    }
 
-	public void setUpdateDate(LocalDateTime updateDate) {
-		this.updateDate = updateDate;
-	}
+    public LocalDateTime getUpdateDate() {
+        return updateDate;
+    }
 
-	public CategoryEntity getCategory() {
-		return category;
-	}
+    public void setUpdateDate(LocalDateTime updateDate) {
+        this.updateDate = updateDate;
+    }
 
-	public void setCategory(CategoryEntity category) {
-		this.category = category;
-	}
+    public CategoryEntity getCategory() {
+        return category;
+    }
 
-	public List<OrderDetailEntity> getOrderDetails() {
-		return orderDetails;
-	}
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
+    }
 
-	public void setOrderDetails(List<OrderDetailEntity> orderDetails) {
-		this.orderDetails = orderDetails;
-	}
+    public List<OrderDetailEntity> getOrderDetails() {
+        return orderDetails;
+    }
 
-	public List<CartItemEntity> getCartItems() {
-		return cartItems;
-	}
+    public void setOrderDetails(List<OrderDetailEntity> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
 
-	public void setCartItems(List<CartItemEntity> cartItems) {
-		this.cartItems = cartItems;
-	}
+    public List<CartItemEntity> getCartItems() {
+        return cartItems;
+    }
 
+    public void setCartItems(List<CartItemEntity> cartItems) {
+        this.cartItems = cartItems;
+    }
 }

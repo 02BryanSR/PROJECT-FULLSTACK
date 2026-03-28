@@ -1,7 +1,9 @@
-﻿import { Component, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
 import { PRIMARY_NAV_LINKS } from '../../../core/constants/navigation.constants';
+import { CatalogService } from '../../../core/services/catalog.service';
 import { AccountMenuComponent } from '../../../shared/components/account-menu/account-menu';
 import { IconComponent } from '../../../shared/components/icon/icon';
 
@@ -13,14 +15,21 @@ import { IconComponent } from '../../../shared/components/icon/icon';
 })
 export class Sidebar {
   private readonly router = inject(Router);
+  private readonly catalogService = inject(CatalogService);
 
+  readonly currentUrl = signal(this.router.url);
   readonly isOpen = signal(false);
-  readonly navLinks = PRIMARY_NAV_LINKS;
+  readonly navLinks = toSignal(this.catalogService.getNavigationLinks(), {
+    initialValue: PRIMARY_NAV_LINKS,
+  });
 
   constructor() {
     this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-      .subscribe(() => this.close());
+      .subscribe((event) => {
+        this.currentUrl.set(event.urlAfterRedirects);
+        this.close();
+      });
   }
 
   toggle(): void {
@@ -31,4 +40,7 @@ export class Sidebar {
     this.isOpen.set(false);
   }
 
+  isHome(): boolean {
+    return this.currentUrl() === '/home';
+  }
 }

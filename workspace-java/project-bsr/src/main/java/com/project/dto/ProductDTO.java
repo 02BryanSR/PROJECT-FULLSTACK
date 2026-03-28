@@ -24,6 +24,9 @@ public class ProductDTO {
     @Min(value = 0, message = "Stock cannot be negative")
     private Integer stock;
 
+    @Size(max = 500, message = "Image URL cannot exceed 500 characters")
+    private String imageUrl;
+
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
 
@@ -33,13 +36,13 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(Long id, String name, Float price, Integer stock,
-                      LocalDateTime createDate, LocalDateTime updateDate,
-                      Long categoryId) {
+    public ProductDTO(Long id, String name, Float price, Integer stock, String imageUrl,
+                      LocalDateTime createDate, LocalDateTime updateDate, Long categoryId) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.stock = stock;
+        this.imageUrl = imageUrl;
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.categoryId = categoryId;
@@ -53,28 +56,36 @@ public class ProductDTO {
         this.id = id;
     }
 
-    public String getName() {
+    public @NotBlank(message = "Product name is required") @Size(max = 150, message = "Product name cannot exceed 150 characters") String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NotBlank(message = "Product name is required") @Size(max = 150, message = "Product name cannot exceed 150 characters") String name) {
         this.name = name;
     }
 
-    public Float getPrice() {
+    public @NotNull(message = "Price is required") @PositiveOrZero(message = "Price must be >= 0") Float getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(@NotNull(message = "Price is required") @PositiveOrZero(message = "Price must be >= 0") Float price) {
         this.price = price;
     }
 
-    public Integer getStock() {
+    public @NotNull(message = "Stock is required") @Min(value = 0, message = "Stock cannot be negative") Integer getStock() {
         return stock;
     }
 
-    public void setStock(Integer stock) {
+    public void setStock(@NotNull(message = "Stock is required") @Min(value = 0, message = "Stock cannot be negative") Integer stock) {
         this.stock = stock;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public LocalDateTime getCreateDate() {
@@ -93,11 +104,11 @@ public class ProductDTO {
         this.updateDate = updateDate;
     }
 
-    public Long getCategoryId() {
+    public @NotNull(message = "Category is required") Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
+    public void setCategoryId(@NotNull(message = "Category is required") Long categoryId) {
         this.categoryId = categoryId;
     }
 }

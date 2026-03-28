@@ -1,11 +1,13 @@
+@let content = showcase();
+
 <app-category-showcase
-  eyebrow="Collection"
-  title="Accessories"
-  description="An editorial accessories category built to highlight statement pieces, texture and the final details that complete every look."
-  accent="Key pieces"
-  heroImage="/images/home-5.jpg"
-  heroAlt="Accessories category hero"
-  [highlights]="highlights"
-  [panels]="panels"
-  [gallery]="gallery"
+  [eyebrow]="content.eyebrow"
+  [title]="content.title"
+  [description]="content.description"
+  [accent]="content.accent"
+  [heroImage]="content.heroImage"
+  [heroAlt]="content.heroAlt"
+  [highlights]="content.highlights"
+  [panels]="content.panels"
+  [gallery]="content.gallery"
 ></app-category-showcase>

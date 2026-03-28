@@ -3,10 +3,13 @@ package com.project.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.*;
 
+import com.project.dto.ProductAdminForm;
 import com.project.dto.ProductDTO;
 import com.project.service.ProductService;
 
@@ -21,7 +24,6 @@ public class ProductController {
     public ProductController(ProductService service) {
         this.service = service;
     }
-    // PUBLICO
 
     @GetMapping
     public ResponseEntity<List<ProductDTO>> findAll() {
@@ -48,19 +50,17 @@ public class ProductController {
         return ResponseEntity.ok(service.getProductStock(id));
     }
 
-    // SOLO ADMIN
-
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping
-    public ResponseEntity<ProductDTO> create(@Valid @RequestBody ProductDTO dto) {
-        ProductDTO created = service.createProduct(dto);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ProductDTO> create(@Valid @ModelAttribute ProductAdminForm form) {
+        ProductDTO created = service.createProduct(form);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PutMapping("/{id}")
-    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @Valid @RequestBody ProductDTO dto) {
-        return ResponseEntity.ok(service.updateProduct(id, dto));
+    @PutMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<ProductDTO> update(@PathVariable Long id, @Valid @ModelAttribute ProductAdminForm form) {
+        return ResponseEntity.ok(service.updateProduct(id, form));
     }
 
     @PreAuthorize("hasRole('ADMIN')")

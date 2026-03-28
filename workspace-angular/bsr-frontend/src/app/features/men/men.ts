@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import {
-  CategoryShowcaseComponent,
-  CategoryShowcaseImage,
-  CategoryShowcasePanel,
-} from '../category-showcase/category-showcase';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map, of, switchMap } from 'rxjs';
+import { type CategorySlug } from '../../core/interfaces/catalog.interface';
+import { CatalogService } from '../../core/services/catalog.service';
+import { buildCategoryShowcaseContent } from '../category-showcase/category-showcase-content';
+import { CategoryShowcaseComponent } from '../category-showcase/category-showcase';
+
+const CATEGORY_SLUG: CategorySlug = 'men';
 
 @Component({
   selector: 'app-men',
@@ -12,48 +15,20 @@ import {
   templateUrl: './men.html',
 })
 export class Men {
-  readonly highlights: readonly string[] = [
-    'Premium denim',
-    'Urban layering',
-    'Deep neutrals',
-  ];
+  private readonly catalogService = inject(CatalogService);
 
-  readonly panels: readonly CategoryShowcasePanel[] = [
-    {
-      eyebrow: 'Edit',
-      title: 'Street tailoring',
-      description:
-        'A layout designed for relaxed tailoring, wider silhouettes and elevated basics with a stronger urban identity.',
-    },
-    {
-      eyebrow: 'Capsule',
-      title: 'Core layers',
-      description:
-        'Sweatshirts, jackets and midweight essentials ready to support featured drops and category storytelling.',
-    },
-    {
-      eyebrow: 'Focus',
-      title: 'Weekend uniform',
-      description:
-        'Versatile looks built for future product cards, editorial sections and strong campaign highlights.',
-    },
-  ];
+  readonly showcase = toSignal(
+    this.catalogService.getCategoryBySlug(CATEGORY_SLUG).pipe(
+      switchMap((category) => {
+        if (!category) {
+          return of(buildCategoryShowcaseContent(CATEGORY_SLUG, null, []));
+        }
 
-  readonly gallery: readonly CategoryShowcaseImage[] = [
-    {
-      src: '/images/home-1-1.jpg',
-      alt: 'Men collection hero look',
-      caption: 'Core menswear',
-    },
-    {
-      src: '/images/home-2-1.jpg',
-      alt: 'Men collection layered look',
-      caption: 'Layered denim',
-    },
-    {
-      src: '/images/home2-3.jpg',
-      alt: 'Men collection streetwear look',
-      caption: 'Street essentials',
-    },
-  ];
+        return this.catalogService
+          .getProductsByCategoryId(category.id)
+          .pipe(map((products) => buildCategoryShowcaseContent(CATEGORY_SLUG, category, products)));
+      }),
+    ),
+    { initialValue: buildCategoryShowcaseContent(CATEGORY_SLUG, null, []) },
+  );
 }

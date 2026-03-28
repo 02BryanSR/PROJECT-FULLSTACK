@@ -5,14 +5,27 @@
     [attr.aria-expanded]="isOpen()"
     aria-haspopup="true"
     aria-label="Menu de usuario"
-    class="relative inline-flex items-center justify-center py-2 text-white after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 hover:after:scale-x-100"
+    class="relative inline-flex items-center justify-center py-2 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+    [class.text-black]="dark()"
+    [class.text-white]="!dark()"
+    [class.after:bg-black]="dark()"
+    [class.after:bg-white]="!dark()"
   >
-    <app-icon name="user" class="h-7 w-7 text-white"></app-icon>
+    <app-icon
+      name="user"
+      class="h-7 w-7"
+      [class.text-black]="dark()"
+      [class.text-white]="!dark()"
+    ></app-icon>
   </button>
 
   @if (isOpen()) {
     <section
-      class="absolute right-0 z-50 mt-3 w-80 origin-top-right overflow-hidden rounded-[1.5rem] bg-neutral-100 shadow-xl"
+      class="absolute z-50 mt-3 w-80 overflow-hidden rounded-[1.5rem] bg-neutral-100 shadow-xl"
+      [class.left-0]="panelAlign() === 'left'"
+      [class.origin-top-left]="panelAlign() === 'left'"
+      [class.right-0]="panelAlign() === 'right'"
+      [class.origin-top-right]="panelAlign() === 'right'"
     >
       <article class="space-y-4 p-6">
         @if (authService.isAuthenticated()) {

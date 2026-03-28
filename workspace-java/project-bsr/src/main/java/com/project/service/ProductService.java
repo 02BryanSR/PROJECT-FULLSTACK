@@ -1,31 +1,31 @@
 package com.project.service;
 
 import java.util.List;
-import com.project.dto.ProductDTO;
 
+import com.project.dto.ProductAdminForm;
+import com.project.dto.ProductDTO;
 
 public interface ProductService {
 
-	List<ProductDTO> findAll();
+    List<ProductDTO> findAll();
 
-	List<ProductDTO> findByCategoryId(Long categoryId);
+    List<ProductDTO> findByCategoryId(Long categoryId);
 
-	ProductDTO findById(Long id);
-	
-	List<ProductDTO> findByName(String name);
+    ProductDTO findById(Long id);
 
-	ProductDTO createProduct(ProductDTO dto);
+    List<ProductDTO> findByName(String name);
 
-	ProductDTO updateProduct(Long id, ProductDTO dto);
+    ProductDTO createProduct(ProductAdminForm form);
 
-	void deleteProduct(Long id);
+    ProductDTO updateProduct(Long id, ProductAdminForm form);
 
-	boolean hasStock(Long productId, Integer requiredQuantity);
+    void deleteProduct(Long id);
 
-	ProductDTO increaseStock(Long productId, Integer amount);
+    boolean hasStock(Long productId, Integer requiredQuantity);
 
-	ProductDTO decreaseStock(Long productId, Integer amount);
-	
-	Integer getProductStock(Long productId);;
+    ProductDTO increaseStock(Long productId, Integer amount);
 
+    ProductDTO decreaseStock(Long productId, Integer amount);
+
+    Integer getProductStock(Long productId);
 }

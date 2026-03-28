@@ -30,4 +30,9 @@ export const API_ENDPOINTS = {
     register: `${API_BASE_URL}/api/auth/register`,
     me: `${API_BASE_URL}/api/auth/me`,
   },
+  catalog: {
+    categories: `${API_BASE_URL}/api/categories`,
+    productsByCategory: (categoryId: number | string) =>
+      `${API_BASE_URL}/api/products/category/${categoryId}`,
+  },
 };

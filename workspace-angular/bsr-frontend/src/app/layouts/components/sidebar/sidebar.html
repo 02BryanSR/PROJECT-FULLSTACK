@@ -3,18 +3,20 @@
     type="button"
     aria-label="Abrir menu"
     class="inline-flex items-center justify-center text-white"
+    [style.color]="isHome() ? 'white' : 'black'"
     (click)="toggle()"
   >
     <app-icon name="icon-hamburger" class="h-7 w-7"></app-icon>
   </button>
 
-  <p class="text-center text-xs font-bold uppercase tracking-[0.25em] text-white md:text-sm">
+  <p
+    class="text-center text-xs font-bold uppercase tracking-[0.25em] text-white md:text-sm"
+    [style.color]="isHome() ? 'white' : 'black'"
+  >
     BOLD STYLE REVOLUTION
   </p>
 
-  <nav class="flex items-center gap-4 text-white" aria-label="Sesion">
-    <app-account-menu></app-account-menu>
-  </nav>
+  <div aria-hidden="true" class="h-7 w-7"></div>
 </div>
 
 @if (isOpen()) {
@@ -43,7 +45,7 @@
 
     <nav class="mt-10 text-lg uppercase tracking-[0.22em]" aria-label="Navegacion movil">
       <ul class="flex flex-col gap-6">
-        @for (link of navLinks; track link.route) {
+        @for (link of navLinks(); track link.route) {
           <li>
             <a
               [routerLink]="link.route"
@@ -59,8 +61,26 @@
     </nav>
 
     <footer class="mt-auto border-t border-white/15 pt-6">
-      <p class="mb-4 text-xs uppercase tracking-[0.25em] text-white/60">Sesion</p>
-      <app-account-menu></app-account-menu>
+      <p class="mb-4 text-xs uppercase tracking-[0.25em] text-white/60">Acciones</p>
+      <div class="flex items-center gap-5 text-white">
+        <button
+          type="button"
+          aria-label="Buscar"
+          class="inline-flex items-center justify-center text-white"
+        >
+          <app-icon name="icon-search" class="h-5 w-5"></app-icon>
+        </button>
+
+        <button
+          type="button"
+          aria-label="Abrir compras o favoritos"
+          class="inline-flex items-center justify-center text-white"
+        >
+          <app-icon name="icon-bag" class="h-5 w-5"></app-icon>
+        </button>
+
+        <app-account-menu [panelAlign]="'left'"></app-account-menu>
+      </div>
     </footer>
   </aside>
 }

@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
-import {
-  CategoryShowcaseComponent,
-  CategoryShowcaseImage,
-  CategoryShowcasePanel,
-} from '../category-showcase/category-showcase';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map, of, switchMap } from 'rxjs';
+import { type CategorySlug } from '../../core/interfaces/catalog.interface';
+import { CatalogService } from '../../core/services/catalog.service';
+import { buildCategoryShowcaseContent } from '../category-showcase/category-showcase-content';
+import { CategoryShowcaseComponent } from '../category-showcase/category-showcase';
+
+const CATEGORY_SLUG: CategorySlug = 'kids';
 
 @Component({
   selector: 'app-kids',
@@ -12,48 +15,20 @@ import {
   templateUrl: './kids.html',
 })
 export class Kids {
-  readonly highlights: readonly string[] = [
-    'Easy sets',
-    'Active color',
-    'Daily movement',
-  ];
+  private readonly catalogService = inject(CatalogService);
 
-  readonly panels: readonly CategoryShowcasePanel[] = [
-    {
-      eyebrow: 'Edit',
-      title: 'Play all day',
-      description:
-        'A fresh structure for colorful looks, comfortable fits and a more energetic browsing experience across the category.',
-    },
-    {
-      eyebrow: 'Capsule',
-      title: 'Mini icons',
-      description:
-        'Ideal for hero pieces, new drops and styled combinations that make the kids section feel playful and modern.',
-    },
-    {
-      eyebrow: 'Focus',
-      title: 'Ready to move',
-      description:
-        'Prepared for future catalog cards, promo banners and a complete kids shopping flow with a stronger visual identity.',
-    },
-  ];
+  readonly showcase = toSignal(
+    this.catalogService.getCategoryBySlug(CATEGORY_SLUG).pipe(
+      switchMap((category) => {
+        if (!category) {
+          return of(buildCategoryShowcaseContent(CATEGORY_SLUG, null, []));
+        }
 
-  readonly gallery: readonly CategoryShowcaseImage[] = [
-    {
-      src: '/images/home-4-2.jpg',
-      alt: 'Kids collection movement look',
-      caption: 'Movement first',
-    },
-    {
-      src: '/images/home-4-3.jpg',
-      alt: 'Kids collection colorful look',
-      caption: 'Color layers',
-    },
-    {
-      src: '/images/home-4-4.jpg',
-      alt: 'Kids collection daily set',
-      caption: 'Daily sets',
-    },
-  ];
+        return this.catalogService
+          .getProductsByCategoryId(category.id)
+          .pipe(map((products) => buildCategoryShowcaseContent(CATEGORY_SLUG, category, products)));
+      }),
+    ),
+    { initialValue: buildCategoryShowcaseContent(CATEGORY_SLUG, null, []) },
+  );
 }

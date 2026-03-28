@@ -1,11 +1,13 @@
+@let content = showcase();
+
 <app-category-showcase
-  eyebrow="Collection"
-  title="Women"
-  description="A modern women category with clean silhouettes, polished layering and an editorial direction built for elevated everyday styling."
-  accent="Premium edit"
-  heroImage="/images/home-1-2.jpg"
-  heroAlt="Women category hero"
-  [highlights]="highlights"
-  [panels]="panels"
-  [gallery]="gallery"
+  [eyebrow]="content.eyebrow"
+  [title]="content.title"
+  [description]="content.description"
+  [accent]="content.accent"
+  [heroImage]="content.heroImage"
+  [heroAlt]="content.heroAlt"
+  [highlights]="content.highlights"
+  [panels]="content.panels"
+  [gallery]="content.gallery"
 ></app-category-showcase>

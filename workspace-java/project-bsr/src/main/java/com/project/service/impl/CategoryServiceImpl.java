@@ -10,6 +10,7 @@ import com.project.mapper.CategoryMapper;
 import com.project.repository.CategoryRepository;
 import com.project.service.CategoryService;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -33,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDTO findById(Long id) {
         CategoryEntity category = repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Category not found with id: " + id));
         return mapper.toDto(category);
     }
 
@@ -41,11 +42,16 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryDTO createCategory(CategoryDTO dto) {
         validateCreate(dto);
 
-        if (repo.existsByNameIgnoreCase(dto.getName().trim())) {
+        String normalizedName = dto.getName().trim();
+
+        if (repo.existsByNameIgnoreCase(normalizedName)) {
             throw new IllegalArgumentException("A category with that name already exists");
         }
 
         CategoryEntity category = mapper.toEntity(dto);
+        category.setName(normalizedName);
+        category.setDescription(dto.getDescription().trim());
+
         CategoryEntity saved = repo.save(category);
         return mapper.toDto(saved);
     }
@@ -53,7 +59,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDTO updateCategory(CategoryDTO dto, Long id) {
         CategoryEntity categoryFound = repo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Category not found with id: " + id));
 
         if (dto.getName() != null && !dto.getName().isBlank()) {
             String newName = dto.getName().trim();
@@ -77,7 +83,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteCategory(Long id) {
         if (!repo.existsById(id)) {
-            throw new RuntimeException("Category not found");
+            throw new EntityNotFoundException("Category not found with id: " + id);
         }
         repo.deleteById(id);
     }
