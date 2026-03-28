@@ -2,6 +2,7 @@ package com.project.service;
 
 import java.util.List;
 
+import com.project.dto.CreateOrderRequestDTO;
 import com.project.dto.OrderDTO;
 import com.project.entity.enums.OrderStatus;
 
@@ -23,5 +24,5 @@ public interface OrderService {
 
     OrderDTO findMyOrderById(Long orderId, String email);
 
-    OrderDTO createMyOrder(OrderDTO dto, String email);
+    OrderDTO createMyOrder(CreateOrderRequestDTO dto, String email);
 }

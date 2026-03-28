@@ -2,14 +2,17 @@ package com.project.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
-public class CustomerReqDTO {
+public class CustomerCreateDTO {
 
     @NotBlank(message = "Name is required")
+    @Size(max = 120, message = "Name cannot exceed 120 characters")
     private String name;
 
     @NotBlank(message = "Last name is required")
+    @Size(max = 120, message = "Last name cannot exceed 120 characters")
     private String lastName;
 
     @NotBlank(message = "Email is required")
@@ -17,10 +20,16 @@ public class CustomerReqDTO {
     private String email;
 
     @NotBlank(message = "Password is required")
-    @Size(min = 6, message = "Password must be at least 6 characters")
+    @Size(min = 6, max = 100, message = "Password must be between 6 and 100 characters")
     private String password;
 
-    public CustomerReqDTO() {
+    @PositiveOrZero(message = "Number must be >= 0")
+    private Long number;
+
+    private String role;
+    private Boolean enabled;
+
+    public CustomerCreateDTO() {
     }
 
     public String getName() {
@@ -53,5 +62,29 @@ public class CustomerReqDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 }

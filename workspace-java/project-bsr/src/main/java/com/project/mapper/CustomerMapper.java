@@ -11,40 +11,29 @@ import com.project.entity.CustomerEntity;
 @Mapper(componentModel = "spring")
 public interface CustomerMapper {
 
-	@Mapping(target = "addressIds", expression = "java(mapAddressIds(entity))")
-	@Mapping(target = "orderIds", expression = "java(mapOrderIds(entity))")
-	@Mapping(target = "cartId", expression = "java(mapCartId(entity))")
-	CustomerDTO toDto(CustomerEntity entity);
+    @Mapping(target = "addressIds", expression = "java(mapAddressIds(entity))")
+    @Mapping(target = "orderIds", expression = "java(mapOrderIds(entity))")
+    @Mapping(target = "cartId", expression = "java(mapCartId(entity))")
+    @Mapping(target = "role", expression = "java(entity.getRole() == null ? null : entity.getRole().name())")
+    CustomerDTO toDto(CustomerEntity entity);
 
-	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "addresses", ignore = true)
-	@Mapping(target = "orders", ignore = true)
-	@Mapping(target = "cart", ignore = true)
-	@Mapping(target = "password", ignore = true)
+    List<CustomerDTO> toListDtos(List<CustomerEntity> listEntity);
 
+    default List<Long> mapAddressIds(CustomerEntity entity) {
+        if (entity.getAddresses() == null) {
+            return List.of();
+        }
+        return entity.getAddresses().stream().map(a -> a.getId()).toList();
+    }
 
-	List<CustomerDTO> toListDtos(List<CustomerEntity> listEntity);
+    default List<Long> mapOrderIds(CustomerEntity entity) {
+        if (entity.getOrders() == null) {
+            return List.of();
+        }
+        return entity.getOrders().stream().map(o -> o.getId()).toList();
+    }
 
-	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "addresses", ignore = true)
-	@Mapping(target = "orders", ignore = true)
-	@Mapping(target = "cart", ignore = true)
-	@Mapping(target = "password", ignore = true)
-
-
-	default List<Long> mapAddressIds(CustomerEntity entity) {
-		if (entity.getAddresses() == null)
-			return List.of();
-		return entity.getAddresses().stream().map(a -> a.getId()).toList();
-	}
-
-	default List<Long> mapOrderIds(CustomerEntity entity) {
-		if (entity.getOrders() == null)
-			return List.of();
-		return entity.getOrders().stream().map(o -> o.getId()).toList();
-	}
-
-	default Long mapCartId(CustomerEntity entity) {
-		return entity.getCart() == null ? null : entity.getCart().getId();
-	}
+    default Long mapCartId(CustomerEntity entity) {
+        return entity.getCart() == null ? null : entity.getCart().getId();
+    }
 }

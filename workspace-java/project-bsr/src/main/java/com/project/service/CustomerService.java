@@ -2,8 +2,9 @@ package com.project.service;
 
 import java.util.List;
 
+import com.project.dto.CustomerCreateDTO;
 import com.project.dto.CustomerDTO;
-import com.project.dto.CustomerReqDTO;
+import com.project.dto.CustomerUpdateDTO;
 
 public interface CustomerService {
 
@@ -13,13 +14,13 @@ public interface CustomerService {
 
     CustomerDTO findById(Long id);
 
-    CustomerDTO findByEmailIngoreCase(String email);
+    CustomerDTO findByEmailIgnoreCase(String email);
 
-    CustomerDTO createCustomer(CustomerReqDTO dto);
+    CustomerDTO createCustomer(CustomerCreateDTO dto);
 
-    CustomerDTO updateCustomer(CustomerReqDTO dto, Long id);
+    CustomerDTO updateCustomer(CustomerUpdateDTO dto, Long id, String currentEmail);
 
-    CustomerDTO updateMyProfile(CustomerReqDTO dto, String email);
+    CustomerDTO updateMyProfile(CustomerUpdateDTO dto, String email);
 
-    void deleteCustomer(Long id);
+    void deleteCustomer(Long id, String currentEmail);
 }

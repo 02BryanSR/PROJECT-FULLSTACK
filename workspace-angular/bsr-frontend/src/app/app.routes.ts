@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { adminChildGuard, adminGuard } from './core/guards/admin.guard';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -34,6 +36,60 @@ export const routes: Routes = [
     path: 'accessories',
     loadComponent: () =>
       import('./features/accessories/accessories').then((m) => m.Accessories),
+  },
+  {
+    path: 'cart',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/cart/cart').then((m) => m.Cart),
+  },
+  {
+    path: 'checkout',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/checkout/checkout').then((m) => m.Checkout),
+  },
+  {
+    path: 'my-addresses',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/my-addresses/my-addresses').then((m) => m.MyAddresses),
+  },
+  {
+    path: 'my-orders',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/my-orders/my-orders').then((m) => m.MyOrders),
+  },
+  {
+    path: 'admin',
+    canActivate: [adminGuard],
+    canActivateChild: [adminChildGuard],
+    loadComponent: () => import('./features/admin/layout/layout').then((m) => m.AdminLayout),
+    children: [
+      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./features/admin/dashboard/dashboard').then((m) => m.AdminDashboard),
+      },
+      {
+        path: 'products',
+        loadComponent: () =>
+          import('./features/admin/products/products').then((m) => m.AdminProducts),
+      },
+      {
+        path: 'categories',
+        loadComponent: () =>
+          import('./features/admin/categories/categories').then((m) => m.AdminCategories),
+      },
+      {
+        path: 'customers',
+        loadComponent: () =>
+          import('./features/admin/customers/customers').then((m) => m.AdminCustomers),
+      },
+      {
+        path: 'orders',
+        loadComponent: () => import('./features/admin/orders/orders').then((m) => m.AdminOrders),
+      },
+    ],
   },
   { path: 'mujer', redirectTo: 'women', pathMatch: 'full' },
   { path: 'hombre', redirectTo: 'men', pathMatch: 'full' },

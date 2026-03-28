@@ -15,6 +15,7 @@ export interface CategoryShowcaseContent {
   highlights: readonly string[];
   panels: readonly CategoryShowcasePanel[];
   gallery: readonly CategoryShowcaseImage[];
+  products: readonly CatalogProduct[];
 }
 
 const PRICE_FORMATTER = new Intl.NumberFormat('es-ES', {
@@ -70,6 +71,7 @@ const FALLBACK_CATEGORY_CONTENT: Record<CategorySlug, CategoryShowcaseContent> =
         caption: 'Premium details',
       },
     ],
+    products: [],
   },
   men: {
     eyebrow: 'Collection',
@@ -117,6 +119,7 @@ const FALLBACK_CATEGORY_CONTENT: Record<CategorySlug, CategoryShowcaseContent> =
         caption: 'Street essentials',
       },
     ],
+    products: [],
   },
   kids: {
     eyebrow: 'Collection',
@@ -164,6 +167,7 @@ const FALLBACK_CATEGORY_CONTENT: Record<CategorySlug, CategoryShowcaseContent> =
         caption: 'Daily sets',
       },
     ],
+    products: [],
   },
   accessories: {
     eyebrow: 'Collection',
@@ -211,6 +215,7 @@ const FALLBACK_CATEGORY_CONTENT: Record<CategorySlug, CategoryShowcaseContent> =
         caption: 'Final details',
       },
     ],
+    products: [],
   },
 };
 
@@ -260,6 +265,7 @@ export function buildCategoryShowcaseContent(
         ]
       : fallback.panels,
     gallery: buildGallery(categoryName, productsWithImages, fallback.gallery),
+    products,
   };
 }
 

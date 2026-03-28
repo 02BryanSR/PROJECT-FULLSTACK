@@ -32,7 +32,30 @@ export const API_ENDPOINTS = {
   },
   catalog: {
     categories: `${API_BASE_URL}/api/categories`,
+    product: (id: number | string) => `${API_BASE_URL}/api/products/${id}`,
     productsByCategory: (categoryId: number | string) =>
       `${API_BASE_URL}/api/products/category/${categoryId}`,
+  },
+  shop: {
+    cart: `${API_BASE_URL}/api/cart/me`,
+    cartItems: `${API_BASE_URL}/api/cart/me/items`,
+    cartItem: (productId: number | string) => `${API_BASE_URL}/api/cart/me/items/${productId}`,
+    addresses: `${API_BASE_URL}/api/addresses/me`,
+    address: (id: number | string) => `${API_BASE_URL}/api/addresses/me/${id}`,
+    orders: `${API_BASE_URL}/api/orders/me`,
+    order: (id: number | string) => `${API_BASE_URL}/api/orders/me/${id}`,
+    orderDetails: (id: number | string) => `${API_BASE_URL}/api/orders/${id}/details`,
+  },
+  admin: {
+    products: `${API_BASE_URL}/api/products`,
+    product: (id: number | string) => `${API_BASE_URL}/api/products/${id}`,
+    categories: `${API_BASE_URL}/api/categories`,
+    category: (id: number | string) => `${API_BASE_URL}/api/categories/${id}`,
+    customers: `${API_BASE_URL}/api/customers`,
+    customer: (id: number | string) => `${API_BASE_URL}/api/customers/${id}`,
+    orders: `${API_BASE_URL}/api/orders`,
+    order: (id: number | string) => `${API_BASE_URL}/api/orders/${id}`,
+    orderDetails: (id: number | string) => `${API_BASE_URL}/api/orders/${id}/details/admin`,
+    orderStatus: (id: number | string) => `${API_BASE_URL}/api/orders/${id}/status`,
   },
 };

@@ -44,15 +44,22 @@
         <app-icon name="icon-search" class="h-5 w-5"></app-icon>
       </button>
 
-      <button
-        type="button"
+      <a
+        routerLink="/cart"
         aria-label="Abrir compras"
-        class="inline-flex items-center justify-center py-2"
+        class="relative inline-flex items-center justify-center py-2"
         [class.text-white]="isHome()"
         [class.text-black]="!isHome()"
       >
         <app-icon name="icon-bag" class="h-5 w-5"></app-icon>
-      </button>
+        @if (authService.isAuthenticated() && cartItemCount() > 0) {
+          <span
+            class="absolute -right-2 -top-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-[#d97706] px-1 text-[10px] font-semibold text-white"
+          >
+            {{ cartItemCount() }}
+          </span>
+        }
+      </a>
 
       <app-account-menu [dark]="!isHome()"></app-account-menu>
     </div>

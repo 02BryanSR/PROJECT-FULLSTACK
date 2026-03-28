@@ -18,8 +18,6 @@ public class CartController {
         this.service = service;
     }
 
-    // CARRITO DEL USUARIO LOGUEADO
-
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/me")
     public ResponseEntity<CartResponseDTO> getMyCart(Authentication auth) {
@@ -61,8 +59,7 @@ public class CartController {
         service.clearMyCart(auth.getName());
         return ResponseEntity.ok(service.getMyCart(auth.getName()));
     }
-    // SOLO ADMIN
-
+    
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{customerId}")
     public ResponseEntity<CartResponseDTO> getCartByCustomerId(@PathVariable Long customerId) {

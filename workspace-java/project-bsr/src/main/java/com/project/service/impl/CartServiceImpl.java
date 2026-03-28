@@ -36,9 +36,6 @@ public class CartServiceImpl implements CartService {
         this.productRepository = productRepository;
     }
 
-    // =========================
-    // USER / ADMIN AUTENTICADO
-    // =========================
 
     @Override
     @Transactional(readOnly = true)
@@ -71,9 +68,6 @@ public class CartServiceImpl implements CartService {
         clear(customerId);
     }
 
-    // =========================
-    // ADMIN / USO INTERNO
-    // =========================
 
     @Override
     @Transactional(readOnly = true)
@@ -162,10 +156,6 @@ public class CartServiceImpl implements CartService {
         cartRepository.save(cart);
     }
 
-    // =========================
-    // HELPERS
-    // =========================
-
     private CustomerEntity getCustomerByEmail(String email) {
         return customerRepository.findByEmailIgnoreCase(email)
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
@@ -202,7 +192,7 @@ public class CartServiceImpl implements CartService {
             throw new RuntimeException("No hay stock suficiente");
         }
     }
-////////////////////////////////
+
   private CartResponseDTO toResponse(CartEntity cart) {
 
     CartResponseDTO dto = new CartResponseDTO();

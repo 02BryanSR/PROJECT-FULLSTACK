@@ -8,9 +8,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import com.project.dto.CreateOrderRequestDTO;
 import com.project.dto.OrderDTO;
 import com.project.entity.enums.OrderStatus;
 import com.project.service.OrderService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -21,10 +24,6 @@ public class OrderController {
     public OrderController(OrderService service) {
         this.service = service;
     }
-
-    // =========================
-    // ADMIN
-    // =========================
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
@@ -56,10 +55,6 @@ public class OrderController {
         return ResponseEntity.ok(service.updateStatus(id, status));
     }
 
-    // =========================
-    // USUARIO AUTENTICADO / ADMIN
-    // =========================
-
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/me")
     public ResponseEntity<List<OrderDTO>> myOrders(Authentication auth) {
@@ -74,8 +69,10 @@ public class OrderController {
 
     @PreAuthorize("isAuthenticated()")
     @PostMapping("/me")
-    public ResponseEntity<OrderDTO> createMyOrder(@RequestBody OrderDTO dto, Authentication auth) {
+    public ResponseEntity<OrderDTO> createMyOrder(@Valid @RequestBody CreateOrderRequestDTO dto, Authentication auth) {
         OrderDTO created = service.createMyOrder(dto, auth.getName());
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
+
+
 }

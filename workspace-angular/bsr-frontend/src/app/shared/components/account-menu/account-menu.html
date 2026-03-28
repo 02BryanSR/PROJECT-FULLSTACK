@@ -40,6 +40,40 @@
           </header>
 
           <nav class="flex flex-col gap-2">
+            <a
+              routerLink="/cart"
+              (click)="navigateAndClose()"
+              class="flex items-center justify-center rounded-full border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+            >
+              Mi carrito
+            </a>
+
+            <a
+              routerLink="/my-orders"
+              (click)="navigateAndClose()"
+              class="flex items-center justify-center rounded-full border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+            >
+              Mis pedidos
+            </a>
+
+            <a
+              routerLink="/my-addresses"
+              (click)="navigateAndClose()"
+              class="flex items-center justify-center rounded-full border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+            >
+              Mis direcciones
+            </a>
+
+            @if (authService.isAdmin()) {
+              <a
+                routerLink="/admin"
+                (click)="navigateAndClose()"
+                class="flex items-center justify-center rounded-full border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+              >
+                Panel admin
+              </a>
+            }
+
             <button
               type="button"
               (click)="handleLogout()"
@@ -53,7 +87,7 @@
           <header>
             <p class="text-sm text-neutral-500">Todavia no has iniciado sesion.</p>
             <strong class="mt-1 block text-base font-semibold text-neutral-900">
-              Identificate para acceder a tu cuenta y continuar desde aqui.
+              Identificate para acceder a tu carrito, tus direcciones y el historial de compra.
             </strong>
           </header>
 

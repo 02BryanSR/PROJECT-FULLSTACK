@@ -30,4 +30,8 @@ export class AccountMenuComponent {
     this.authService.logout({ redirectToLogin: false });
     this.close();
   }
+
+  navigateAndClose(): void {
+    this.close();
+  }
 }

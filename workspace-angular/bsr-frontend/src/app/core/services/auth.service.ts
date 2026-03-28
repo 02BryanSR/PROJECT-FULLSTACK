@@ -19,7 +19,7 @@ import { AuthStorageService } from './auth-storage.service';
 })
 export class AuthService {
   private readonly roleRedirects: Record<UserRole, string> = {
-    admin: '/home',
+    admin: '/admin',
     user: '/home',
   };
 

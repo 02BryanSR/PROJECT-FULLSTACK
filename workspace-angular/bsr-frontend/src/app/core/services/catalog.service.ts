@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, forkJoin, of } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
 import { API_BASE_URL, API_ENDPOINTS } from '../constants/api.constants';
 import { PRIMARY_NAV_LINKS, type NavigationLink } from '../constants/navigation.constants';
@@ -47,6 +47,25 @@ export class CatalogService {
     return this.http.get<ProductApiResponse[]>(API_ENDPOINTS.catalog.productsByCategory(categoryId)).pipe(
       map((products) => products.map((product) => this.mapProduct(product))),
       catchError(() => of([] as CatalogProduct[])),
+    );
+  }
+
+  getProductById(productId: number): Observable<CatalogProduct | null> {
+    return this.http.get<ProductApiResponse>(API_ENDPOINTS.catalog.product(productId)).pipe(
+      map((product) => this.mapProduct(product)),
+      catchError(() => of(null)),
+    );
+  }
+
+  getProductsByIds(productIds: readonly number[]): Observable<readonly CatalogProduct[]> {
+    const uniqueProductIds = [...new Set(productIds.filter((productId) => Number.isFinite(productId)))];
+
+    if (!uniqueProductIds.length) {
+      return of([]);
+    }
+
+    return forkJoin(uniqueProductIds.map((productId) => this.getProductById(productId))).pipe(
+      map((products) => products.filter((product): product is CatalogProduct => !!product)),
     );
   }
 
