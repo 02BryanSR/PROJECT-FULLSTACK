@@ -18,7 +18,6 @@ export const routes: Routes = [
   },
   {
     path: 'home',
-    canActivate: [authGuard],
     loadComponent: () => import('./features/main/main').then((m) => m.Main),
   },
   {
@@ -71,5 +70,5 @@ export const routes: Routes = [
   },
   { path: 'categorias', component: Category, canActivate: [authGuard] },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' },
+  { path: '**', redirectTo: 'home' },
 ];
