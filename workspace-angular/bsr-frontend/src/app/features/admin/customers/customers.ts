@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, computed, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { AdminCustomer, AdminCustomerInput } from '../../../core/interfaces/admin.interface';
@@ -17,6 +17,7 @@ export class AdminCustomers {
   private readonly adminService = inject(AdminService);
   private readonly formBuilder = inject(FormBuilder);
   private readonly toastService = inject(ToastService);
+  @ViewChild('editorPanel') private editorPanel?: ElementRef<HTMLElement>;
 
   readonly customers = signal<readonly AdminCustomer[]>([]);
   readonly loading = signal(true);
@@ -85,6 +86,7 @@ export class AdminCustomers {
       enabled: customer.enabled,
       password: '',
     });
+    this.scrollEditorIntoView();
   }
 
   submit(): void {
@@ -199,5 +201,14 @@ export class AdminCustomers {
 
     const parsedValue = Number(value.trim());
     return Number.isFinite(parsedValue) ? parsedValue : null;
+  }
+
+  private scrollEditorIntoView(): void {
+    window.setTimeout(() => {
+      this.editorPanel?.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 40);
   }
 }

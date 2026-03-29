@@ -1,4 +1,4 @@
-import { Component, OnDestroy, computed, inject, signal } from '@angular/core';
+import { Component, ElementRef, OnDestroy, ViewChild, computed, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { finalize } from 'rxjs';
 import { AdminCategory, AdminCategoryInput } from '../../../core/interfaces/admin.interface';
@@ -15,6 +15,7 @@ export class AdminCategories implements OnDestroy {
   private readonly adminService = inject(AdminService);
   private readonly formBuilder = inject(FormBuilder);
   private readonly toastService = inject(ToastService);
+  @ViewChild('editorPanel') private editorPanel?: ElementRef<HTMLElement>;
   private objectUrl: string | null = null;
 
   readonly categories = signal<readonly AdminCategory[]>([]);
@@ -76,6 +77,7 @@ export class AdminCategories implements OnDestroy {
       imageUrl: category.imageUrl ?? '',
     });
     this.setPreview(category.imageUrl);
+    this.scrollEditorIntoView();
   }
 
   submit(): void {
@@ -208,5 +210,14 @@ export class AdminCategories implements OnDestroy {
     }
 
     void navigator.clipboard.writeText(normalizedImageUrl).catch(() => undefined);
+  }
+
+  private scrollEditorIntoView(): void {
+    window.setTimeout(() => {
+      this.editorPanel?.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 40);
   }
 }
