@@ -1,4 +1,3 @@
-import { CurrencyPipe } from '@angular/common';
 import { Component, DestroyRef, OnDestroy, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -14,7 +13,7 @@ import { ToastService } from '../../../core/services/toast.service';
 @Component({
   selector: 'app-admin-products',
   standalone: true,
-  imports: [CurrencyPipe, ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './products.html',
 })
 export class AdminProducts implements OnDestroy {
@@ -22,6 +21,11 @@ export class AdminProducts implements OnDestroy {
   private readonly formBuilder = inject(FormBuilder);
   private readonly toastService = inject(ToastService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly currencyFormatter = new Intl.NumberFormat('es-ES', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 2,
+  });
 
   private objectUrl: string | null = null;
 
@@ -32,6 +36,7 @@ export class AdminProducts implements OnDestroy {
   readonly selectedProductId = signal<number | null>(null);
   readonly imageFile = signal<File | null>(null);
   readonly imagePreview = signal<string | null>(null);
+  readonly brokenImageIds = signal<readonly number[]>([]);
   readonly isEditing = computed(() => this.selectedProductId() !== null);
 
   readonly form = this.formBuilder.group({
@@ -66,7 +71,17 @@ export class AdminProducts implements OnDestroy {
       .pipe(finalize(() => this.loading.set(false)))
       .subscribe({
         next: ({ products, categories }) => {
-          this.products.set(products);
+          this.brokenImageIds.set([]);
+          const categoriesById = new Map(categories.map((category) => [category.id, category.name]));
+
+          this.products.set(
+            products.map((product) => ({
+              ...product,
+              categoryName:
+                (product.categoryId !== null ? categoriesById.get(product.categoryId) : null) ||
+                product.categoryName,
+            })),
+          );
           this.categories.set(categories);
 
           if (resetForm) {
@@ -118,6 +133,53 @@ export class AdminProducts implements OnDestroy {
       imageUrl: product.imageUrl ?? '',
     });
     this.setPreview(product.imageUrl);
+  }
+
+  isBrokenImage(productId: number): boolean {
+    return this.brokenImageIds().includes(productId);
+  }
+
+  markImageAsBroken(productId: number): void {
+    if (this.brokenImageIds().includes(productId)) {
+      return;
+    }
+
+    this.brokenImageIds.update((ids) => [...ids, productId]);
+  }
+
+  imageSrc(product: AdminProduct): string | null {
+    if (!product.imageUrl) {
+      return null;
+    }
+
+    const version = product.updatedAt ?? product.createdAt;
+
+    if (!version) {
+      return product.imageUrl;
+    }
+
+    const separator = product.imageUrl.includes('?') ? '&' : '?';
+    return `${product.imageUrl}${separator}v=${encodeURIComponent(version)}`;
+  }
+
+  displayName(product: AdminProduct): string {
+    return product.name?.trim() || `Producto #${product.id}`;
+  }
+
+  displayCategory(product: AdminProduct): string {
+    return product.categoryName?.trim() || 'Sin categoria';
+  }
+
+  displayPrice(price: number | null): string {
+    return price === null ? 'Consultar' : this.currencyFormatter.format(price);
+  }
+
+  displayStock(stock: number | null): string {
+    return String(stock ?? 0);
+  }
+
+  displayImageStatus(product: AdminProduct): string {
+    return product.imageUrl && !this.isBrokenImage(product.id) ? 'Imagen conectada' : 'Sin imagen';
   }
 
   submit(): void {

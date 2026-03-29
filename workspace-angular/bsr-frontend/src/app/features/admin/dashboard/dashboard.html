@@ -34,66 +34,127 @@
     <article class="rounded-[2rem] border border-black/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.06)]">
       <div class="flex items-center justify-between gap-4">
         <div>
-          <p class="text-[11px] uppercase tracking-[0.28em] text-neutral-500">Pedidos recientes</p>
+          <p class="text-[11px] uppercase tracking-[0.28em] text-neutral-500">Productos recientes</p>
           <h2 class="mt-3 text-2xl font-semibold uppercase tracking-[0.14em] text-neutral-950">
-            Actividad reciente
+            Catalogo reciente
           </h2>
         </div>
 
         <a
-          routerLink="/admin/orders"
+          routerLink="/admin/products"
           class="inline-flex items-center justify-center rounded-full border border-black/10 px-4 py-3 text-xs uppercase tracking-[0.22em] text-neutral-900 transition hover:border-black hover:bg-black hover:text-white"
         >
-          Ver pedidos
+          Ver productos
         </a>
       </div>
 
-      @if (dashboard().recentOrders.length) {
+      @if (dashboard().recentProducts.length) {
         <div class="mt-6 space-y-3">
-          @for (order of dashboard().recentOrders; track order.id) {
-            <article class="rounded-[1.5rem] border border-black/10 bg-surface-panel px-4 py-4">
-              <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <p class="text-sm font-semibold text-neutral-950">Pedido #{{ order.id }}</p>
-                  <p class="mt-1 text-sm text-neutral-600">{{ order.customerName }}</p>
-                  @if (order.customerEmail) {
-                    <p class="mt-1 text-xs uppercase tracking-[0.22em] text-neutral-500">
-                      {{ order.customerEmail }}
-                    </p>
-                  } @else {
-                    <p class="mt-1 text-xs uppercase tracking-[0.22em] text-neutral-500">
-                      Cliente vinculado por id
-                    </p>
+          @for (product of dashboard().recentProducts; track product.id) {
+            <article
+              class="grid gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 md:grid-cols-[8.5rem_minmax(0,1fr)_8rem] md:items-stretch"
+            >
+              <figure class="relative overflow-hidden rounded-[1.2rem] bg-neutral-200 md:h-full">
+                @if (product.imageUrl && !isBrokenImage(product.id)) {
+                  <img
+                    [src]="imageSrc(product.imageUrl, product.updatedAt || product.createdAt)!"
+                    [alt]="displayProductName(product.name, product.id)"
+                    (error)="markImageAsBroken(product.id)"
+                    class="h-full min-h-[10.5rem] w-full object-cover object-center md:min-h-0"
+                  />
+                } @else {
+                  <div class="flex h-full min-h-[10.5rem] items-center justify-center px-4 text-center text-xs uppercase tracking-[0.2em] text-neutral-500 md:min-h-0">
+                    Sin imagen
+                  </div>
+                }
+              </figure>
+
+              <div class="flex min-w-0 flex-col justify-between">
+                <div class="flex flex-wrap items-start gap-2">
+                  <h3 class="line-clamp-2 text-lg font-semibold text-neutral-950">
+                    {{ displayProductName(product.name, product.id) }}
+                  </h3>
+                  @if (displayCategory(product.categoryName)) {
+                    <span class="rounded-full border border-black/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-neutral-600">
+                      {{ displayCategory(product.categoryName) }}
+                    </span>
+                  }
+                  @if (product.sku) {
+                    <span class="rounded-full bg-black px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
+                      {{ product.sku }}
+                    </span>
                   }
                 </div>
 
-                <div class="text-left md:text-right">
-                  <strong class="block text-lg font-semibold text-neutral-950">{{
-                    order.total | currency: 'EUR' : 'symbol' : '1.0-0' : 'es'
-                  }}</strong>
-                  <p class="mt-1 text-xs uppercase tracking-[0.22em] text-neutral-500">
-                    {{ order.status }}
+                @if (product.description) {
+                  <p class="mt-2 line-clamp-2 text-sm leading-6 text-neutral-600">
+                    {{ product.description }}
                   </p>
-                  <p class="mt-1 text-sm text-neutral-500">
-                    {{ order.createdAt | date: 'dd/MM/yyyy HH:mm' : undefined : 'es' }}
+                } @else {
+                  <p class="mt-2 text-sm leading-6 text-neutral-400">Sin descripcion.</p>
+                }
+
+                <div class="mt-4 grid gap-4 text-sm text-neutral-600 sm:grid-cols-3">
+                  <p class="min-w-0 rounded-[1rem] bg-white/70 px-3 py-3">
+                    <strong class="block text-[11px] uppercase tracking-[0.22em] text-neutral-500">Precio</strong>
+                    <span class="mt-2 block text-base font-semibold text-neutral-950">
+                      {{ displayPrice(product.price) }}
+                    </span>
+                  </p>
+
+                  <p class="min-w-0 rounded-[1rem] bg-white/70 px-3 py-3">
+                    <strong class="block text-[11px] uppercase tracking-[0.22em] text-neutral-500">Stock</strong>
+                    <span class="mt-2 block text-base font-semibold text-neutral-950">
+                      {{ displayStock(product.stock) }}
+                    </span>
+                  </p>
+
+                  <p class="min-w-0 rounded-[1rem] bg-white/70 px-3 py-3">
+                    <strong class="block text-[11px] uppercase tracking-[0.22em] text-neutral-500">Estado</strong>
+                    <span class="mt-2 block text-sm font-medium text-neutral-700">
+                      {{ displayImageStatus(product.imageUrl, product.id) }}
+                    </span>
                   </p>
                 </div>
+              </div>
+
+              <div class="flex flex-col justify-between gap-3 text-left md:text-right">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.22em] text-neutral-500">Actualizado</p>
+                  <p class="mt-2 text-sm text-neutral-700">
+                    {{ (product.updatedAt || product.createdAt) | date: 'dd/MM/yyyy HH:mm' : undefined : 'es' }}
+                  </p>
+                </div>
+
+                <a
+                  routerLink="/admin/products"
+                  class="inline-flex items-center justify-center rounded-full border border-black/10 px-4 py-3 text-xs uppercase tracking-[0.22em] text-neutral-900 transition hover:border-black hover:bg-black hover:text-white"
+                >
+                  Ver ficha
+                </a>
+
+                <p class="px-1 text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+                  #{{ product.id }}
+                </p>
               </div>
             </article>
           }
         </div>
       } @else {
         <article class="mt-6 rounded-[1.6rem] border border-dashed border-black/15 bg-surface-panel px-5 py-8 text-sm leading-7 text-neutral-600">
-          Todavia no hay pedidos recientes o el backend de pedidos aun no esta conectado.
+          Todavia no hay productos recientes o el backend de catalogo aun no esta conectado.
         </article>
       }
     </article>
 
     <article class="rounded-[2rem] border border-black/10 bg-white p-6 shadow-[0_20px_50px_rgba(15,23,42,0.06)]">
-      <p class="text-[11px] uppercase tracking-[0.28em] text-neutral-500">Accesos rapidos</p>
+      <p class="text-[11px] uppercase tracking-[0.28em] text-neutral-500">Control central</p>
       <h2 class="mt-3 text-2xl font-semibold uppercase tracking-[0.14em] text-neutral-950">
         Operaciones clave
       </h2>
+      <p class="mt-3 max-w-xl text-sm leading-6 text-neutral-600">
+        Control total del catalogo, clientes y pedidos desde un solo lugar.
+      </p>
 
       <div class="mt-6 space-y-3">
         @for (item of quickLinks; track item.route) {

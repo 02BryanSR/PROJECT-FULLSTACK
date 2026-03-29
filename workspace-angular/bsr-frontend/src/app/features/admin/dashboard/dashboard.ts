@@ -1,5 +1,5 @@
-import { CurrencyPipe, DatePipe } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { AdminDashboardData } from '../../../core/interfaces/admin.interface';
@@ -19,13 +19,14 @@ const EMPTY_DASHBOARD: AdminDashboardData = {
   pendingOrderCount: 0,
   lowStockCount: 0,
   revenueTotal: 0,
+  recentProducts: [],
   recentOrders: [],
 };
 
 @Component({
   selector: 'app-admin-dashboard',
   standalone: true,
-  imports: [CurrencyPipe, DatePipe, RouterLink],
+  imports: [DatePipe, RouterLink],
   templateUrl: './dashboard.html',
 })
 export class AdminDashboard {
@@ -33,8 +34,9 @@ export class AdminDashboard {
   private readonly currencyFormatter = new Intl.NumberFormat('es-ES', {
     style: 'currency',
     currency: 'EUR',
-    maximumFractionDigits: 0,
+    maximumFractionDigits: 2,
   });
+  readonly brokenImageIds = signal<readonly number[]>([]);
 
   readonly dashboard = toSignal(this.adminService.getDashboard(), {
     initialValue: EMPTY_DASHBOARD,
@@ -121,6 +123,51 @@ export class AdminDashboard {
       route: '/admin/orders',
     },
   ] as const;
+
+  isBrokenImage(productId: number): boolean {
+    return this.brokenImageIds().includes(productId);
+  }
+
+  markImageAsBroken(productId: number): void {
+    if (this.brokenImageIds().includes(productId)) {
+      return;
+    }
+
+    this.brokenImageIds.update((ids) => [...ids, productId]);
+  }
+
+  imageSrc(imageUrl: string | null, version: string | null): string | null {
+    if (!imageUrl) {
+      return null;
+    }
+
+    if (!version) {
+      return imageUrl;
+    }
+
+    const separator = imageUrl.includes('?') ? '&' : '?';
+    return `${imageUrl}${separator}v=${encodeURIComponent(version)}`;
+  }
+
+  displayProductName(name: string | null, id: number): string {
+    return name?.trim() || `Producto #${id}`;
+  }
+
+  displayCategory(name: string | null): string {
+    return name?.trim() || 'Sin categoria';
+  }
+
+  displayPrice(value: number | null): string {
+    return value === null ? 'Consultar' : this.currencyFormatter.format(value);
+  }
+
+  displayStock(value: number | null): string {
+    return String(value ?? 0);
+  }
+
+  displayImageStatus(imageUrl: string | null, productId: number): string {
+    return imageUrl && !this.isBrokenImage(productId) ? 'Imagen conectada' : 'Sin imagen';
+  }
 
   getMonthDeltaTone(value: number): 'positive' | 'negative' | 'neutral' {
     if (value > 0) {

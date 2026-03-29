@@ -37,6 +37,20 @@ export class AdminService {
         const startOfNextDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime();
         const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
         const startOfPreviousMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).getTime();
+        const categoriesById = new Map(categories.map((category) => [category.id, category.name]));
+        const normalizedProducts = products.map((product) => ({
+          ...product,
+          categoryName:
+            (product.categoryId !== null ? categoriesById.get(product.categoryId) : null) ||
+            product.categoryName,
+        }));
+        const recentProducts = [...normalizedProducts]
+          .sort(
+            (left, right) =>
+              this.toDateMs(right.updatedAt ?? right.createdAt) -
+              this.toDateMs(left.updatedAt ?? left.createdAt),
+          )
+          .slice(0, 5);
         const recentOrders = [...orders]
           .sort((left, right) => this.toDateMs(right.createdAt) - this.toDateMs(left.createdAt))
           .slice(0, 5);
@@ -69,7 +83,7 @@ export class AdminService {
         }, 0);
 
         return {
-          productCount: products.length,
+          productCount: normalizedProducts.length,
           categoryCount: categories.length,
           customerCount: customers.length,
           orderCount: orders.length,
@@ -80,9 +94,10 @@ export class AdminService {
           adminCount: customers.filter((customer) => customer.role === 'admin').length,
           activeCustomerCount: customers.filter((customer) => customer.enabled).length,
           pendingOrderCount: orders.filter((order) => order.status === 'CREATED').length,
-          lowStockCount: products.filter((product) => (product.stock ?? 0) > 0 && (product.stock ?? 0) <= 5)
+          lowStockCount: normalizedProducts.filter((product) => (product.stock ?? 0) > 0 && (product.stock ?? 0) <= 5)
             .length,
           revenueTotal: orders.reduce((total, order) => total + (order.total ?? 0), 0),
+          recentProducts,
           recentOrders,
         };
       }),

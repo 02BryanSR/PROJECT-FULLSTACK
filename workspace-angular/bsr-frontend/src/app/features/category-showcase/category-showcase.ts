@@ -114,15 +114,24 @@ export class CategoryShowcaseComponent {
     }
 
     if (totalProducts === 2) {
+      return 'standard';
+    }
+
+    if (totalProducts === 4) {
+      return 'compact';
+    }
+
+    if (totalProducts === 3) {
       return index === 0 ? 'featured' : 'standard';
     }
 
     const pattern: readonly CatalogProductCardVariant[] = [
       'featured',
       'standard',
-      'compact',
       'standard',
-      'featured',
+      'compact',
+      'compact',
+      'compact',
       'compact',
     ];
 

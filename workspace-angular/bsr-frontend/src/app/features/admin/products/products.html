@@ -47,63 +47,70 @@
       </div>
 
       @if (products().length) {
-        <div class="mt-6 space-y-4">
+        <div class="mt-6 grid gap-4">
           @for (product of products(); track product.id) {
             <article
-              class="grid gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 md:grid-cols-[8rem_1fr_auto]"
+              class="grid gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 md:grid-cols-[8.5rem_minmax(0,1fr)_8.5rem] md:items-stretch"
             >
-              <figure class="overflow-hidden rounded-[1.2rem] bg-neutral-200">
-                @if (product.imageUrl) {
+              <figure class="relative overflow-hidden rounded-[1.2rem] bg-neutral-200 md:h-full">
+                @if (product.imageUrl && !isBrokenImage(product.id)) {
                   <img
-                    [src]="product.imageUrl"
-                    [alt]="product.name"
-                    class="aspect-[4/5] h-full w-full object-cover"
+                    [src]="imageSrc(product)!"
+                    [alt]="displayName(product)"
+                    (error)="markImageAsBroken(product.id)"
+                    class="h-full min-h-[10.5rem] w-full object-cover object-center md:min-h-0"
                   />
                 } @else {
-                  <div class="flex aspect-[4/5] items-center justify-center px-4 text-center text-xs uppercase tracking-[0.2em] text-neutral-500">
+                  <div class="flex h-full min-h-[10.5rem] items-center justify-center px-4 text-center text-xs uppercase tracking-[0.2em] text-neutral-500 md:min-h-0">
                     Sin imagen
                   </div>
                 }
               </figure>
 
-              <div class="min-w-0">
-                <div class="flex flex-wrap items-center gap-2">
-                  <h3 class="text-lg font-semibold text-neutral-950">{{ product.name }}</h3>
-                  <span class="rounded-full border border-black/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-neutral-600">
-                    {{ product.categoryName }}
-                  </span>
-                  <span class="rounded-full bg-black px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
-                    {{ product.sku }}
-                  </span>
+              <div class="flex min-w-0 flex-col justify-between">
+                <div class="flex flex-wrap items-start gap-2">
+                  <h3 class="line-clamp-2 text-lg font-semibold text-neutral-950">{{ displayName(product) }}</h3>
+                  @if (displayCategory(product)) {
+                    <span class="rounded-full border border-black/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-neutral-600">
+                      {{ displayCategory(product) }}
+                    </span>
+                  }
+                  @if (product.sku) {
+                    <span class="rounded-full bg-black px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
+                      {{ product.sku }}
+                    </span>
+                  }
                 </div>
 
-                <p class="mt-3 line-clamp-2 text-sm leading-6 text-neutral-600">
-                  {{ product.description || 'Sin descripcion todavia.' }}
-                </p>
+                @if (product.description) {
+                  <p class="mt-2 line-clamp-2 text-sm leading-6 text-neutral-600">
+                    {{ product.description }}
+                  </p>
+                } @else {
+                  <p class="mt-2 text-sm leading-6 text-neutral-400">Sin descripcion.</p>
+                }
 
-                <div class="mt-3 grid gap-3 text-sm text-neutral-600 sm:grid-cols-3">
-                  <p>
+                <div class="mt-4 grid gap-4 text-sm text-neutral-600 sm:grid-cols-3">
+                  <p class="min-w-0 rounded-[1rem] bg-white/70 px-3 py-3">
                     <strong class="block text-[11px] uppercase tracking-[0.22em] text-neutral-500">Precio</strong>
-                    <span class="mt-2 block text-base font-semibold text-neutral-950">{{
-                      product.price | currency: 'EUR' : 'symbol' : '1.0-0' : 'es'
-                    }}</span>
+                    <span class="mt-2 block text-base font-semibold text-neutral-950">{{ displayPrice(product.price) }}</span>
                   </p>
 
-                  <p>
+                  <p class="min-w-0 rounded-[1rem] bg-white/70 px-3 py-3">
                     <strong class="block text-[11px] uppercase tracking-[0.22em] text-neutral-500">Stock</strong>
-                    <span class="mt-2 block text-base font-semibold text-neutral-950">{{ product.stock ?? 0 }}</span>
+                    <span class="mt-2 block text-base font-semibold text-neutral-950">{{ displayStock(product.stock) }}</span>
                   </p>
 
-                  <p>
-                    <strong class="block text-[11px] uppercase tracking-[0.22em] text-neutral-500">Imagen</strong>
-                    <span class="mt-2 block truncate text-sm text-neutral-600">
-                      {{ product.imageUrl || 'No configurada' }}
+                  <p class="min-w-0 rounded-[1rem] bg-white/70 px-3 py-3">
+                    <strong class="block text-[11px] uppercase tracking-[0.22em] text-neutral-500">Estado</strong>
+                    <span class="mt-2 block text-sm font-medium text-neutral-700">
+                      {{ displayImageStatus(product) }}
                     </span>
                   </p>
                 </div>
               </div>
 
-              <div class="flex flex-col gap-2 md:w-36">
+              <div class="flex flex-col justify-between gap-2 md:w-34">
                 <button
                   type="button"
                   (click)="startEdit(product)"
@@ -119,6 +126,10 @@
                 >
                   Eliminar
                 </button>
+
+                <p class="px-2 text-center text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+                  #{{ product.id }}
+                </p>
               </div>
             </article>
           }

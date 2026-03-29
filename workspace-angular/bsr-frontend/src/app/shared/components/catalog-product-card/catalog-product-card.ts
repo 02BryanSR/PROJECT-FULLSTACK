@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, computed, inject, input, output } from '@angular/core';
+import { Component, computed, inject, input, output, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { CatalogProduct } from '../../../core/interfaces/catalog.interface';
 import { FavoritesService } from '../../../core/services/favorites.service';
@@ -13,7 +13,7 @@ export type CatalogProductCardVariant = 'featured' | 'standard' | 'compact';
   imports: [CurrencyPipe],
   templateUrl: './catalog-product-card.html',
   host: {
-    class: 'block h-full',
+    '[class]': 'hostClasses()',
   },
 })
 export class CatalogProductCardComponent {
@@ -26,53 +26,58 @@ export class CatalogProductCardComponent {
   readonly busy = input(false);
   readonly add = output<CatalogProduct>();
   readonly isFavorite = computed(() => this.favoritesService.isFavorite(this.product().id));
+  readonly imageBroken = signal(false);
 
-  readonly articleClasses = computed(() => {
+  readonly hostClasses = computed(() => {
     switch (this.variant()) {
       case 'featured':
-        return 'md:col-span-6 xl:col-span-6';
+        return 'block h-full md:col-span-2 xl:col-span-4';
       case 'compact':
-        return 'md:col-span-3 xl:col-span-3';
+        return 'block h-full';
       default:
-        return 'md:col-span-3 xl:col-span-4';
+        return 'block h-full xl:col-span-2';
     }
   });
 
   readonly mediaClasses = computed(() => {
     switch (this.variant()) {
       case 'featured':
-        return 'aspect-[4/5] min-h-[26rem] md:min-h-[34rem]';
+        return 'aspect-[4/5] min-h-[30rem] md:min-h-[38rem] xl:min-h-[44rem]';
       case 'compact':
-        return 'aspect-[4/5] min-h-[18rem]';
+        return 'aspect-[4/5] min-h-[18rem] md:min-h-[22rem] xl:min-h-[24rem]';
       default:
-        return 'aspect-[4/5] min-h-[22rem]';
+        return 'aspect-[4/5] min-h-[24rem] md:min-h-[30rem] xl:min-h-[34rem]';
     }
   });
 
   readonly titleClasses = computed(() => {
     switch (this.variant()) {
       case 'featured':
-        return 'text-2xl md:text-3xl';
+        return 'text-xl md:text-2xl';
       case 'compact':
-        return 'text-lg';
+        return 'text-sm md:text-base';
       default:
-        return 'text-xl';
+        return 'text-base md:text-lg';
     }
   });
 
   readonly bodyClasses = computed(() => {
     switch (this.variant()) {
       case 'featured':
-        return 'space-y-5 p-6';
+        return 'pt-4';
       case 'compact':
-        return 'space-y-3 p-4';
+        return 'pt-3';
       default:
-        return 'space-y-4 p-5';
+        return 'pt-3.5';
     }
   });
 
   openProductDetail(): void {
     void this.router.navigate(['/products', this.product().id]);
+  }
+
+  markImageAsBroken(): void {
+    this.imageBroken.set(true);
   }
 
   handleKeydown(event: KeyboardEvent): void {

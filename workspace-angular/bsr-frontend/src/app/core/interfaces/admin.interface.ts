@@ -110,5 +110,6 @@ export interface AdminDashboardData {
   pendingOrderCount: number;
   lowStockCount: number;
   revenueTotal: number;
+  recentProducts: readonly AdminProduct[];
   recentOrders: readonly AdminOrder[];
 }
