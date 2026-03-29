@@ -34,15 +34,92 @@
     </a>
 
     <div class="ml-auto flex items-center gap-5">
-      <button
-        type="button"
-        aria-label="Buscar"
-        class="inline-flex items-center justify-center py-2"
-        [class.text-white]="isHome()"
-        [class.text-black]="!isHome()"
-      >
-        <app-icon name="icon-search" class="h-5 w-5"></app-icon>
-      </button>
+      <div #searchShell class="relative h-10 w-10 shrink-0">
+        <div
+          class="pointer-events-none absolute right-0 top-1/2 z-20 h-10 w-40 origin-right -translate-y-1/2 overflow-hidden rounded-full border border-black/10 bg-white/95 shadow-[0_12px_35px_rgba(15,23,42,0.14)] transition-all duration-300 ease-out"
+          [class.scale-x-0]="!searchOpen()"
+          [class.scale-x-100]="searchOpen()"
+          [class.opacity-0]="!searchOpen()"
+          [class.opacity-100]="searchOpen()"
+        >
+          <form class="h-full w-full" (submit)="submitSearch($event)">
+            <input
+              #searchInput
+              type="search"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Buscar productos, categorias o paginas"
+              [value]="searchQuery()"
+              (input)="onSearchInput(($any($event.target).value ?? '').toString())"
+              class="h-full w-full bg-transparent pl-4 pr-14 text-[11px] tracking-[0.08em] text-black outline-none transition-all duration-300 placeholder:text-black/45"
+              [class.translate-x-4]="!searchOpen()"
+              [class.translate-x-0]="searchOpen()"
+              [class.opacity-0]="!searchOpen()"
+              [class.opacity-100]="searchOpen()"
+              [class.pointer-events-none]="!searchOpen()"
+            />
+          </form>
+        </div>
+
+        <button
+          type="button"
+          aria-label="Buscar"
+          (click)="toggleSearch()"
+          class="relative z-30 inline-flex h-10 w-10 items-center justify-center rounded-full"
+          [class.text-white]="isHome() && !searchOpen()"
+          [class.text-black]="!isHome() || searchOpen()"
+        >
+          <app-icon name="icon-search" class="h-5 w-5"></app-icon>
+        </button>
+
+        @if (searchOpen() && searchQuery().trim()) {
+          <div
+            class="absolute right-0 top-[calc(100%+0.85rem)] z-40 w-88 max-w-[calc(100vw-2rem)] overflow-hidden rounded-[1.75rem] border border-black/10 bg-white text-black shadow-[0_24px_60px_rgba(15,23,42,0.18)]"
+          >
+            @if (searchResults().length) {
+              <div class="max-h-112 overflow-y-auto p-2">
+                @for (result of searchResults(); track result.type + '-' + result.id + '-' + result.route) {
+                  <button
+                    type="button"
+                    (click)="openSearchResult(result)"
+                    class="flex w-full items-center gap-3 rounded-[1.3rem] px-3 py-3 text-left transition-colors duration-200 hover:bg-black/4"
+                  >
+                    @if (result.imageUrl) {
+                      <img
+                        [src]="result.imageUrl"
+                        [alt]="result.title"
+                        class="h-14 w-14 rounded-2xl bg-surface-popover object-cover"
+                      />
+                    } @else {
+                      <div
+                        class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-surface-popover text-[10px] font-semibold uppercase tracking-[0.22em] text-black/65"
+                      >
+                        {{ getSearchTypeLabel(result) }}
+                      </div>
+                    }
+
+                    <div class="min-w-0 flex-1">
+                      <p class="text-[10px] uppercase tracking-[0.22em] text-black/45">
+                        {{ getSearchTypeLabel(result) }}
+                      </p>
+                      <p class="mt-1 truncate text-sm font-semibold uppercase tracking-[0.09em]">
+                        {{ result.title }}
+                      </p>
+                      <p class="mt-1 truncate text-xs normal-case tracking-[0.04em] text-black/55">
+                        {{ result.subtitle }}
+                      </p>
+                    </div>
+                  </button>
+                }
+              </div>
+            } @else {
+              <div class="px-5 py-6 text-sm normal-case tracking-[0.04em] text-black/55">
+                No se encontraron coincidencias para �{{ searchQuery().trim() }}�.
+              </div>
+            }
+          </div>
+        }
+      </div>
 
       <a
         routerLink="/cart"
@@ -54,7 +131,7 @@
         <app-icon name="icon-bag" class="h-5 w-5"></app-icon>
         @if (authService.isAuthenticated() && cartItemCount() > 0) {
           <span
-            class="absolute -right-2 -top-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-[#d97706] px-1 text-[10px] font-semibold text-white"
+            class="absolute -right-2 -top-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-accent-amber-600 px-1 text-[10px] font-semibold text-white"
           >
             {{ cartItemCount() }}
           </span>
@@ -65,3 +142,4 @@
     </div>
   </section>
 </header>
+

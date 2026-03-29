@@ -38,6 +38,16 @@ export const routes: Routes = [
       import('./features/accessories/accessories').then((m) => m.Accessories),
   },
   {
+    path: 'products/:id',
+    loadComponent: () =>
+      import('./features/product-detail/product-detail').then((m) => m.ProductDetail),
+  },
+  {
+    path: 'product/:id',
+    redirectTo: 'products/:id',
+    pathMatch: 'full',
+  },
+  {
     path: 'cart',
     canActivate: [authGuard],
     loadComponent: () => import('./features/cart/cart').then((m) => m.Cart),
@@ -57,6 +67,11 @@ export const routes: Routes = [
     path: 'my-orders',
     canActivate: [authGuard],
     loadComponent: () => import('./features/my-orders/my-orders').then((m) => m.MyOrders),
+  },
+  {
+    path: 'favorites',
+    canActivate: [authGuard],
+    loadComponent: () => import('./features/favorites/favorites').then((m) => m.Favorites),
   },
   {
     path: 'admin',

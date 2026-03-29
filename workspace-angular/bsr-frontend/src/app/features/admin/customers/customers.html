@@ -1,6 +1,6 @@
 <section class="space-y-6">
   <header
-    class="flex flex-col gap-4 rounded-[2rem] bg-[#111111] px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:flex-row md:items-end md:justify-between"
+    class="flex flex-col gap-4 rounded-[2rem] bg-shell-925 px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:flex-row md:items-end md:justify-between"
   >
     <div>
       <p class="text-[11px] uppercase tracking-[0.35em] text-white/55">Admin usuarios</p>
@@ -39,7 +39,7 @@
       @if (customers().length) {
         <div class="mt-6 space-y-4">
           @for (customer of customers(); track customer.id) {
-            <article class="rounded-[1.6rem] border border-black/10 bg-[#f8f5ef] p-5">
+            <article class="rounded-[1.6rem] border border-black/10 bg-surface-panel p-5">
               <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                 <div class="min-w-0">
                   <div class="flex flex-wrap items-center gap-2">
@@ -111,7 +111,7 @@
           }
         </div>
       } @else {
-        <article class="mt-6 rounded-[1.6rem] border border-dashed border-black/15 bg-[#f8f5ef] px-5 py-8 text-sm leading-7 text-neutral-600">
+        <article class="mt-6 rounded-[1.6rem] border border-dashed border-black/15 bg-surface-panel px-5 py-8 text-sm leading-7 text-neutral-600">
           No hay usuarios cargados todavia o el backend de clientes aun no esta disponible.
         </article>
       }
@@ -141,7 +141,7 @@
           <input
             type="email"
             formControlName="email"
-            class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             placeholder="usuario@correo.com"
           />
         </label>
@@ -152,7 +152,7 @@
             <input
               type="text"
               formControlName="firstName"
-              class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+              class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
               placeholder="Ana"
             />
           </label>
@@ -162,7 +162,7 @@
             <input
               type="text"
               formControlName="lastName"
-              class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+              class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
               placeholder="Lopez Martin"
             />
           </label>
@@ -173,7 +173,7 @@
           <input
             type="text"
             formControlName="number"
-            class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             placeholder="600123123"
           />
         </label>
@@ -183,14 +183,14 @@
             <span class="text-[11px] uppercase tracking-[0.24em] text-neutral-500">Rol</span>
             <select
               formControlName="role"
-              class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+              class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             >
               <option value="user">User</option>
               <option value="admin">Admin</option>
             </select>
           </label>
 
-          <label class="flex items-center justify-between rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-4 sm:mt-7">
+          <label class="flex items-center justify-between rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-4 sm:mt-7">
             <span class="text-sm font-medium text-neutral-900">Cuenta habilitada</span>
             <input type="checkbox" formControlName="enabled" class="h-4 w-4 accent-black" />
           </label>
@@ -203,7 +203,7 @@
           <input
             type="password"
             formControlName="password"
-            class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             placeholder="Minimo 6 caracteres"
           />
         </label>
@@ -229,3 +229,4 @@
     </article>
   </section>
 </section>
+

@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, forkJoin, of } from 'rxjs';
-import { catchError, map, shareReplay } from 'rxjs/operators';
+import { catchError, map, shareReplay, switchMap } from 'rxjs/operators';
 import { API_BASE_URL, API_ENDPOINTS } from '../constants/api.constants';
 import { PRIMARY_NAV_LINKS, type NavigationLink } from '../constants/navigation.constants';
 import {
   type CatalogCategory,
   type CatalogProduct,
+  type CatalogSearchItem,
   type CategoryApiResponse,
   type CategorySlug,
   type ProductApiResponse,
@@ -32,6 +33,24 @@ export class CatalogService {
       catchError(() => of([] as CatalogCategory[])),
       shareReplay({ bufferSize: 1, refCount: true }),
     );
+
+  private readonly searchEntriesRequest$ = this.categoriesRequest$.pipe(
+    switchMap((categories) => {
+      if (!categories.length) {
+        return of([] as CatalogSearchItem[]);
+      }
+
+      return forkJoin(
+        categories.map((category) =>
+          this.getProductsByCategoryId(category.id).pipe(map((products) => ({ category, products }))),
+        ),
+      ).pipe(
+        map((groups) => this.buildSearchEntries(groups)),
+        catchError(() => of(this.buildCategorySearchEntries(categories))),
+      );
+    }),
+    shareReplay({ bufferSize: 1, refCount: true }),
+  );
 
   getCategories(): Observable<readonly CatalogCategory[]> {
     return this.categoriesRequest$;
@@ -69,6 +88,10 @@ export class CatalogService {
     );
   }
 
+  getSearchEntries(): Observable<readonly CatalogSearchItem[]> {
+    return this.searchEntriesRequest$;
+  }
+
   getNavigationLinks(): Observable<readonly NavigationLink[]> {
     return this.categoriesRequest$.pipe(
       map((categories) => {
@@ -96,6 +119,7 @@ export class CatalogService {
       id: category.id,
       name: category.name?.trim() || 'Categoria',
       description: category.description?.trim() || '',
+      imageUrl: this.resolveBackendAssetUrl(category.imageUrl ?? null),
       productIds: category.productIds ?? [],
       slug,
       route: slug ? `/${slug}` : null,
@@ -106,6 +130,8 @@ export class CatalogService {
     return {
       id: product.id,
       name: product.name?.trim() || 'Producto',
+      sku: product.sku?.trim() || null,
+      description: product.description?.trim() || '',
       price: typeof product.price === 'number' ? product.price : null,
       stock: typeof product.stock === 'number' ? product.stock : null,
       categoryId: product.categoryId,
@@ -113,6 +139,95 @@ export class CatalogService {
         product.imageUrl ?? product.image ?? product.imagePath ?? product.thumbnailUrl ?? null,
       ),
     };
+  }
+
+  private buildSearchEntries(
+    groups: readonly { category: CatalogCategory; products: readonly CatalogProduct[] }[],
+  ): CatalogSearchItem[] {
+    const categoryEntries = this.buildCategorySearchEntries(groups.map(({ category }) => category));
+    const seenProducts = new Set<number>();
+    const productEntries: CatalogSearchItem[] = [];
+
+    groups.forEach(({ category, products }) => {
+      products.forEach((product) => {
+        if (seenProducts.has(product.id)) {
+          return;
+        }
+
+        seenProducts.add(product.id);
+        productEntries.push(this.createProductSearchEntry(product, category));
+      });
+    });
+
+    return [...categoryEntries, ...productEntries];
+  }
+
+  private buildCategorySearchEntries(categories: readonly CatalogCategory[]): CatalogSearchItem[] {
+    return categories
+      .filter((category) => !!category.route)
+      .map((category) => this.createCategorySearchEntry(category));
+  }
+
+  private createCategorySearchEntry(category: CatalogCategory): CatalogSearchItem {
+    return {
+      type: 'category',
+      id: category.id,
+      title: category.name,
+      subtitle: category.description || 'Explorar categoria',
+      route: category.route ?? '/home',
+      imageUrl: category.imageUrl,
+      keywords: this.buildKeywords(
+        category.name,
+        category.description,
+        category.slug,
+        category.route,
+        ...(category.slug ? CATEGORY_ALIASES[category.slug] : []),
+      ),
+    };
+  }
+
+  private createProductSearchEntry(
+    product: CatalogProduct,
+    category: CatalogCategory | null | undefined,
+  ): CatalogSearchItem {
+    return {
+      type: 'product',
+      id: product.id,
+      title: product.name,
+      subtitle: category?.name ?? product.sku ?? 'Producto',
+      route: `/products/${product.id}`,
+      imageUrl: product.imageUrl,
+      keywords: this.buildKeywords(
+        product.name,
+        product.description,
+        product.sku,
+        category?.name,
+        category?.slug,
+        ...(category?.slug ? CATEGORY_ALIASES[category.slug] : []),
+      ),
+    };
+  }
+
+  private buildKeywords(...values: (string | null | undefined)[]): readonly string[] {
+    const keywords = new Set<string>();
+
+    values.forEach((value) => {
+      const normalizedValue = this.normalizeText(value);
+
+      if (!normalizedValue) {
+        return;
+      }
+
+      keywords.add(normalizedValue);
+
+      normalizedValue
+        .split(/[^a-z0-9]+/g)
+        .map((token) => token.trim())
+        .filter((token) => token.length >= 2)
+        .forEach((token) => keywords.add(token));
+    });
+
+    return [...keywords];
   }
 
   private resolveCategorySlug(categoryName: string | null | undefined): CategorySlug | null {

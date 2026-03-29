@@ -32,15 +32,51 @@ export class AdminService {
       orders: this.getOrders().pipe(catchError(() => of([] as readonly AdminOrder[]))),
     }).pipe(
       map(({ products, categories, customers, orders }) => {
+        const now = new Date();
+        const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        const startOfNextDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime();
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
+        const startOfPreviousMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1).getTime();
         const recentOrders = [...orders]
           .sort((left, right) => this.toDateMs(right.createdAt) - this.toDateMs(left.createdAt))
           .slice(0, 5);
+        const salesToday = orders.reduce((total, order) => {
+          const createdAtMs = this.toDateMs(order.createdAt);
+
+          if (createdAtMs < startOfToday || createdAtMs >= startOfNextDay) {
+            return total;
+          }
+
+          return total + (order.total ?? 0);
+        }, 0);
+        const salesMonth = orders.reduce((total, order) => {
+          const createdAtMs = this.toDateMs(order.createdAt);
+
+          if (createdAtMs < startOfMonth || createdAtMs >= startOfNextDay) {
+            return total;
+          }
+
+          return total + (order.total ?? 0);
+        }, 0);
+        const salesPreviousMonth = orders.reduce((total, order) => {
+          const createdAtMs = this.toDateMs(order.createdAt);
+
+          if (createdAtMs < startOfPreviousMonth || createdAtMs >= startOfMonth) {
+            return total;
+          }
+
+          return total + (order.total ?? 0);
+        }, 0);
 
         return {
           productCount: products.length,
           categoryCount: categories.length,
           customerCount: customers.length,
           orderCount: orders.length,
+          salesToday,
+          salesMonth,
+          salesPreviousMonth,
+          salesMonthDelta: salesMonth - salesPreviousMonth,
           adminCount: customers.filter((customer) => customer.role === 'admin').length,
           activeCustomerCount: customers.filter((customer) => customer.enabled).length,
           pendingOrderCount: orders.filter((order) => order.status === 'CREATED').length,
@@ -83,13 +119,13 @@ export class AdminService {
 
   createCategory(payload: AdminCategoryInput): Observable<AdminCategory> {
     return this.http
-      .post<unknown>(API_ENDPOINTS.admin.categories, this.buildCatPayload(payload))
+      .post<unknown>(API_ENDPOINTS.admin.categories, this.buildCatFormData(payload))
       .pipe(map((response) => this.mapCat(response)));
   }
 
   updateCategory(id: number, payload: AdminCategoryInput): Observable<AdminCategory> {
     return this.http
-      .patch<unknown>(API_ENDPOINTS.admin.category(id), this.buildCatPayload(payload))
+      .patch<unknown>(API_ENDPOINTS.admin.category(id), this.buildCatFormData(payload))
       .pipe(map((response) => this.mapCat(response)));
   }
 
@@ -160,12 +196,16 @@ export class AdminService {
     const formData = new FormData();
 
     formData.append('name', payload.name.trim());
+    formData.append('sku', payload.sku.trim());
+    formData.append('description', payload.description.trim());
     formData.append('price', String(payload.price));
     formData.append('stock', String(payload.stock));
     formData.append('categoryId', String(payload.categoryId));
 
-    if (payload.imageUrl?.trim()) {
-      formData.append('imageUrl', payload.imageUrl.trim());
+    const imageUrl = this.normalizePersistedImageUrl(payload.imageUrl);
+
+    if (imageUrl) {
+      formData.append('imageUrl', imageUrl);
     }
 
     if (payload.imageFile) {
@@ -175,11 +215,23 @@ export class AdminService {
     return formData;
   }
 
-  private buildCatPayload(payload: AdminCategoryInput): JsonObject {
-    return {
-      name: payload.name.trim(),
-      description: payload.description.trim(),
-    };
+  private buildCatFormData(payload: AdminCategoryInput): FormData {
+    const formData = new FormData();
+
+    formData.append('name', payload.name.trim());
+    formData.append('description', payload.description.trim());
+
+    const imageUrl = this.normalizePersistedImageUrl(payload.imageUrl);
+
+    if (imageUrl) {
+      formData.append('imageUrl', imageUrl);
+    }
+
+    if (payload.imageFile) {
+      formData.append('image', payload.imageFile);
+    }
+
+    return formData;
   }
 
   private buildCustPayload(payload: AdminCustomerInput): JsonObject {
@@ -197,6 +249,20 @@ export class AdminService {
     };
   }
 
+  private normalizePersistedImageUrl(value: string | null): string | null {
+    const normalizedValue = value?.trim() || null;
+
+    if (!normalizedValue) {
+      return null;
+    }
+
+    if (normalizedValue.startsWith('blob:') || normalizedValue.startsWith('data:')) {
+      return null;
+    }
+
+    return normalizedValue;
+  }
+
   private mapCat(input: unknown): AdminCategory {
     const source = this.asObject(input);
 
@@ -204,7 +270,12 @@ export class AdminService {
       id: this.toNumber(this.pick(source, ['id'])) ?? 0,
       name: this.toStringValue(this.pick(source, ['name'])) || 'Categoria',
       description: this.toStringValue(this.pick(source, ['description', 'descripcion'])) || '',
+      imageUrl: this.resolveAssetUrl(
+        this.toStringValue(this.pick(source, ['imageUrl', 'image', 'imagePath'])),
+      ),
       productIds: this.asNumberArray(this.pick(source, ['productIds'])),
+      createdAt: this.toStringValue(this.pick(source, ['createDate', 'createdAt'])),
+      updatedAt: this.toStringValue(this.pick(source, ['updateDate', 'updatedAt'])),
     };
   }
 
@@ -215,6 +286,8 @@ export class AdminService {
     return {
       id: this.toNumber(this.pick(source, ['id'])) ?? 0,
       name: this.toStringValue(this.pick(source, ['name'])) || 'Producto',
+      sku: this.toStringValue(this.pick(source, ['sku'])) || '',
+      description: this.toStringValue(this.pick(source, ['description'])) || '',
       price: this.toNumber(this.pick(source, ['price', 'precio'])),
       stock: this.toNumber(this.pick(source, ['stock'])),
       categoryId:

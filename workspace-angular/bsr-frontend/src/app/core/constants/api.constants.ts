@@ -40,6 +40,10 @@ export const API_ENDPOINTS = {
     cart: `${API_BASE_URL}/api/cart/me`,
     cartItems: `${API_BASE_URL}/api/cart/me/items`,
     cartItem: (productId: number | string) => `${API_BASE_URL}/api/cart/me/items/${productId}`,
+    favorites: `${API_BASE_URL}/api/favorites/me`,
+    favorite: (productId: number | string) => `${API_BASE_URL}/api/favorites/me/${productId}`,
+    favoriteExists: (productId: number | string) =>
+      `${API_BASE_URL}/api/favorites/me/${productId}/exists`,
     addresses: `${API_BASE_URL}/api/addresses/me`,
     address: (id: number | string) => `${API_BASE_URL}/api/addresses/me/${id}`,
     orders: `${API_BASE_URL}/api/orders/me`,

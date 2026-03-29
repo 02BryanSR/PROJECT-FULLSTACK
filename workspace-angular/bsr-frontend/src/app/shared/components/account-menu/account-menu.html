@@ -21,7 +21,7 @@
 
   @if (isOpen()) {
     <section
-      class="absolute z-50 mt-3 w-80 overflow-hidden rounded-[1.5rem] bg-neutral-100 shadow-xl"
+      class="absolute z-50 mt-3 w-80 overflow-hidden rounded-[1.5rem] bg-surface-panel shadow-xl"
       [class.left-0]="panelAlign() === 'left'"
       [class.origin-top-left]="panelAlign() === 'left'"
       [class.right-0]="panelAlign() === 'right'"
@@ -46,6 +46,14 @@
               class="flex items-center justify-center rounded-full border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
             >
               Mi carrito
+            </a>
+
+            <a
+              routerLink="/favorites"
+              (click)="navigateAndClose()"
+              class="flex items-center justify-center rounded-full border border-neutral-300 px-4 py-3 text-sm font-medium text-neutral-800 transition hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+            >
+              Mis favoritos
             </a>
 
             <a
@@ -87,7 +95,7 @@
           <header>
             <p class="text-sm text-neutral-500">Todavia no has iniciado sesion.</p>
             <strong class="mt-1 block text-base font-semibold text-neutral-900">
-              Identificate para acceder a tu carrito, tus direcciones y el historial de compra.
+              Identificate para acceder a tu carrito, favoritos, direcciones y el historial de compra.
             </strong>
           </header>
 

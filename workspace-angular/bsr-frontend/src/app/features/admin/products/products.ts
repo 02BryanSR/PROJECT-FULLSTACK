@@ -1,7 +1,8 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, OnDestroy, computed, inject, signal } from '@angular/core';
+import { Component, DestroyRef, OnDestroy, computed, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { finalize, forkJoin } from 'rxjs';
+import { finalize, forkJoin, merge } from 'rxjs';
 import {
   AdminCategory,
   AdminProduct,
@@ -20,6 +21,7 @@ export class AdminProducts implements OnDestroy {
   private readonly adminService = inject(AdminService);
   private readonly formBuilder = inject(FormBuilder);
   private readonly toastService = inject(ToastService);
+  private readonly destroyRef = inject(DestroyRef);
 
   private objectUrl: string | null = null;
 
@@ -34,13 +36,19 @@ export class AdminProducts implements OnDestroy {
 
   readonly form = this.formBuilder.group({
     name: ['', [Validators.required, Validators.maxLength(150)]],
+    sku: ['', [Validators.maxLength(80)]],
+    description: ['', [Validators.required, Validators.maxLength(2000)]],
     price: [0, [Validators.required, Validators.min(0)]],
-    stock: [0, [Validators.required, Validators.min(0)]],
+    stock: [50, [Validators.required, Validators.min(0)]],
     categoryId: [null as number | null, [Validators.required]],
     imageUrl: [''],
   });
 
   constructor() {
+    merge(this.form.controls.categoryId.valueChanges, this.form.controls.name.valueChanges)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => this.syncGeneratedSku());
+
     this.loadData();
   }
 
@@ -48,7 +56,7 @@ export class AdminProducts implements OnDestroy {
     this.releaseObjectUrl();
   }
 
-  loadData(): void {
+  loadData(resetForm = false): void {
     this.loading.set(true);
 
     forkJoin({
@@ -61,9 +69,16 @@ export class AdminProducts implements OnDestroy {
           this.products.set(products);
           this.categories.set(categories);
 
+          if (resetForm) {
+            this.startCreate();
+            return;
+          }
+
           if (!this.form.controls.categoryId.value && categories.length) {
             this.form.patchValue({ categoryId: categories[0].id });
           }
+
+          this.syncGeneratedSku();
         },
         error: () => {
           this.products.set([]);
@@ -81,8 +96,10 @@ export class AdminProducts implements OnDestroy {
     this.setPreview(null);
     this.form.reset({
       name: '',
+      sku: this.generateSkuPreview(this.categories()[0]?.id ?? null),
+      description: '',
       price: 0,
-      stock: 0,
+      stock: 50,
       categoryId: this.categories()[0]?.id ?? null,
       imageUrl: '',
     });
@@ -93,6 +110,8 @@ export class AdminProducts implements OnDestroy {
     this.imageFile.set(null);
     this.form.reset({
       name: product.name,
+      sku: product.sku,
+      description: product.description,
       price: product.price ?? 0,
       stock: product.stock ?? 0,
       categoryId: product.categoryId,
@@ -117,6 +136,8 @@ export class AdminProducts implements OnDestroy {
 
     const payload: AdminProductInput = {
       name: rawValue.name?.trim() || '',
+      sku: rawValue.sku?.trim() || '',
+      description: rawValue.description?.trim() || '',
       price: Number(rawValue.price ?? 0),
       stock: Number(rawValue.stock ?? 0),
       categoryId,
@@ -134,12 +155,12 @@ export class AdminProducts implements OnDestroy {
 
     request$.pipe(finalize(() => this.saving.set(false))).subscribe({
       next: (product) => {
+        this.applyStoredImageUrl(product.imageUrl);
         this.toastService.show({
           title: selectedProductId === null ? 'Producto creado' : 'Producto actualizado',
           message: `El producto ${product.name} ya esta sincronizado con el panel admin.`,
         });
-        this.loadData();
-        this.startEdit(product);
+        this.loadData(true);
       },
       error: () => {
         this.toastService.showError('No se pudo guardar el producto. Revisa los datos del formulario.');
@@ -188,8 +209,9 @@ export class AdminProducts implements OnDestroy {
       return;
     }
 
-    this.form.patchValue({ imageUrl: '' });
-    this.setPreview(URL.createObjectURL(file), true);
+    const previewUrl = URL.createObjectURL(file);
+    this.form.patchValue({ imageUrl: previewUrl });
+    this.setPreview(previewUrl, true);
   }
 
   onImageUrlInput(): void {
@@ -221,5 +243,70 @@ export class AdminProducts implements OnDestroy {
       URL.revokeObjectURL(this.objectUrl);
       this.objectUrl = null;
     }
+  }
+
+  private applyStoredImageUrl(imageUrl: string | null): void {
+    const normalizedImageUrl = imageUrl?.trim() || '';
+
+    if (!normalizedImageUrl) {
+      return;
+    }
+
+    this.form.patchValue({ imageUrl: normalizedImageUrl });
+
+    if (!window.isSecureContext || !navigator.clipboard?.writeText) {
+      return;
+    }
+
+    void navigator.clipboard.writeText(normalizedImageUrl).catch(() => undefined);
+  }
+
+  private syncGeneratedSku(): void {
+    if (this.isEditing()) {
+      return;
+    }
+
+    this.form.patchValue(
+      {
+        sku: this.generateSkuPreview(this.form.controls.categoryId.value),
+      },
+      { emitEvent: false },
+    );
+  }
+
+  private generateSkuPreview(categoryId: number | null): string {
+    const nextSequence = this.products().reduce((highestId, product) => Math.max(highestId, product.id), 0) + 1;
+    const categoryName = this.categories().find((category) => category.id === categoryId)?.name ?? null;
+    const categoryCode = this.resolveCategoryCode(categoryName);
+
+    return `BSR-${categoryCode}-${String(nextSequence).padStart(4, '0')}`;
+  }
+
+  private resolveCategoryCode(categoryName: string | null): string {
+    const normalizedCategory = (categoryName ?? '')
+      .trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-zA-Z0-9\s]/g, '')
+      .toUpperCase();
+
+    if (!normalizedCategory) {
+      return 'GEN';
+    }
+
+    if (normalizedCategory.startsWith('WOM')) {
+      return 'WOM';
+    }
+    if (normalizedCategory.startsWith('MEN') || normalizedCategory.startsWith('HOM')) {
+      return 'MEN';
+    }
+    if (normalizedCategory.startsWith('KID') || normalizedCategory.startsWith('NIN') || normalizedCategory.startsWith('CHI')) {
+      return 'KID';
+    }
+    if (normalizedCategory.startsWith('ACC') || normalizedCategory.startsWith('COM')) {
+      return 'ACC';
+    }
+
+    return (normalizedCategory.replace(/\s+/g, '') + 'XXX').slice(0, 3);
   }
 }

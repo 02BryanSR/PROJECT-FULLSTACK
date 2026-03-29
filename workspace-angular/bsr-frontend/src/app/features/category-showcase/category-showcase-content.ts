@@ -234,36 +234,23 @@ export function buildCategoryShowcaseContent(
   const priceValues = products
     .map((product) => product.price)
     .filter((price): price is number => typeof price === 'number');
-  const inStockProducts = products.filter((product) => (product.stock ?? 0) > 0);
   const priceRange = buildPriceRange(priceValues);
 
   return {
     eyebrow: fallback.eyebrow,
     title: categoryName,
     description: category?.description?.trim() || fallback.description,
-    accent: fallback.accent,
-    heroImage: productsWithImages[0]?.imageUrl ?? fallback.heroImage,
+    accent: products.length ? 'Catalogo real' : 'Categoria',
+    heroImage: category?.imageUrl ?? productsWithImages[0]?.imageUrl ?? fallback.heroImage,
     heroAlt: category ? `${categoryName} category hero` : fallback.heroAlt,
-    highlights: productHighlights.length ? productHighlights : fallback.highlights,
-    panels: products.length
+    highlights: products.length
       ? [
-          {
-            eyebrow: 'Catalog',
-            title: `${products.length} productos`,
-            description: `Categoria conectada con el backend para ${categoryName}.`,
-          },
-          {
-            eyebrow: 'Stock',
-            title: `${inStockProducts.length} disponibles`,
-            description: 'Productos con stock positivo listos para mostrarse en la categoria.',
-          },
-          {
-            eyebrow: 'Price',
-            title: priceRange,
-            description: 'Rango de precios calculado con los productos reales del backend.',
-          },
+          `${products.length} productos`,
+          categoryName,
+          priceRange,
         ]
-      : fallback.panels,
+      : fallback.highlights,
+    panels: fallback.panels,
     gallery: buildGallery(categoryName, productsWithImages, fallback.gallery),
     products,
   };

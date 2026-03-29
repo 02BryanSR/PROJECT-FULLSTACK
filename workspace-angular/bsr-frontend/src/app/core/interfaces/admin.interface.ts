@@ -9,17 +9,24 @@ export interface AdminCategory {
   id: number;
   name: string;
   description: string;
+  imageUrl: string | null;
   productIds: readonly number[];
+  createdAt: string | null;
+  updatedAt: string | null;
 }
 
 export interface AdminCategoryInput {
   name: string;
   description: string;
+  imageUrl: string | null;
+  imageFile: File | null;
 }
 
 export interface AdminProduct {
   id: number;
   name: string;
+  sku: string;
+  description: string;
   price: number | null;
   stock: number | null;
   categoryId: number | null;
@@ -31,6 +38,8 @@ export interface AdminProduct {
 
 export interface AdminProductInput {
   name: string;
+  sku: string;
+  description: string;
   price: number;
   stock: number;
   categoryId: number;
@@ -92,6 +101,10 @@ export interface AdminDashboardData {
   categoryCount: number;
   customerCount: number;
   orderCount: number;
+  salesToday: number;
+  salesMonth: number;
+  salesPreviousMonth: number;
+  salesMonthDelta: number;
   adminCount: number;
   activeCustomerCount: number;
   pendingOrderCount: number;

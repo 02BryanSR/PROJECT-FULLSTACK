@@ -1,17 +1,19 @@
-﻿<div class="flex items-center justify-between px-6 py-4 text-white md:px-10 lg:hidden">
+<div class="flex items-center justify-between px-6 py-4 text-white md:px-10 lg:hidden">
   <button
     type="button"
     aria-label="Abrir menu"
-    class="inline-flex items-center justify-center text-white"
-    [style.color]="isHome() ? 'white' : 'black'"
+    class="inline-flex items-center justify-center"
+    [class.text-white]="isHome()"
+    [class.text-black]="!isHome()"
     (click)="toggle()"
   >
     <app-icon name="icon-hamburger" class="h-7 w-7"></app-icon>
   </button>
 
   <p
-    class="text-center text-xs font-bold uppercase tracking-[0.25em] text-white md:text-sm"
-    [style.color]="isHome() ? 'white' : 'black'"
+    class="text-center text-xs font-bold uppercase tracking-[0.25em] md:text-sm"
+    [class.text-white]="isHome()"
+    [class.text-black]="!isHome()"
   >
     BOLD STYLE REVOLUTION
   </p>
@@ -28,7 +30,7 @@
   ></button>
 
   <aside
-    class="fixed inset-y-0 left-0 z-80 flex w-[min(88vw,24rem)] flex-col bg-[#0c0c0c] px-6 py-6 text-white shadow-2xl lg:hidden"
+    class="fixed inset-y-0 left-0 z-80 flex w-[min(88vw,24rem)] flex-col bg-shell-960 px-6 py-6 text-white shadow-2xl lg:hidden"
   >
     <header class="flex items-center justify-between">
       <p class="text-sm font-bold uppercase tracking-[0.25em]">BOLD STYLE REVOLUTION</p>
@@ -80,7 +82,7 @@
           <app-icon name="icon-bag" class="h-5 w-5"></app-icon>
           @if (authService.isAuthenticated() && cartItemCount() > 0) {
             <span
-              class="absolute -right-2 -top-2 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-[#d97706] px-1 text-[10px] font-semibold text-white"
+              class="absolute -right-2 -top-2 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-accent-amber-600 px-1 text-[10px] font-semibold text-white"
             >
               {{ cartItemCount() }}
             </span>
@@ -92,3 +94,4 @@
     </footer>
   </aside>
 }
+

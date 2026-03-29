@@ -1,9 +1,12 @@
-﻿import { Injectable, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+
+export type ToastType = 'success' | 'error';
 
 export interface ToastState {
   visible: boolean;
   title: string;
   message: string;
+  type: ToastType;
 }
 
 @Injectable({
@@ -14,6 +17,7 @@ export class ToastService {
     visible: false,
     title: '',
     message: '',
+    type: 'success',
   });
 
   private timeoutId: ReturnType<typeof setTimeout> | null = null;
@@ -23,10 +27,11 @@ export class ToastService {
       title: 'Algo salio mal',
       message,
       duration,
+      type: 'error',
     });
   }
 
-  show(toast: { title: string; message: string; duration?: number }): void {
+  show(toast: { title: string; message: string; duration?: number; type?: ToastType }): void {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
     }
@@ -35,6 +40,7 @@ export class ToastService {
       visible: true,
       title: toast.title,
       message: toast.message,
+      type: toast.type ?? 'success',
     });
 
     this.timeoutId = setTimeout(() => {

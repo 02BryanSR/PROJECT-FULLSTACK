@@ -27,6 +27,10 @@ public class CategoryEntity {
     @Column(nullable = false, length = 500)
     private String description;
 
+    @Size(max = 500)
+    @Column(name = "image_url", length = 500)
+    private String imageUrl;
+
     @Column(name = "create_date", nullable = false, updatable = false)
     private LocalDateTime createDate;
 
@@ -51,11 +55,12 @@ public class CategoryEntity {
     public CategoryEntity() {
     }
 
-    public CategoryEntity(Long id, String name, String description, LocalDateTime createDate,
+    public CategoryEntity(Long id, String name, String description, String imageUrl, LocalDateTime createDate,
                           LocalDateTime updateDate, List<ProductEntity> products) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.imageUrl = imageUrl;
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.products = products;
@@ -83,6 +88,14 @@ public class CategoryEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public LocalDateTime getCreateDate() {

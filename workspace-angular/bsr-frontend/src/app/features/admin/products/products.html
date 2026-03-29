@@ -1,6 +1,6 @@
 <section class="space-y-6">
   <header
-    class="flex flex-col gap-4 rounded-[2rem] bg-[#111111] px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:flex-row md:items-end md:justify-between"
+    class="flex flex-col gap-4 rounded-[2rem] bg-shell-925 px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:flex-row md:items-end md:justify-between"
   >
     <div>
       <p class="text-[11px] uppercase tracking-[0.35em] text-white/55">Admin productos</p>
@@ -50,7 +50,7 @@
         <div class="mt-6 space-y-4">
           @for (product of products(); track product.id) {
             <article
-              class="grid gap-4 rounded-[1.6rem] border border-black/10 bg-[#f8f5ef] p-4 md:grid-cols-[8rem_1fr_auto]"
+              class="grid gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 md:grid-cols-[8rem_1fr_auto]"
             >
               <figure class="overflow-hidden rounded-[1.2rem] bg-neutral-200">
                 @if (product.imageUrl) {
@@ -72,7 +72,14 @@
                   <span class="rounded-full border border-black/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-neutral-600">
                     {{ product.categoryName }}
                   </span>
+                  <span class="rounded-full bg-black px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white">
+                    {{ product.sku }}
+                  </span>
                 </div>
+
+                <p class="mt-3 line-clamp-2 text-sm leading-6 text-neutral-600">
+                  {{ product.description || 'Sin descripcion todavia.' }}
+                </p>
 
                 <div class="mt-3 grid gap-3 text-sm text-neutral-600 sm:grid-cols-3">
                   <p>
@@ -117,7 +124,7 @@
           }
         </div>
       } @else {
-        <article class="mt-6 rounded-[1.6rem] border border-dashed border-black/15 bg-[#f8f5ef] px-5 py-8 text-sm leading-7 text-neutral-600">
+        <article class="mt-6 rounded-[1.6rem] border border-dashed border-black/15 bg-surface-panel px-5 py-8 text-sm leading-7 text-neutral-600">
           No hay productos cargados todavia. Usa el formulario lateral para crear el primero.
         </article>
       }
@@ -147,9 +154,30 @@
           <input
             type="text"
             formControlName="name"
-            class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             placeholder="Vestido satinado"
           />
+        </label>
+
+        <label class="block space-y-2">
+          <span class="text-[11px] uppercase tracking-[0.24em] text-neutral-500">SKU</span>
+          <input
+            type="text"
+            formControlName="sku"
+            readonly
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm uppercase text-neutral-900 outline-none transition focus:border-black"
+            placeholder="BSR-WOM-0001"
+          />
+        </label>
+
+        <label class="block space-y-2">
+          <span class="text-[11px] uppercase tracking-[0.24em] text-neutral-500">Descripcion</span>
+          <textarea
+            rows="5"
+            formControlName="description"
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+            placeholder="Ficha editorial corta y util para la pantalla de detalle."
+          ></textarea>
         </label>
 
         <div class="grid gap-4 sm:grid-cols-2">
@@ -160,7 +188,7 @@
               min="0"
               step="0.01"
               formControlName="price"
-              class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+              class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             />
           </label>
 
@@ -171,7 +199,7 @@
               min="0"
               step="1"
               formControlName="stock"
-              class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+              class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             />
           </label>
         </div>
@@ -180,7 +208,7 @@
           <span class="text-[11px] uppercase tracking-[0.24em] text-neutral-500">Categoria</span>
           <select
             formControlName="categoryId"
-            class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
           >
             <option [ngValue]="null">Selecciona una categoria</option>
             @for (category of categories(); track category.id) {
@@ -195,7 +223,7 @@
             type="url"
             formControlName="imageUrl"
             (input)="onImageUrlInput()"
-            class="w-full rounded-[1.1rem] border border-black/10 bg-[#f8f5ef] px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
+            class="w-full rounded-[1.1rem] border border-black/10 bg-surface-panel px-4 py-3 text-sm text-neutral-900 outline-none transition focus:border-black"
             placeholder="https://..."
           />
         </label>
@@ -206,12 +234,12 @@
             type="file"
             accept="image/*"
             (change)="onImageFileChange($event)"
-            class="block w-full rounded-[1.1rem] border border-dashed border-black/15 bg-[#f8f5ef] px-4 py-4 text-sm text-neutral-600"
+            class="block w-full rounded-[1.1rem] border border-dashed border-black/15 bg-surface-panel px-4 py-4 text-sm text-neutral-600"
           />
         </label>
 
         @if (imagePreview()) {
-          <article class="overflow-hidden rounded-[1.5rem] border border-black/10 bg-[#f8f5ef]">
+          <article class="overflow-hidden rounded-[1.5rem] border border-black/10 bg-surface-panel">
             <img
               [src]="imagePreview()!"
               alt="Vista previa producto"
@@ -249,3 +277,4 @@
     </article>
   </section>
 </section>
+

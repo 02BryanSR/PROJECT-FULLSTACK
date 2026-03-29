@@ -3,10 +3,13 @@ package com.project.controller;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.*;
 
+import com.project.dto.CategoryForm;
 import com.project.dto.CategoryDTO;
 import com.project.service.CategoryService;
 
@@ -33,16 +36,16 @@ public class CategoryController {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping
-    public ResponseEntity<CategoryDTO> create(@Valid @RequestBody CategoryDTO dto) {
-        CategoryDTO created = service.createCategory(dto);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<CategoryDTO> create(@Valid @ModelAttribute CategoryForm form) {
+        CategoryDTO created = service.createCategory(form);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    @PatchMapping("/{id}")
-    public ResponseEntity<CategoryDTO> update(@Valid @RequestBody CategoryDTO dto, @PathVariable Long id) {
-        CategoryDTO updated = service.updateCategory(dto, id);
+    @PatchMapping(value = "/{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<CategoryDTO> update(@Valid @ModelAttribute CategoryForm form, @PathVariable Long id) {
+        CategoryDTO updated = service.updateCategory(form, id);
         return ResponseEntity.ok(updated);
     }
 

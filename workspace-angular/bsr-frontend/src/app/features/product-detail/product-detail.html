@@ -1,0 +1,132 @@
+<section class="w-full bg-shell-990 px-4 pb-16 pt-24 text-white md:px-8 xl:px-10">
+  <div class="mx-auto max-w-[1920px] space-y-8">
+    @if (loading()) {
+      <article class="rounded-[2rem] border border-white/10 bg-white/5 px-6 py-10 text-sm text-white/70">
+        Cargando producto...
+      </article>
+    } @else if (product(); as product) {
+      <section class="grid gap-6 xl:grid-cols-[minmax(0,1.45fr)_minmax(22rem,32rem)]">
+        <article class="overflow-hidden rounded-[2rem] bg-shell-950">
+          <div class="relative bg-surface-product">
+            @if (product.imageUrl) {
+              <img
+                [src]="product.imageUrl"
+                [alt]="product.name"
+                class="aspect-[4/5] w-full object-cover"
+              />
+            } @else {
+              <div class="flex aspect-[4/5] items-center justify-center text-xs uppercase tracking-[0.28em] text-black/45">
+                Sin imagen
+              </div>
+            }
+          </div>
+        </article>
+
+        <aside class="rounded-[2rem] border border-white/10 bg-black p-6 xl:sticky xl:top-28 xl:h-fit">
+          <div class="space-y-6">
+            <div class="space-y-3">
+              <p class="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                NEW / EDITORIAL SELECTION
+              </p>
+              <h1 class="text-2xl font-medium uppercase tracking-[0.08em] text-white md:text-3xl">
+                {{ product.name }}
+              </h1>
+              <p class="text-2xl font-semibold text-white">
+                {{ product.price | currency: 'EUR' : 'symbol' : '1.0-2' : 'es' }}
+              </p>
+            </div>
+
+            <div class="border-t border-white/10 pt-6 text-sm text-white/65">
+              <p>Ref. {{ productReference() }}</p>
+            </div>
+
+            <div class="grid gap-3 sm:grid-cols-2">
+              <button
+                type="button"
+                (click)="addToCart()"
+                [disabled]="adding()"
+                class="inline-flex items-center justify-center border border-white/20 px-5 py-4 text-xs uppercase tracking-[0.22em] text-white transition hover:bg-white hover:text-black disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                {{
+                  adding()
+                    ? 'Anadiendo...'
+                    : 'Anadir'
+                }}
+              </button>
+
+              <button
+                type="button"
+                (click)="toggleFavorite()"
+                class="inline-flex items-center justify-center border border-white/20 px-5 py-4 text-xs uppercase tracking-[0.22em] text-white transition hover:bg-white hover:text-black"
+              >
+                {{ isFavorite() ? 'Favorito guardado' : 'Guardar favorito' }}
+              </button>
+            </div>
+
+            <div class="space-y-4 border-t border-white/10 pt-6 text-sm leading-7 text-white/72">
+              <p>
+                {{ productNarrative() }}
+              </p>
+              @if (product.sku) {
+                <p class="text-xs uppercase tracking-[0.22em] text-white/55">
+                  SKU: {{ product.sku }}
+                </p>
+              }
+            </div>
+
+            <nav class="space-y-3 border-t border-white/10 pt-6 text-[11px] uppercase tracking-[0.22em] text-white/78">
+              <p>Medidas del producto</p>
+              <p>Composicion, cuidados y origen</p>
+              <p>Ver disponibilidad en tienda</p>
+              <p>Envios, cambios y devoluciones</p>
+            </nav>
+          </div>
+        </aside>
+      </section>
+
+      @if (relatedProducts().length) {
+        <section class="space-y-5">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <p class="text-[11px] uppercase tracking-[0.28em] text-white/45">Complete tu look</p>
+              <h2 class="mt-3 text-2xl font-semibold uppercase tracking-[0.14em] text-white">
+                Productos relacionados
+              </h2>
+            </div>
+
+            <a
+              routerLink="/cart"
+              class="inline-flex items-center justify-center border border-white/20 px-5 py-3 text-xs uppercase tracking-[0.22em] text-white transition hover:bg-white hover:text-black"
+            >
+              Ver carrito
+            </a>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-6 xl:grid-cols-12">
+            @for (relatedProduct of relatedProducts(); track relatedProduct.id) {
+              <app-catalog-product-card
+                [product]="relatedProduct"
+                [variant]="'compact'"
+                [busy]="false"
+                (add)="addToCart($event)"
+              ></app-catalog-product-card>
+            }
+          </div>
+        </section>
+      }
+    } @else {
+      <article class="rounded-[2rem] border border-dashed border-white/15 bg-white/5 px-6 py-10 text-center text-sm leading-7 text-white/70">
+        No se encontro el producto solicitado.
+        <div class="mt-6">
+          <a
+            routerLink="/home"
+            class="inline-flex items-center justify-center border border-white/20 px-5 py-3 text-xs uppercase tracking-[0.22em] text-white transition hover:bg-white hover:text-black"
+          >
+            Volver a home
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+

@@ -6,5 +6,7 @@ public interface StorageService {
 
     String storeProductImage(MultipartFile file);
 
+    String storeCategoryImage(MultipartFile file);
+
     void deleteIfManaged(String publicPath);
 }

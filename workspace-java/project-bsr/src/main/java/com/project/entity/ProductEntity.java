@@ -21,6 +21,16 @@ public class ProductEntity {
     @Column(nullable = false, unique = true, length = 150)
     private String name;
 
+    @NotBlank
+    @Size(max = 80)
+    @Column(nullable = false, unique = true, length = 80)
+    private String sku;
+
+    @NotBlank
+    @Size(max = 2000)
+    @Column(nullable = false, length = 2000)
+    private String description;
+
     @NotNull
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal price;
@@ -63,11 +73,13 @@ public class ProductEntity {
     public ProductEntity() {
     }
 
-    public ProductEntity(Long id, String name, BigDecimal price, Integer stock, String imageUrl,
+    public ProductEntity(Long id, String name, String sku, String description, BigDecimal price, Integer stock, String imageUrl,
                          LocalDateTime createDate, LocalDateTime updateDate, CategoryEntity category,
                          List<OrderDetailEntity> orderDetails, List<CartItemEntity> cartItems) {
         this.id = id;
         this.name = name;
+        this.sku = sku;
+        this.description = description;
         this.price = price;
         this.stock = stock;
         this.imageUrl = imageUrl;
@@ -92,6 +104,22 @@ public class ProductEntity {
 
     public void setName(@NotBlank String name) {
         this.name = name;
+    }
+
+    public @NotBlank @Size(max = 80) String getSku() {
+        return sku;
+    }
+
+    public void setSku(@NotBlank @Size(max = 80) String sku) {
+        this.sku = sku;
+    }
+
+    public @NotBlank @Size(max = 2000) String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@NotBlank @Size(max = 2000) String description) {
+        this.description = description;
     }
 
     public @NotNull BigDecimal getPrice() {

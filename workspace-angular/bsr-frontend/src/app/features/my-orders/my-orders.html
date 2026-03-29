@@ -1,6 +1,6 @@
 <section class="w-full px-6 pb-16 pt-28 md:px-10 lg:px-12.5">
   <div class="mx-auto max-w-7xl space-y-6">
-    <header class="rounded-[2rem] bg-[#111111] px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:px-8">
+    <header class="rounded-[2rem] bg-shell-925 px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:px-8">
       <p class="text-[11px] uppercase tracking-[0.35em] text-white/55">Tu historial</p>
       <div class="mt-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
@@ -41,7 +41,7 @@
       @if (orders().length) {
         <div class="mt-6 space-y-4">
           @for (order of orders(); track order.id) {
-            <article class="rounded-[1.7rem] border border-black/10 bg-[#f8f5ef] p-5">
+            <article class="rounded-[1.7rem] border border-black/10 bg-surface-panel p-5">
               <div class="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
                 <div class="min-w-0">
                   <div class="flex flex-wrap items-center gap-3">
@@ -114,7 +114,7 @@
                   } @else if (getOrderDetails(order.id).length) {
                     <div class="mt-4 space-y-3">
                       @for (detail of getOrderDetails(order.id); track detail.id) {
-                        <article class="grid gap-3 rounded-[1.2rem] border border-black/10 bg-[#f8f5ef] px-4 py-4 md:grid-cols-[5rem_1fr_auto_auto]">
+                        <article class="grid gap-3 rounded-[1.2rem] border border-black/10 bg-surface-panel px-4 py-4 md:grid-cols-[5rem_1fr_auto_auto]">
                           <figure class="overflow-hidden rounded-[1rem] bg-white">
                             @if (detail.imageUrl) {
                               <img
@@ -154,7 +154,7 @@
           }
         </div>
       } @else {
-        <article class="mt-6 rounded-[1.6rem] border border-dashed border-black/15 bg-[#f8f5ef] px-5 py-8 text-sm leading-7 text-neutral-600">
+        <article class="mt-6 rounded-[1.6rem] border border-dashed border-black/15 bg-surface-panel px-5 py-8 text-sm leading-7 text-neutral-600">
           Todavia no tienes pedidos registrados. Cuando confirmes uno desde checkout aparecera aqui.
           <div class="mt-6 flex flex-wrap gap-3">
             <a
@@ -175,3 +175,4 @@
     </article>
   </div>
 </section>
+

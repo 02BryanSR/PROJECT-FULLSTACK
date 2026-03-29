@@ -10,6 +10,10 @@ const EMPTY_DASHBOARD: AdminDashboardData = {
   categoryCount: 0,
   customerCount: 0,
   orderCount: 0,
+  salesToday: 0,
+  salesMonth: 0,
+  salesPreviousMonth: 0,
+  salesMonthDelta: 0,
   adminCount: 0,
   activeCustomerCount: 0,
   pendingOrderCount: 0,
@@ -26,6 +30,11 @@ const EMPTY_DASHBOARD: AdminDashboardData = {
 })
 export class AdminDashboard {
   private readonly adminService = inject(AdminService);
+  private readonly currencyFormatter = new Intl.NumberFormat('es-ES', {
+    style: 'currency',
+    currency: 'EUR',
+    maximumFractionDigits: 0,
+  });
 
   readonly dashboard = toSignal(this.adminService.getDashboard(), {
     initialValue: EMPTY_DASHBOARD,
@@ -35,22 +44,58 @@ export class AdminDashboard {
     {
       label: 'Productos',
       value: this.dashboard().productCount,
+      displayValue: String(this.dashboard().productCount),
       note: 'Catalogo listo para la tienda',
+      tone: 'neutral' as const,
     },
     {
       label: 'Categorias',
       value: this.dashboard().categoryCount,
+      displayValue: String(this.dashboard().categoryCount),
       note: 'Secciones activas del menu',
+      tone: 'neutral' as const,
     },
     {
       label: 'Clientes',
       value: this.dashboard().customerCount,
+      displayValue: String(this.dashboard().customerCount),
       note: 'Usuarios registrados',
+      tone: 'neutral' as const,
     },
     {
       label: 'Pedidos',
       value: this.dashboard().orderCount,
+      displayValue: String(this.dashboard().orderCount),
       note: 'Pedidos recibidos',
+      tone: 'neutral' as const,
+    },
+    {
+      label: 'Compras hoy',
+      value: this.dashboard().salesToday,
+      displayValue: this.formatCurrency(this.dashboard().salesToday),
+      note: 'Total generado hoy',
+      tone: 'neutral' as const,
+    },
+    {
+      label: 'Compras mes',
+      value: this.dashboard().salesMonth,
+      displayValue: this.formatCurrency(this.dashboard().salesMonth),
+      note: 'Acumulado del mes actual',
+      tone: 'neutral' as const,
+    },
+    {
+      label: 'Mes anterior',
+      value: this.dashboard().salesPreviousMonth,
+      displayValue: this.formatCurrency(this.dashboard().salesPreviousMonth),
+      note: 'Total cerrado del mes anterior',
+      tone: 'neutral' as const,
+    },
+    {
+      label: 'Variacion mensual',
+      value: this.dashboard().salesMonthDelta,
+      displayValue: this.formatDelta(this.dashboard().salesMonthDelta),
+      note: this.getMonthDeltaNote(this.dashboard().salesMonthDelta),
+      tone: this.getMonthDeltaTone(this.dashboard().salesMonthDelta),
     },
   ]);
 
@@ -76,4 +121,44 @@ export class AdminDashboard {
       route: '/admin/orders',
     },
   ] as const;
+
+  getMonthDeltaTone(value: number): 'positive' | 'negative' | 'neutral' {
+    if (value > 0) {
+      return 'positive';
+    }
+
+    if (value < 0) {
+      return 'negative';
+    }
+
+    return 'neutral';
+  }
+
+  private getMonthDeltaNote(value: number): string {
+    if (value > 0) {
+      return 'Positivo frente al mes anterior';
+    }
+
+    if (value < 0) {
+      return 'Negativo frente al mes anterior';
+    }
+
+    return 'Sin variacion frente al mes anterior';
+  }
+
+  private formatCurrency(value: number): string {
+    return this.currencyFormatter.format(value);
+  }
+
+  private formatDelta(value: number): string {
+    if (value > 0) {
+      return `+${this.formatCurrency(value)}`;
+    }
+
+    if (value < 0) {
+      return `-${this.formatCurrency(Math.abs(value))}`;
+    }
+
+    return this.formatCurrency(0);
+  }
 }

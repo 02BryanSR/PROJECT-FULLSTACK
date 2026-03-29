@@ -71,6 +71,11 @@ export class CategoryShowcaseComponent {
   );
 
   addToCart(product: CatalogProduct): void {
+    if ((product.stock ?? 0) <= 0) {
+      this.toastService.showError('Producto agotado. Ya no se puede anadir al carrito.');
+      return;
+    }
+
     if (!this.authService.isAuthenticated()) {
       this.toastService.show({
         title: 'Necesitas iniciar sesion',

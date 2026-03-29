@@ -18,6 +18,9 @@ public class CategoryDTO {
     @Size(max = 500, message = "La descripcion no puede superar los 500 caracteres")
     private String description;
 
+    @Size(max = 500, message = "La URL de imagen no puede superar los 500 caracteres")
+    private String imageUrl;
+
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
     private List<Long> productIds;
@@ -25,11 +28,12 @@ public class CategoryDTO {
     public CategoryDTO() {
     }
 
-    public CategoryDTO(Long id, String name, String description, LocalDateTime createDate,
+    public CategoryDTO(Long id, String name, String description, String imageUrl, LocalDateTime createDate,
                        LocalDateTime updateDate, List<Long> productIds) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.imageUrl = imageUrl;
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.productIds = productIds;
@@ -57,6 +61,14 @@ public class CategoryDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public LocalDateTime getCreateDate() {

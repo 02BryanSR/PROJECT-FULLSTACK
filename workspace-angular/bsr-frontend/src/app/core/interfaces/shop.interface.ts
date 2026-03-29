@@ -58,6 +58,18 @@ export interface UserOrderDetail {
   subtotal: number | null;
 }
 
+export interface UserFavorite {
+  id: number;
+  customerId: number | null;
+  productId: number;
+  productName: string;
+  productSku: string | null;
+  productImageUrl: string | null;
+  productPrice: number | null;
+  productStock: number | null;
+  createdAt: string | null;
+}
+
 export interface CreateOrderInput {
   addressId: number;
   payMethod: string;

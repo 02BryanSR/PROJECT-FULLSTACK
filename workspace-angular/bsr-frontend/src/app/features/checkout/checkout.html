@@ -1,6 +1,6 @@
 <section class="w-full px-6 pb-16 pt-28 md:px-10 lg:px-12.5">
   <div class="mx-auto max-w-7xl space-y-6">
-    <header class="rounded-[2rem] bg-[#111111] px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:px-8">
+    <header class="rounded-[2rem] bg-shell-925 px-6 py-7 text-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] md:px-8">
       <p class="text-[11px] uppercase tracking-[0.35em] text-white/55">Compra final</p>
       <div class="mt-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
@@ -31,7 +31,7 @@
         Preparando checkout...
       </article>
     } @else if (!hasItems()) {
-      <article class="rounded-[2rem] border border-dashed border-black/15 bg-[#f8f5ef] px-6 py-10 text-center text-sm leading-7 text-neutral-600">
+      <article class="rounded-[2rem] border border-dashed border-black/15 bg-surface-panel px-6 py-10 text-center text-sm leading-7 text-neutral-600">
         Tu carrito esta vacio. Necesitas anadir productos antes de confirmar un pedido.
         <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
           <a
@@ -82,7 +82,7 @@
 
           @if (showQuickAddressForm()) {
             <form
-              class="mt-6 grid gap-4 rounded-[1.6rem] border border-black/10 bg-[#f8f5ef] p-5 sm:grid-cols-2"
+              class="mt-6 grid gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-5 sm:grid-cols-2"
               [formGroup]="quickAddressForm"
               (ngSubmit)="createQuickAddress()"
             >
@@ -154,7 +154,7 @@
                 <label
                   class="block cursor-pointer rounded-[1.6rem] border px-5 py-5 transition"
                   [class.border-black]="checkoutForm.getRawValue().addressId === address.id"
-                  [class.bg-[#f8f5ef]]="checkoutForm.getRawValue().addressId === address.id"
+                  [class.bg-surface-panel]="checkoutForm.getRawValue().addressId === address.id"
                   [class.border-black/10]="checkoutForm.getRawValue().addressId !== address.id"
                   [class.bg-white]="checkoutForm.getRawValue().addressId !== address.id"
                 >
@@ -176,12 +176,12 @@
                 </label>
               }
             } @else {
-              <article class="rounded-[1.6rem] border border-dashed border-black/15 bg-[#f8f5ef] px-5 py-8 text-sm leading-7 text-neutral-600">
+              <article class="rounded-[1.6rem] border border-dashed border-black/15 bg-surface-panel px-5 py-8 text-sm leading-7 text-neutral-600">
                 No tienes direcciones guardadas todavia. Crea una desde este checkout o desde tu area de direcciones.
               </article>
             }
 
-            <div class="rounded-[1.6rem] border border-black/10 bg-[#f8f5ef] p-5">
+            <div class="rounded-[1.6rem] border border-black/10 bg-surface-panel p-5">
               <p class="text-[11px] uppercase tracking-[0.24em] text-neutral-500">Metodo de pago</p>
               <label class="mt-4 block space-y-2">
                 <span class="text-sm text-neutral-600">Selecciona como quieres registrar el pedido</span>
@@ -206,7 +206,7 @@
 
           <div class="mt-6 space-y-3">
             @for (item of cart().items; track item.productId) {
-              <div class="grid gap-3 rounded-[1.3rem] border border-black/10 bg-[#f8f5ef] px-4 py-4 md:grid-cols-[1fr_auto_auto]">
+              <div class="grid gap-3 rounded-[1.3rem] border border-black/10 bg-surface-panel px-4 py-4 md:grid-cols-[1fr_auto_auto]">
                 <p class="font-medium text-neutral-900">{{ item.productName }}</p>
                 <p class="text-sm text-neutral-600">x{{ item.quantity }}</p>
                 <p class="text-sm font-semibold text-neutral-900">
@@ -216,7 +216,7 @@
             }
           </div>
 
-          <div class="mt-6 space-y-4 rounded-[1.6rem] border border-black/10 bg-[#111111] p-5 text-white">
+          <div class="mt-6 space-y-4 rounded-[1.6rem] border border-black/10 bg-shell-925 p-5 text-white">
             <div class="flex items-center justify-between text-sm text-white/70">
               <span>Productos</span>
               <span>{{ cart().totalProducts }}</span>
@@ -263,3 +263,4 @@
     }
   </div>
 </section>
+

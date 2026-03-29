@@ -2,6 +2,7 @@ package com.project.service;
 
 import java.util.List;
 
+import com.project.dto.CategoryForm;
 import com.project.dto.CategoryDTO;
 
 public interface CategoryService {
@@ -10,9 +11,9 @@ public interface CategoryService {
 
     CategoryDTO findById(Long id);
 
-    CategoryDTO createCategory(CategoryDTO dto);
+    CategoryDTO createCategory(CategoryForm form);
 
-    CategoryDTO updateCategory(CategoryDTO dto, Long id);
+    CategoryDTO updateCategory(CategoryForm form, Long id);
 
     void deleteCategory(Long id);
 }
