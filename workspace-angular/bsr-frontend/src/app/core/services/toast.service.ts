@@ -31,6 +31,18 @@ export class ToastService {
     });
   }
 
+  showFormValidationError(
+    message = 'Completa los campos obligatorios antes de continuar.',
+    duration = 4000,
+  ): void {
+    this.show({
+      title: 'Revisa el formulario',
+      message,
+      duration,
+      type: 'error',
+    });
+  }
+
   show(toast: { title: string; message: string; duration?: number; type?: ToastType }): void {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);

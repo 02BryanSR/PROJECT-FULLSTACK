@@ -16,7 +16,9 @@ import {
 const CATEGORY_ALIASES: Record<CategorySlug, readonly string[]> = {
   women: ['women', 'woman', 'mujer', 'mujeres', 'ladies', 'lady'],
   men: ['men', 'man', 'hombre', 'hombres'],
-  kids: ['kids', 'kid', 'nino', 'nina', 'ninos', 'ninas', 'children', 'child', 'infantil'],
+  boys: ['boys', 'boy', 'nino', 'ninos'],
+  girls: ['girls', 'girl', 'nina', 'ninas'],
+  kids: ['kids', 'kid', 'children', 'child', 'infantil'],
   accessories: ['accessories', 'accessory', 'accesorio', 'accesorios', 'complemento', 'complementos'],
 };
 
@@ -114,15 +116,17 @@ export class CatalogService {
 
   private mapCategory(category: CategoryApiResponse): CatalogCategory {
     const slug = this.resolveCategorySlug(category.name);
+    const normalizedName = this.normalizeCategoryName(category.name, slug);
+    const route = this.resolveCategoryRoute(slug);
 
     return {
       id: category.id,
-      name: category.name?.trim() || 'Categoria',
+      name: normalizedName || 'Categoria',
       description: category.description?.trim() || '',
       imageUrl: this.resolveBackendAssetUrl(category.imageUrl ?? null),
       productIds: category.productIds ?? [],
       slug,
-      route: slug ? `/${slug}` : null,
+      route,
     };
   }
 
@@ -259,6 +263,46 @@ export class CatalogService {
       .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
+  }
+
+  private normalizeCategoryName(
+    value: string | null | undefined,
+    slug: CategorySlug | null,
+  ): string {
+    const normalizedValue = value?.trim() || '';
+
+    if (slug === 'boys') {
+      return 'Ni\u00F1os';
+    }
+
+    if (slug === 'girls') {
+      return 'Ni\u00F1as';
+    }
+
+    if (slug === 'accessories') {
+      return 'Accesorios';
+    }
+
+    return normalizedValue;
+  }
+
+  private resolveCategoryRoute(slug: CategorySlug | null): string | null {
+    switch (slug) {
+      case 'women':
+        return '/women';
+      case 'men':
+        return '/men';
+      case 'boys':
+        return '/ninos';
+      case 'girls':
+        return '/ninas';
+      case 'kids':
+        return '/kids';
+      case 'accessories':
+        return '/accessories';
+      default:
+        return null;
+    }
   }
 
   private resolveBackendAssetUrl(assetPath: string | null): string | null {

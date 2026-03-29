@@ -75,14 +75,14 @@ export class ProductDetail {
     }
 
     if ((product.stock ?? 0) <= 0) {
-      this.toastService.showError('Producto agotado. Ya no se puede anadir al carrito.');
+      this.toastService.showError('Producto agotado. Ya no se puede añadir al carrito.');
       return;
     }
 
     if (!this.authService.isAuthenticated()) {
       this.toastService.show({
-        title: 'Necesitas iniciar sesion',
-        message: 'Inicia sesion para anadir productos al carrito.',
+        title: 'Necesitas iniciar sesión',
+        message: 'Inicia sesión para añadir productos al carrito.',
       });
       void this.router.navigate(['/login']);
       return;
@@ -96,13 +96,13 @@ export class ProductDetail {
       .subscribe({
         next: () => {
           this.toastService.show({
-            title: 'Producto anadido',
-            message: `${product.name} ya esta en tu carrito.`,
+            title: 'Producto añadido',
+            message: `${product.name} ya está en tu carrito.`,
           });
         },
         error: (error) => {
           this.toastService.showError(
-            error.error?.message ?? 'No se pudo anadir el producto al carrito.',
+            error.error?.message ?? 'No se pudo añadir el producto al carrito.',
           );
         },
       });

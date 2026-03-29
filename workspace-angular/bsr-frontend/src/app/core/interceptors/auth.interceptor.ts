@@ -43,6 +43,12 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 };
 
 function getHttpErrorMessage(error: HttpErrorResponse): string {
+  const serverMessage = resolveServerErrorMessage(error.error);
+
+  if (serverMessage) {
+    return serverMessage;
+  }
+
   switch (error.status) {
     case 0:
       return 'No se pudo conectar con el servidor.';
@@ -57,4 +63,31 @@ function getHttpErrorMessage(error: HttpErrorResponse): string {
     default:
       return 'Ha ocurrido un error. Intentalo de nuevo.';
   }
+}
+
+function resolveServerErrorMessage(errorBody: unknown): string | null {
+  if (typeof errorBody === 'string') {
+    const normalizedMessage = errorBody.trim();
+    return normalizedMessage || null;
+  }
+
+  if (!errorBody || typeof errorBody !== 'object') {
+    return null;
+  }
+
+  const candidate = (errorBody as { message?: unknown; error?: unknown }).message;
+
+  if (typeof candidate === 'string') {
+    const normalizedMessage = candidate.trim();
+    return normalizedMessage || null;
+  }
+
+  const nestedError = (errorBody as { error?: unknown }).error;
+
+  if (typeof nestedError === 'string') {
+    const normalizedMessage = nestedError.trim();
+    return normalizedMessage || null;
+  }
+
+  return null;
 }

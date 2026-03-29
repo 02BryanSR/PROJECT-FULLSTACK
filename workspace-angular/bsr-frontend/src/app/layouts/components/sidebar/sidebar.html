@@ -18,7 +18,21 @@
     BOLD STYLE REVOLUTION
   </p>
 
-  <div aria-hidden="true" class="h-7 w-7"></div>
+  @if (authService.isAdmin()) {
+    <a
+      routerLink="/admin/dashboard"
+      aria-label="Ir al dashboard"
+      class="inline-flex items-center justify-center rounded-full border px-3 py-2 text-[10px] uppercase tracking-[0.2em]"
+      [class.border-white/30]="isHome()"
+      [class.text-white]="isHome()"
+      [class.border-black/10]="!isHome()"
+      [class.text-black]="!isHome()"
+    >
+      Dashboard
+    </a>
+  } @else {
+    <div aria-hidden="true" class="h-7 w-7"></div>
+  }
 </div>
 
 @if (isOpen()) {
@@ -64,6 +78,16 @@
 
     <footer class="mt-auto border-t border-white/15 pt-6">
       <p class="mb-4 text-xs uppercase tracking-[0.25em] text-white/60">Acciones</p>
+      @if (authService.isAdmin()) {
+        <a
+          routerLink="/admin/dashboard"
+          class="mb-4 inline-flex w-full items-center justify-center rounded-full border border-white/20 px-4 py-3 text-xs uppercase tracking-[0.22em] text-white"
+          (click)="close()"
+        >
+          Ver dashboard
+        </a>
+      }
+
       <div class="flex items-center gap-5 text-white">
         <button
           type="button"

@@ -121,6 +121,102 @@ const FALLBACK_CATEGORY_CONTENT: Record<CategorySlug, CategoryShowcaseContent> =
     ],
     products: [],
   },
+  boys: {
+    eyebrow: 'Collection',
+    title: 'Ni\u00F1os',
+    description:
+      'A boys category ready for comfortable layering, active silhouettes and a clear structure for everyday essentials.',
+    accent: 'Daily energy',
+    heroImage: '/images/home-4-3.jpg',
+    heroAlt: 'Boys category hero',
+    highlights: ['Easy sets', 'Active color', 'Daily movement'],
+    panels: [
+      {
+        eyebrow: 'Edit',
+        title: 'Play all day',
+        description:
+          'A fresh structure for colorful looks, comfortable fits and a more energetic browsing experience across the category.',
+      },
+      {
+        eyebrow: 'Capsule',
+        title: 'Mini icons',
+        description:
+          'Ideal for hero pieces, new drops and styled combinations that make this section feel playful and modern.',
+      },
+      {
+        eyebrow: 'Focus',
+        title: 'Ready to move',
+        description:
+          'Prepared for future catalog cards, promo banners and a complete shopping flow with a stronger visual identity.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/images/home-4-2.jpg',
+        alt: 'Boys collection movement look',
+        caption: 'Movement first',
+      },
+      {
+        src: '/images/home-4-3.jpg',
+        alt: 'Boys collection colorful look',
+        caption: 'Color layers',
+      },
+      {
+        src: '/images/home-4-4.jpg',
+        alt: 'Boys collection daily set',
+        caption: 'Daily sets',
+      },
+    ],
+    products: [],
+  },
+  girls: {
+    eyebrow: 'Collection',
+    title: 'Ni\u00F1as',
+    description:
+      'A girls category built for playful styling, easy combinations and a softer editorial rhythm across the full section.',
+    accent: 'Daily energy',
+    heroImage: '/images/home-4-2.jpg',
+    heroAlt: 'Girls category hero',
+    highlights: ['Light layers', 'Playful sets', 'Daily movement'],
+    panels: [
+      {
+        eyebrow: 'Edit',
+        title: 'Play all day',
+        description:
+          'A fresh structure for colorful looks, comfortable fits and a more energetic browsing experience across the category.',
+      },
+      {
+        eyebrow: 'Capsule',
+        title: 'Mini icons',
+        description:
+          'Ideal for hero pieces, new drops and styled combinations that make this section feel playful and modern.',
+      },
+      {
+        eyebrow: 'Focus',
+        title: 'Ready to move',
+        description:
+          'Prepared for future catalog cards, promo banners and a complete shopping flow with a stronger visual identity.',
+      },
+    ],
+    gallery: [
+      {
+        src: '/images/home-4-2.jpg',
+        alt: 'Girls collection movement look',
+        caption: 'Movement first',
+      },
+      {
+        src: '/images/home-4-3.jpg',
+        alt: 'Girls collection colorful look',
+        caption: 'Color layers',
+      },
+      {
+        src: '/images/home-4-4.jpg',
+        alt: 'Girls collection daily set',
+        caption: 'Daily sets',
+      },
+    ],
+    products: [],
+  },
   kids: {
     eyebrow: 'Collection',
     title: 'Kids',
@@ -240,7 +336,7 @@ export function buildCategoryShowcaseContent(
     eyebrow: fallback.eyebrow,
     title: categoryName,
     description: category?.description?.trim() || fallback.description,
-    accent: products.length ? 'Catalogo real' : 'Categoria',
+    accent: buildCategoryAccent(slug),
     heroImage: category?.imageUrl ?? productsWithImages[0]?.imageUrl ?? fallback.heroImage,
     heroAlt: category ? `${categoryName} category hero` : fallback.heroAlt,
     highlights: products.length
@@ -295,4 +391,21 @@ function buildPriceRange(prices: readonly number[]): string {
   }
 
   return `${PRICE_FORMATTER.format(minPrice)} - ${PRICE_FORMATTER.format(maxPrice)}`;
+}
+
+function buildCategoryAccent(slug: CategorySlug): string {
+  switch (slug) {
+    case 'women':
+      return 'Catalogo para mujeres';
+    case 'men':
+      return 'Catalogo para hombres';
+    case 'boys':
+      return 'Catalogo para ni\u00F1os';
+    case 'girls':
+      return 'Catalogo para ni\u00F1as';
+    case 'kids':
+      return 'Catalogo infantil';
+    case 'accessories':
+      return 'Catalogo para accesorios';
+  }
 }

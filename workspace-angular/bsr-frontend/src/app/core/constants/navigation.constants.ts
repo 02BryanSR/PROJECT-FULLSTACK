@@ -7,7 +7,8 @@ export const PRIMARY_NAV_LINKS: readonly NavigationLink[] = [
   { label: 'HOME', route: '/home' },
   { label: 'WOMEN', route: '/women' },
   { label: 'MEN', route: '/men' },
-  { label: 'KIDS', route: '/kids' },
+  { label: 'NI\u00D1OS', route: '/ninos' },
+  { label: 'NI\u00D1AS', route: '/ninas' },
   { label: 'ACCESSORIES', route: '/accessories' },
 ];
 

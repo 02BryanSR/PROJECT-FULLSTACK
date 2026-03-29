@@ -65,7 +65,7 @@ export class Favorites {
 
   addToCart(favorite: UserFavorite): void {
     if ((favorite.productStock ?? 0) <= 0) {
-      this.toastService.showError('Producto agotado. Ya no se puede anadir al carrito.');
+      this.toastService.showError('Producto agotado. Ya no se puede añadir al carrito.');
       return;
     }
 
@@ -77,12 +77,12 @@ export class Favorites {
       .subscribe({
         next: () => {
           this.toastService.show({
-            title: 'Producto anadido',
-            message: `${favorite.productName} ya esta en tu carrito.`,
+            title: 'Producto añadido',
+            message: `${favorite.productName} ya está en tu carrito.`,
           });
         },
         error: (error) => {
-          this.toastService.showError(error.error?.message ?? 'No se pudo anadir al carrito.');
+          this.toastService.showError(error.error?.message ?? 'No se pudo añadir al carrito.');
         },
       });
   }

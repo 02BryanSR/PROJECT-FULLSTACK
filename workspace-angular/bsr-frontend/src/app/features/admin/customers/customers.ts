@@ -90,6 +90,7 @@ export class AdminCustomers {
   submit(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
+      this.toastService.showFormValidationError();
       return;
     }
 

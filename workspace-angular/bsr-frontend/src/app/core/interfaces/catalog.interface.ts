@@ -1,4 +1,4 @@
-export type CategorySlug = 'women' | 'men' | 'kids' | 'accessories';
+export type CategorySlug = 'women' | 'men' | 'boys' | 'girls' | 'kids' | 'accessories';
 
 export interface CategoryApiResponse {
   id: number;

@@ -280,10 +280,11 @@ export class AdminService {
 
   private mapCat(input: unknown): AdminCategory {
     const source = this.asObject(input);
+    const rawName = this.toStringValue(this.pick(source, ['name']));
 
     return {
       id: this.toNumber(this.pick(source, ['id'])) ?? 0,
-      name: this.toStringValue(this.pick(source, ['name'])) || 'Categoria',
+      name: this.normalizeCategoryName(rawName) || 'Categoria',
       description: this.toStringValue(this.pick(source, ['description', 'descripcion'])) || '',
       imageUrl: this.resolveAssetUrl(
         this.toStringValue(this.pick(source, ['imageUrl', 'image', 'imagePath'])),
@@ -297,6 +298,9 @@ export class AdminService {
   private mapProd(input: unknown): AdminProduct {
     const source = this.asObject(input);
     const category = this.asObject(this.pick(source, ['category']));
+    const rawCategoryName =
+      this.toStringValue(this.pick(source, ['categoryName'])) ||
+      this.toStringValue(this.pick(category, ['name']));
 
     return {
       id: this.toNumber(this.pick(source, ['id'])) ?? 0,
@@ -308,10 +312,7 @@ export class AdminService {
       categoryId:
         this.toNumber(this.pick(source, ['categoryId', 'category_id'])) ??
         this.toNumber(this.pick(category, ['id'])),
-      categoryName:
-        this.toStringValue(this.pick(source, ['categoryName'])) ||
-        this.toStringValue(this.pick(category, ['name'])) ||
-        'Sin categoria',
+      categoryName: this.normalizeCategoryName(rawCategoryName) || 'Sin categoria',
       imageUrl: this.resolveAssetUrl(
         this.toStringValue(
           this.pick(source, ['imageUrl', 'image', 'imagePath', 'thumbnailUrl', 'thumbnail']),
@@ -446,6 +447,33 @@ export class AdminService {
     const parts = [firstName?.trim(), lastName?.trim()].filter((value): value is string => !!value);
 
     return parts.length ? parts.join(' ') : null;
+  }
+
+  private normalizeCategoryName(value: string | null | undefined): string {
+    const normalizedValue = value?.trim() || '';
+
+    if (!normalizedValue) {
+      return '';
+    }
+
+    const comparableValue = normalizedValue
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+
+    if (comparableValue === 'accesorio') {
+      return 'Accesorios';
+    }
+
+    if (comparableValue === 'ninos') {
+      return 'Ni\u00F1os';
+    }
+
+    if (comparableValue === 'ninas') {
+      return 'Ni\u00F1as';
+    }
+
+    return normalizedValue;
   }
 
   private resolveAssetUrl(assetPath: string | null): string | null {

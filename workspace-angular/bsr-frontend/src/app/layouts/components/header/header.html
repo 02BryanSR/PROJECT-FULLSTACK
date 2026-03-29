@@ -34,6 +34,25 @@
     </a>
 
     <div class="ml-auto flex items-center gap-5">
+      @if (authService.isAdmin()) {
+        <a
+          routerLink="/admin/dashboard"
+          class="inline-flex items-center justify-center rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.22em] transition"
+          [class.border-white/30]="isHome()"
+          [class.text-white]="isHome()"
+          [class.hover:border-white]="isHome()"
+          [class.hover:bg-white]="isHome()"
+          [class.hover:text-black]="isHome()"
+          [class.border-black/10]="!isHome()"
+          [class.text-black]="!isHome()"
+          [class.hover:border-black]="!isHome()"
+          [class.hover:bg-black]="!isHome()"
+          [class.hover:text-white]="!isHome()"
+        >
+          Dashboard
+        </a>
+      }
+
       <div #searchShell class="relative h-10 w-10 shrink-0">
         <div
           class="pointer-events-none absolute right-0 top-1/2 z-20 h-10 w-40 origin-right -translate-y-1/2 overflow-hidden rounded-full border border-black/10 bg-white/95 shadow-[0_12px_35px_rgba(15,23,42,0.14)] transition-all duration-300 ease-out"
@@ -142,4 +161,3 @@
     </div>
   </section>
 </header>
-
