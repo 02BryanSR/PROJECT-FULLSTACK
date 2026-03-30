@@ -96,22 +96,22 @@ export class MyAddresses {
     this.saving.set(true);
 
     request$.pipe(finalize(() => this.saving.set(false))).subscribe({
-      next: (address) => {
-        this.toastService.show({
-          title: selectedAddressId === null ? 'Direccion creada' : 'Direccion actualizada',
-          message: `${address.address} ya esta guardada en tu cuenta.`,
-        });
+        next: (address) => {
+          this.toastService.show({
+            title: selectedAddressId === null ? 'Dirección creada' : 'Dirección actualizada',
+            message: `${address.address} ya está guardada en tu cuenta.`,
+          });
         this.loadAddresses();
         this.startEdit(address);
       },
       error: (error) => {
-        this.toastService.showError(error.error?.message ?? 'No se pudo guardar la direccion.');
+        this.toastService.showError(error.error?.message ?? 'No se pudo guardar la dirección.');
       },
     });
   }
 
   deleteAddress(address: UserAddress): void {
-    const confirmed = window.confirm(`Quieres eliminar la direccion "${address.address}"?`);
+    const confirmed = window.confirm(`¿Quieres eliminar la dirección "${address.address}"?`);
 
     if (!confirmed) {
       return;
@@ -125,8 +125,8 @@ export class MyAddresses {
       .subscribe({
         next: () => {
           this.toastService.show({
-            title: 'Direccion eliminada',
-            message: 'La direccion se ha eliminado correctamente.',
+            title: 'Dirección eliminada',
+            message: 'La dirección se ha eliminado correctamente.',
           });
           this.loadAddresses();
 
@@ -135,7 +135,7 @@ export class MyAddresses {
           }
         },
         error: (error) => {
-          this.toastService.showError(error.error?.message ?? 'No se pudo eliminar la direccion.');
+          this.toastService.showError(error.error?.message ?? 'No se pudo eliminar la dirección.');
         },
       });
   }

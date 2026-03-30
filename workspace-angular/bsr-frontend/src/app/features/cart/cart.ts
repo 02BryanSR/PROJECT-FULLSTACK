@@ -87,7 +87,7 @@ export class Cart {
         next: () => {
           this.toastService.show({
             title: 'Carrito vaciado',
-            message: 'Tu carrito ha quedado vacio.',
+            message: 'Tu carrito ha quedado vacío.',
           });
         },
         error: (error) => {

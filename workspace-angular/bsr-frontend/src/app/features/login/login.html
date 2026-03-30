@@ -15,10 +15,10 @@
     <article class="flex max-h-233 w-full max-w-90 flex-col lg:max-h-125">
       <header class="flex flex-col items-center text-center">
         <h1 class="text-center text-[32px] font-semibold leading-10.5 text-ink-900">
-          Iniciar sesion
+          Iniciar sesión
         </h1>
         <p class="mx-auto w-68.75 text-center text-neutral-250 sm:w-auto lg:hidden">
-          Descubre las ultimas tendencias de moda
+          Descubre las últimas tendencias de moda
         </p>
       </header>
 
@@ -46,7 +46,7 @@
                   emailCtrl.errors?.['required']
                     ? 'El email es obligatorio.'
                     : emailCtrl.errors?.['email']
-                      ? 'El formato del e-mail no es valido.'
+                      ? 'El formato del e-mail no es válido.'
                       : ''
                 }}
               </span>
@@ -92,12 +92,12 @@
                     : 'text-neutral-600'
               "
             >
-              Contrasena
+              Contraseña
             </label>
 
             @if (passwordCtrl.touched && passwordCtrl.invalid) {
               <span class="ml-3 whitespace-nowrap text-sm text-danger-600">
-                {{ passwordCtrl.errors?.['required'] ? 'La contrasena es obligatoria.' : '' }}
+                {{ passwordCtrl.errors?.['required'] ? 'La contraseña es obligatoria.' : '' }}
               </span>
             }
           </div>
@@ -115,14 +115,14 @@
             <input
               [type]="showPassword() ? 'text' : 'password'"
               formControlName="password"
-              placeholder="Introduce aqui tu contrasena"
+              placeholder="Introduce aquí tu contraseña"
               class="w-full py-3 text-sm placeholder:text-neutral-300 focus:outline-none"
             />
             <button
               type="button"
               (click)="togglePassword()"
               class="ml-2 text-neutral-300 hover:text-neutral-400"
-              aria-label="Mostrar u ocultar contrasena"
+              aria-label="Mostrar u ocultar contraseña"
             >
               <app-icon name="eye" class="h-4 w-4"></app-icon>
             </button>
@@ -142,12 +142,12 @@
             routerLink="/forgot-password"
             class="text-sm text-primary-500 transition-colors hover:text-primary-700 hover:underline"
           >
-            Recuperar contrasena
+            Recuperar contraseña
           </a>
         </div>
 
         <p class="text-center text-sm text-neutral-600">
-          Eres nuevo?
+          ¿Eres nuevo?
           <a
             routerLink="/register"
             class="font-medium text-primary-500 transition-colors hover:text-primary-700 hover:underline"

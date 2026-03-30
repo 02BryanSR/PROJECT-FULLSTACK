@@ -129,7 +129,7 @@ export class Checkout {
       .subscribe({
         next: (address) => {
           this.toastService.show({
-            title: 'Direccion guardada',
+            title: 'Dirección guardada',
             message: 'Ya puedes usarla para completar tu pedido.',
           });
           this.showQuickAddressForm.set(false);
@@ -144,14 +144,14 @@ export class Checkout {
           this.checkoutForm.patchValue({ addressId: address.id });
         },
         error: (error) => {
-          this.toastService.showError(error.error?.message ?? 'No se pudo crear la direccion.');
+          this.toastService.showError(error.error?.message ?? 'No se pudo crear la dirección.');
         },
       });
   }
 
   submitOrder(): void {
     if (!this.hasItems()) {
-      this.toastService.showError('Tu carrito esta vacio.');
+      this.toastService.showError('Tu carrito está vacío.');
       void this.router.navigate(['/cart']);
       return;
     }

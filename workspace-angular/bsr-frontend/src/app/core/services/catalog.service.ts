@@ -121,7 +121,7 @@ export class CatalogService {
 
     return {
       id: category.id,
-      name: normalizedName || 'Categoria',
+      name: normalizedName || 'Categoría',
       description: category.description?.trim() || '',
       imageUrl: this.resolveBackendAssetUrl(category.imageUrl ?? null),
       productIds: category.productIds ?? [],
@@ -177,7 +177,7 @@ export class CatalogService {
       type: 'category',
       id: category.id,
       title: category.name,
-      subtitle: category.description || 'Explorar categoria',
+      subtitle: category.description || 'Explorar categoría',
       route: category.route ?? '/home',
       imageUrl: category.imageUrl,
       keywords: this.buildKeywords(

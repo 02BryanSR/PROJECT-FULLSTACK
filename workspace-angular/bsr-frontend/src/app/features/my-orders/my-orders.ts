@@ -121,13 +121,13 @@ export class MyOrders {
 
   getAddressLabel(addressId: number | null): string {
     if (addressId === null) {
-      return 'Direccion sin asignar';
+      return 'Dirección sin asignar';
     }
 
     const address = this.addresses().find((item) => item.id === addressId);
 
     if (!address) {
-      return `Direccion #${addressId}`;
+      return `Dirección #${addressId}`;
     }
 
     return `${address.address}, ${address.city}`;

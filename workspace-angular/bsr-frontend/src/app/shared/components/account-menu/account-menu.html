@@ -4,7 +4,7 @@
     (click)="toggle()"
     [attr.aria-expanded]="isOpen()"
     aria-haspopup="true"
-    aria-label="Menu de usuario"
+    aria-label="Menú de usuario"
     class="relative inline-flex items-center justify-center py-2 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
     [class.text-black]="dark()"
     [class.text-white]="!dark()"
@@ -30,7 +30,7 @@
       <article class="space-y-4 p-6">
         @if (authService.isAuthenticated()) {
           <header>
-            <p class="text-sm text-neutral-500">Sesion iniciada como</p>
+            <p class="text-sm text-neutral-500">Sesión iniciada como</p>
             <strong class="mt-1 block break-all text-base font-semibold text-neutral-900">
               {{ authService.currentUser()?.email }}
             </strong>
@@ -88,14 +88,14 @@
               class="flex items-center justify-center gap-2 rounded-full bg-neutral-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-black"
             >
               <app-icon name="logout" class="h-4 w-4"></app-icon>
-              <span>Cerrar sesion</span>
+              <span>Cerrar sesión</span>
             </button>
           </nav>
         } @else {
           <header>
-            <p class="text-sm text-neutral-500">Todavia no has iniciado sesion.</p>
+            <p class="text-sm text-neutral-500">Todavía no has iniciado sesión.</p>
             <strong class="mt-1 block text-base font-semibold text-neutral-900">
-              Identificate para acceder a tu carrito, favoritos, direcciones y el historial de compra.
+              Identifícate para acceder a tu carrito, favoritos, direcciones y el historial de compra.
             </strong>
           </header>
 
@@ -104,7 +104,7 @@
             (click)="close()"
             class="flex items-center justify-center rounded-full bg-neutral-900 px-4 py-3 text-sm font-medium text-white transition hover:bg-black"
           >
-            Iniciar sesion
+            Iniciar sesión
           </a>
         }
       </article>

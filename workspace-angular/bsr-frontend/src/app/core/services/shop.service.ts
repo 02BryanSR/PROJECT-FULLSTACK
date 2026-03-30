@@ -14,6 +14,7 @@ import {
 } from '../interfaces/shop.interface';
 
 type JsonObject = Record<string, unknown>;
+const CART_SIZE_STORAGE_KEY = 'bsr.cart.itemSizes';
 
 const EMPTY_CART: UserCart = {
   cartId: null,
@@ -29,24 +30,31 @@ const EMPTY_CART: UserCart = {
 export class ShopService {
   private readonly http = inject(HttpClient);
   private readonly cartState = signal<UserCart>(EMPTY_CART);
+  private readonly cartItemSizes = signal<Record<number, string>>(this.loadStoredCartItemSizes());
 
   readonly cart = this.cartState.asReadonly();
   readonly cartItemCount = computed(() => this.cartState().totalProducts);
 
   loadMyCart(): Observable<UserCart> {
     return this.http.get<unknown>(API_ENDPOINTS.shop.cart).pipe(
-      map((response) => this.mapCart(response)),
+      map((response) => this.applyStoredSelections(this.mapCart(response))),
       tap((cart) => this.cartState.set(cart)),
     );
   }
 
-  addItem(productId: number, quantity = 1): Observable<UserCart> {
+  addItem(productId: number, quantity = 1, size: string | null = null): Observable<UserCart> {
     const params = new HttpParams()
       .set('productId', productId)
       .set('quantity', quantity);
 
     return this.http.post<unknown>(API_ENDPOINTS.shop.cartItems, null, { params }).pipe(
-      map((response) => this.mapCart(response)),
+      map((response) => {
+        if (size?.trim()) {
+          this.setStoredCartItemSize(productId, size);
+        }
+
+        return this.applyStoredSelections(this.mapCart(response));
+      }),
       tap((cart) => this.cartState.set(cart)),
     );
   }
@@ -55,26 +63,33 @@ export class ShopService {
     const params = new HttpParams().set('quantity', quantity);
 
     return this.http.put<unknown>(API_ENDPOINTS.shop.cartItem(productId), null, { params }).pipe(
-      map((response) => this.mapCart(response)),
+      map((response) => this.applyStoredSelections(this.mapCart(response))),
       tap((cart) => this.cartState.set(cart)),
     );
   }
 
   removeItem(productId: number): Observable<UserCart> {
     return this.http.delete<unknown>(API_ENDPOINTS.shop.cartItem(productId)).pipe(
-      map((response) => this.mapCart(response)),
+      map((response) => {
+        this.setStoredCartItemSize(productId, null);
+        return this.applyStoredSelections(this.mapCart(response));
+      }),
       tap((cart) => this.cartState.set(cart)),
     );
   }
 
   clearCart(): Observable<UserCart> {
     return this.http.delete<unknown>(API_ENDPOINTS.shop.cart).pipe(
-      map((response) => this.mapCart(response)),
+      map((response) => {
+        this.clearStoredCartItemSizes();
+        return this.applyStoredSelections(this.mapCart(response));
+      }),
       tap((cart) => this.cartState.set(cart)),
     );
   }
 
   resetCart(): void {
+    this.clearStoredCartItemSizes();
     this.cartState.set(EMPTY_CART);
   }
 
@@ -140,10 +155,15 @@ export class ShopService {
 
   private mapCartItem(input: unknown): UserCartItem {
     const source = this.asObject(input);
+    const productId = this.toNumber(this.pick(source, ['productId'])) ?? 0;
 
     return {
-      productId: this.toNumber(this.pick(source, ['productId'])) ?? 0,
+      productId,
       productName: this.toStringValue(this.pick(source, ['productName'])) || 'Producto',
+      size:
+        this.toStringValue(this.pick(source, ['size', 'talla', 'variant', 'variantName'])) ??
+        this.cartItemSizes()[productId] ??
+        null,
       price: this.toNumber(this.pick(source, ['price'])),
       quantity: this.toNumber(this.pick(source, ['quantity'])) ?? 0,
       subtotal: this.toNumber(this.pick(source, ['subtotal'])),
@@ -259,5 +279,83 @@ export class ShopService {
     }
 
     return null;
+  }
+
+  private applyStoredSelections(cart: UserCart): UserCart {
+    return {
+      ...cart,
+      items: cart.items.map((item) => ({
+        ...item,
+        size: item.size ?? this.cartItemSizes()[item.productId] ?? null,
+      })),
+    };
+  }
+
+  private loadStoredCartItemSizes(): Record<number, string> {
+    if (typeof localStorage === 'undefined') {
+      return {};
+    }
+
+    try {
+      const rawValue = localStorage.getItem(CART_SIZE_STORAGE_KEY);
+
+      if (!rawValue) {
+        return {};
+      }
+
+      const parsedValue = JSON.parse(rawValue) as Record<string, unknown>;
+
+      return Object.entries(parsedValue).reduce<Record<number, string>>((accumulator, [key, value]) => {
+        const productId = Number(key);
+        const size = typeof value === 'string' ? value.trim() : '';
+
+        if (!Number.isFinite(productId) || !size) {
+          return accumulator;
+        }
+
+        accumulator[productId] = size;
+        return accumulator;
+      }, {});
+    } catch {
+      return {};
+    }
+  }
+
+  private setStoredCartItemSize(productId: number, size: string | null): void {
+    if (!Number.isFinite(productId) || productId <= 0) {
+      return;
+    }
+
+    const normalizedSize = size?.trim() || null;
+
+    this.cartItemSizes.update((currentSizes) => {
+      const nextSizes = { ...currentSizes };
+
+      if (normalizedSize) {
+        nextSizes[productId] = normalizedSize;
+      } else {
+        delete nextSizes[productId];
+      }
+
+      this.persistStoredCartItemSizes(nextSizes);
+      return nextSizes;
+    });
+  }
+
+  private clearStoredCartItemSizes(): void {
+    this.cartItemSizes.set({});
+    this.persistStoredCartItemSizes({});
+  }
+
+  private persistStoredCartItemSizes(sizes: Record<number, string>): void {
+    if (typeof localStorage === 'undefined') {
+      return;
+    }
+
+    try {
+      localStorage.setItem(CART_SIZE_STORAGE_KEY, JSON.stringify(sizes));
+    } catch {
+      // Ignore storage errors to keep the cart usable even if persistence fails.
+    }
   }
 }

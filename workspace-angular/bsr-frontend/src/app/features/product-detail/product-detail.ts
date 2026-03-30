@@ -1,19 +1,32 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { finalize } from 'rxjs';
-import { CatalogProduct } from '../../core/interfaces/catalog.interface';
+import { CatalogCategory, CatalogProduct, CategorySlug } from '../../core/interfaces/catalog.interface';
 import { AuthService } from '../../core/services/auth.service';
 import { CatalogService } from '../../core/services/catalog.service';
 import { FavoritesService } from '../../core/services/favorites.service';
 import { ShopService } from '../../core/services/shop.service';
 import { ToastService } from '../../core/services/toast.service';
 import { CatalogProductCardComponent } from '../../shared/components/catalog-product-card/catalog-product-card';
+import { SurfaceCardComponent } from '../../shared/components/surface-card/surface-card';
+
+const ADULT_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'] as const;
+const KIDS_SIZES = ['4', '6', '9', '10', '12', '14', '16'] as const;
+
+const SIZE_OPTIONS_BY_CATEGORY: Partial<Record<CategorySlug, readonly string[]>> = {
+  women: ADULT_SIZES,
+  men: ADULT_SIZES,
+  boys: KIDS_SIZES,
+  girls: KIDS_SIZES,
+  kids: KIDS_SIZES,
+};
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CurrencyPipe, RouterLink, CatalogProductCardComponent],
+  imports: [CurrencyPipe, RouterLink, CatalogProductCardComponent, SurfaceCardComponent],
   templateUrl: './product-detail.html',
 })
 export class ProductDetail {
@@ -25,10 +38,34 @@ export class ProductDetail {
   private readonly shopService = inject(ShopService);
   private readonly toastService = inject(ToastService);
 
+  readonly categories = toSignal(this.catalogService.getCategories(), {
+    initialValue: [] as readonly CatalogCategory[],
+  });
   readonly product = signal<CatalogProduct | null>(null);
   readonly relatedProducts = signal<readonly CatalogProduct[]>([]);
   readonly loading = signal(true);
   readonly adding = signal(false);
+  readonly selectedSize = signal<string | null>(null);
+  readonly productCategory = computed(() => {
+    const product = this.product();
+
+    if (!product) {
+      return null;
+    }
+
+    return this.categories().find((category) => category.id === product.categoryId) ?? null;
+  });
+  readonly availableSizes = computed(() => {
+    const slug = this.productCategory()?.slug;
+
+    if (!slug) {
+      return [];
+    }
+
+    return SIZE_OPTIONS_BY_CATEGORY[slug] ?? [];
+  });
+  readonly isStoreAvailable = computed(() => (this.product()?.stock ?? 0) > 0);
+  readonly requiresSizeSelection = computed(() => this.availableSizes().length > 0);
   readonly isFavorite = computed(() => {
     const product = this.product();
     return product ? this.favoritesService.isFavorite(product.id) : false;
@@ -40,7 +77,10 @@ export class ProductDetail {
       return '';
     }
 
-    return product.sku?.trim() || `${String(product.categoryId).padStart(3, '0')}/${String(product.id).padStart(4, '0')}`;
+    return (
+      product.sku?.trim() ||
+      `${String(product.categoryId).padStart(3, '0')}/${String(product.id).padStart(4, '0')}`
+    );
   });
   readonly productNarrative = computed(() => {
     const product = this.product();
@@ -53,7 +93,7 @@ export class ProductDetail {
       return product.description.trim();
     }
 
-    return `${product.name} forma parte del catalogo real conectado a tu backend y esta listo para comprarse desde carrito y checkout.`;
+    return `${product.name} forma parte del catálogo real conectado a tu backend y está listo para comprarse desde carrito y checkout.`;
   });
 
   constructor() {
@@ -74,6 +114,17 @@ export class ProductDetail {
       return;
     }
 
+    const isCurrentProduct = this.product()?.id === product.id;
+    const selectedSize = isCurrentProduct ? this.selectedSize() : null;
+
+    if (isCurrentProduct && this.requiresSizeSelection() && !selectedSize) {
+      this.toastService.show({
+        title: 'Selecciona una talla',
+        message: 'Elige tu talla antes de añadir el producto al carrito.',
+      });
+      return;
+    }
+
     if ((product.stock ?? 0) <= 0) {
       this.toastService.showError('Producto agotado. Ya no se puede añadir al carrito.');
       return;
@@ -91,13 +142,13 @@ export class ProductDetail {
     this.adding.set(true);
 
     this.shopService
-      .addItem(product.id, 1)
+      .addItem(product.id, 1, selectedSize)
       .pipe(finalize(() => this.adding.set(false)))
       .subscribe({
         next: () => {
           this.toastService.show({
             title: 'Producto añadido',
-            message: `${product.name} ya está en tu carrito.`,
+            message: `${product.name}${selectedSize ? ` en talla ${selectedSize}` : ''} ya está en tu carrito.`,
           });
         },
         error: (error) => {
@@ -106,6 +157,10 @@ export class ProductDetail {
           );
         },
       });
+  }
+
+  selectSize(size: string): void {
+    this.selectedSize.set(size);
   }
 
   toggleFavorite(): void {
@@ -119,13 +174,11 @@ export class ProductDetail {
       next: (isFavorite) => {
         this.toastService.show({
           title: isFavorite ? 'Guardado en favoritos' : 'Eliminado de favoritos',
-          message: `${product.name} ${isFavorite ? 'ya esta en tus favoritos' : 'ha salido de tus favoritos'}.`,
+          message: `${product.name} ${isFavorite ? 'ya está en tus favoritos' : 'ha salido de tus favoritos'}.`,
         });
       },
       error: (error) => {
-        this.toastService.showError(
-          error.error?.message ?? 'No se pudo actualizar el favorito.',
-        );
+        this.toastService.showError(error.error?.message ?? 'No se pudo actualizar el favorito.');
       },
     });
   }
@@ -141,17 +194,20 @@ export class ProductDetail {
           if (!product) {
             this.product.set(null);
             this.relatedProducts.set([]);
-            this.toastService.showError('No se encontro el producto solicitado.');
+            this.selectedSize.set(null);
+            this.toastService.showError('No se encontró el producto solicitado.');
             void this.router.navigate(['/home']);
             return;
           }
 
           this.product.set(product);
+          this.selectedSize.set(null);
           this.loadRelatedProducts(product);
         },
         error: () => {
           this.product.set(null);
           this.relatedProducts.set([]);
+          this.selectedSize.set(null);
           this.toastService.showError('No se pudo cargar el producto.');
         },
       });
@@ -161,7 +217,7 @@ export class ProductDetail {
     this.catalogService.getProductsByCategoryId(product.categoryId).subscribe({
       next: (products) => {
         this.relatedProducts.set(
-          products.filter((candidate) => candidate.id !== product.id).slice(0, 3),
+          products.filter((candidate) => candidate.id !== product.id).slice(0, 4),
         );
       },
       error: () => {

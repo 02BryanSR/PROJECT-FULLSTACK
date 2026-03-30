@@ -53,7 +53,7 @@ function getHttpErrorMessage(error: HttpErrorResponse): string {
     case 0:
       return 'No se pudo conectar con el servidor.';
     case 401:
-      return 'Email o contrasena incorrectos.';
+      return 'Email o contraseña incorrectos.';
     case 403:
       return 'Acceso restringido.';
     case 404:
@@ -61,7 +61,7 @@ function getHttpErrorMessage(error: HttpErrorResponse): string {
     case 500:
       return 'Error interno del servidor.';
     default:
-      return 'Ha ocurrido un error. Intentalo de nuevo.';
+      return 'Ha ocurrido un error. Inténtalo de nuevo.';
   }
 }
 

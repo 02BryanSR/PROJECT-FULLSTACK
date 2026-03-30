@@ -1,5 +1,5 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { type CatalogProduct } from '../../core/interfaces/catalog.interface';
 import { AuthService } from '../../core/services/auth.service';
@@ -8,6 +8,7 @@ import {
   CatalogProductCardComponent,
   CatalogProductCardVariant,
 } from '../../shared/components/catalog-product-card/catalog-product-card';
+import { SurfaceCardComponent } from '../../shared/components/surface-card/surface-card';
 import { ToastService } from '../../core/services/toast.service';
 
 export interface CategoryShowcasePanel {
@@ -25,7 +26,7 @@ export interface CategoryShowcaseImage {
 @Component({
   selector: 'app-category-showcase',
   standalone: true,
-  imports: [RouterLink, CatalogProductCardComponent],
+  imports: [CatalogProductCardComponent, SurfaceCardComponent],
   templateUrl: './category-showcase.html',
 })
 export class CategoryShowcaseComponent {
