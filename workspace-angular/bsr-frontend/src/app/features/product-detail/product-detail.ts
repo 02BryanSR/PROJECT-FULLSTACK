@@ -3,6 +3,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { finalize } from 'rxjs';
+import { resolveProductSubcategory } from '../../core/constants/category-subcategories.constants';
 import { CatalogCategory, CatalogProduct, CategorySlug } from '../../core/interfaces/catalog.interface';
 import { AuthService } from '../../core/services/auth.service';
 import { CatalogService } from '../../core/services/catalog.service';
@@ -12,15 +13,25 @@ import { ToastService } from '../../core/services/toast.service';
 import { CatalogProductCardComponent } from '../../shared/components/catalog-product-card/catalog-product-card';
 import { SurfaceCardComponent } from '../../shared/components/surface-card/surface-card';
 
-const ADULT_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'] as const;
-const KIDS_SIZES = ['4', '6', '9', '10', '12', '14', '16'] as const;
+const ADULT_APPAREL_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'] as const;
+const KIDS_APPAREL_SIZES = ['4', '6', '9', '10', '12', '14', '16'] as const;
+const ADULT_SHOE_SIZES = ['36', '37', '38', '39', '40', '41', '42', '43', '44', '45'] as const;
+const KIDS_SHOE_SIZES = ['28', '30', '32', '34', '36', '38'] as const;
 
 const SIZE_OPTIONS_BY_CATEGORY: Partial<Record<CategorySlug, readonly string[]>> = {
-  women: ADULT_SIZES,
-  men: ADULT_SIZES,
-  boys: KIDS_SIZES,
-  girls: KIDS_SIZES,
-  kids: KIDS_SIZES,
+  women: ADULT_APPAREL_SIZES,
+  men: ADULT_APPAREL_SIZES,
+  boys: KIDS_APPAREL_SIZES,
+  girls: KIDS_APPAREL_SIZES,
+  kids: KIDS_APPAREL_SIZES,
+};
+
+const SHOE_SIZE_OPTIONS_BY_CATEGORY: Partial<Record<CategorySlug, readonly string[]>> = {
+  women: ADULT_SHOE_SIZES,
+  men: ADULT_SHOE_SIZES,
+  boys: KIDS_SHOE_SIZES,
+  girls: KIDS_SHOE_SIZES,
+  kids: KIDS_SHOE_SIZES,
 };
 
 @Component({
@@ -56,10 +67,15 @@ export class ProductDetail {
     return this.categories().find((category) => category.id === product.categoryId) ?? null;
   });
   readonly availableSizes = computed(() => {
+    const product = this.product();
     const slug = this.productCategory()?.slug;
 
-    if (!slug) {
+    if (!product || !slug) {
       return [];
+    }
+
+    if (resolveProductSubcategory(product) === 'calzado') {
+      return SHOE_SIZE_OPTIONS_BY_CATEGORY[slug] ?? [];
     }
 
     return SIZE_OPTIONS_BY_CATEGORY[slug] ?? [];

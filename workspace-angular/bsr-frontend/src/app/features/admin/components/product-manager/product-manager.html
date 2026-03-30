@@ -89,9 +89,14 @@
         <div class="mt-6 grid gap-4">
           @for (product of filteredProducts(); track product.id) {
             <article
-              class="grid gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 md:grid-cols-[8.5rem_minmax(0,1fr)_8.5rem] md:items-stretch"
-              [class.border-black]="selectedProductId() === product.id"
-              [class.shadow-[0_18px_40px_rgba(15,23,42,0.08)]]="selectedProductId() === product.id"
+              draggable="true"
+              (dragstart)="startCardDrag($event, product.id)"
+              (dragover)="onCardDragOver($event, product.id)"
+              (drop)="onCardDrop($event, product.id)"
+              (dragend)="endCardDrag()"
+              class="grid cursor-grab gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 transition md:grid-cols-[8.5rem_minmax(0,1fr)_8.5rem] md:items-stretch"
+              [class.border-black]="selectedProductId() === product.id || (dropTargetProductId() === product.id && draggedProductId() !== product.id)"
+              [class.shadow-[0_18px_40px_rgba(15,23,42,0.08)]]="selectedProductId() === product.id || (dropTargetProductId() === product.id && draggedProductId() !== product.id)"
             >
               <figure class="relative overflow-hidden rounded-[1.2rem] bg-neutral-200 md:h-full">
                 @if (product.imageUrl && !isBrokenImage(product.id)) {

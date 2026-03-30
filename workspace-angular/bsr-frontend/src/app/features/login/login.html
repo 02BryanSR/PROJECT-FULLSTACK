@@ -31,7 +31,7 @@
                 emailCtrl.touched && emailCtrl.invalid
                   ? 'text-danger-600'
                   : emailValid
-                    ? 'text-primary-500'
+                    ? 'text-neutral-900'
                     : 'text-neutral-600'
               "
             >
@@ -59,7 +59,7 @@
               emailCtrl.touched && emailCtrl.invalid
                 ? 'border-danger-600'
                 : emailValid
-                  ? 'border-primary-500'
+                  ? 'border-surface-product'
                   : 'border-neutral-200'
             "
           >
@@ -72,9 +72,9 @@
 
             @if (emailValid) {
               <span
-                class="ml-2 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-300 lg:bg-primary-500"
+                class="ml-2 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-surface-product"
               >
-                <app-icon name="icon-check" class="h-3 w-3 text-white"></app-icon>
+                <app-icon name="icon-check" class="h-3 w-3 text-black"></app-icon>
               </span>
             }
           </div>
@@ -88,7 +88,7 @@
                 passwordCtrl.touched && passwordCtrl.invalid
                   ? 'text-danger-600'
                   : passwordValid
-                    ? 'text-primary-500'
+                    ? 'text-neutral-900'
                     : 'text-neutral-600'
               "
             >
@@ -108,7 +108,7 @@
               passwordCtrl.touched && passwordCtrl.invalid
                 ? 'border-danger-600'
                 : passwordValid
-                  ? 'border-primary-500'
+                  ? 'border-surface-product'
                   : 'border-neutral-200'
             "
           >
@@ -132,7 +132,7 @@
         <button
           type="submit"
           [disabled]="isSubmitting()"
-          class="mt-13 flex h-11.75 w-full items-center justify-center rounded-md bg-primary-300 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-60 lg:mx-auto lg:mt-8.5 lg:w-68.75 lg:bg-primary-500"
+          class="mt-13 flex h-11.75 w-full items-center justify-center rounded-md bg-surface-media font-semibold text-black transition-colors hover:bg-surface-product disabled:cursor-not-allowed disabled:opacity-60 lg:mx-auto lg:mt-8.5 lg:w-68.75"
         >
           {{ isSubmitting() ? 'Entrando...' : 'Empezar' }}
         </button>
@@ -140,7 +140,7 @@
         <div class="flex justify-center">
           <a
             routerLink="/forgot-password"
-            class="text-sm text-primary-500 transition-colors hover:text-primary-700 hover:underline"
+            class="text-sm text-neutral-900 transition-colors hover:text-neutral-600 hover:underline"
           >
             Recuperar contraseña
           </a>
@@ -150,7 +150,7 @@
           ¿Eres nuevo?
           <a
             routerLink="/register"
-            class="font-medium text-primary-500 transition-colors hover:text-primary-700 hover:underline"
+            class="font-medium text-neutral-900 transition-colors hover:text-neutral-600 hover:underline"
           >
             Crea tu cuenta
           </a>

@@ -38,6 +38,9 @@
           <h2 class="mt-3 text-2xl font-semibold uppercase tracking-[0.14em] text-neutral-950">
             Ultimos movimientos
           </h2>
+          <p class="mt-3 text-sm leading-6 text-neutral-600">
+            Arrastra cada card para reordenarla y arrastra la imagen para ajustar su encuadre solo en este dashboard.
+          </p>
         </div>
 
         <a
@@ -48,19 +51,33 @@
         </a>
       </div>
 
-      @if (dashboard().recentProducts.length) {
+      @if (recentProducts().length) {
         <div class="mt-6 space-y-3">
-          @for (product of dashboard().recentProducts; track product.id) {
+          @for (product of recentProducts(); track product.id; let index = $index) {
             <article
-              class="grid gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 md:grid-cols-[8.5rem_minmax(0,1fr)_8rem] md:items-stretch"
+              draggable="true"
+              (dragstart)="startCardDrag($event, product.id)"
+              (dragover)="onCardDragOver($event, product.id)"
+              (drop)="onCardDrop($event, product.id)"
+              (dragend)="endCardDrag()"
+              class="grid cursor-grab gap-4 rounded-[1.6rem] border border-black/10 bg-surface-panel p-4 transition md:grid-cols-[8.5rem_minmax(0,1fr)_8rem] md:items-stretch"
+              [class.border-black]="dropTargetProductId() === product.id && draggedProductId() !== product.id"
+              [class.shadow-[0_18px_40px_rgba(15,23,42,0.08)]]="dropTargetProductId() === product.id && draggedProductId() !== product.id"
             >
-              <figure class="relative overflow-hidden rounded-[1.2rem] bg-neutral-200 md:h-full">
+              <figure
+                (pointerdown)="startImageDrag($event, product.id)"
+                class="relative overflow-hidden rounded-[1.2rem] bg-neutral-200 md:h-full"
+                [class.cursor-ns-resize]="activeImageProductId() !== product.id"
+                [class.cursor-grabbing]="activeImageProductId() === product.id"
+              >
                 @if (product.imageUrl && !isBrokenImage(product.id)) {
                   <img
                     [src]="imageSrc(product.imageUrl, product.updatedAt || product.createdAt)!"
                     [alt]="displayProductName(product.name, product.id)"
                     (error)="markImageAsBroken(product.id)"
-                    class="h-full min-h-[10.5rem] w-full object-cover object-center md:min-h-0"
+                    [style.object-position]="imageObjectPosition(product.id)"
+                    class="h-full min-h-[10.5rem] w-full select-none object-cover md:min-h-0"
+                    draggable="false"
                   />
                 } @else {
                   <div class="flex h-full min-h-[10.5rem] items-center justify-center px-4 text-center text-xs uppercase tracking-[0.2em] text-neutral-500 md:min-h-0">
@@ -133,9 +150,10 @@
                   Ver catalogo
                 </a>
 
-                <p class="px-1 text-[11px] uppercase tracking-[0.18em] text-neutral-400">
-                  #{{ product.id }}
-                </p>
+                <div class="space-y-1 px-1 text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+                  <p>Orden #{{ index + 1 }}</p>
+                  <p>ID #{{ product.id }}</p>
+                </div>
               </div>
             </article>
           }

@@ -14,7 +14,7 @@ body {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-500) transparent;
+  scrollbar-color: var(--color-surface-product) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -27,6 +27,6 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary-500);
+  background-color: var(--color-surface-product);
   border-radius: 999px;
 }

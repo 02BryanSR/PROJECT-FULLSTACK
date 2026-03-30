@@ -138,7 +138,9 @@ export function filterProductsBySubcategory<T extends SubcategoryProductLike>(
   return products.filter((product) => resolveProductSubcategory(product) === subcategory);
 }
 
-function resolveProductSubcategory(product: SubcategoryProductLike): CatalogSubcategorySlug {
+export function resolveProductSubcategory(
+  product: SubcategoryProductLike,
+): CatalogSubcategorySlug {
   const searchableText = normalizeText([product.name, product.description, product.sku].join(' '));
 
   if (!searchableText) {
