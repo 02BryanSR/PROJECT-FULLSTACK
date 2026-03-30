@@ -31,5 +31,5 @@
 }
 
 @theme {
-  --font-poppins: 'Poppins', sans-serif;
+  --font-poppins: var(--font-family-primary);
 }

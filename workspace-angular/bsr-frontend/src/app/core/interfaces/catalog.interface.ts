@@ -1,4 +1,5 @@
 export type CategorySlug = 'women' | 'men' | 'boys' | 'girls' | 'kids' | 'accessories';
+export type CatalogSubcategorySlug = 'all' | 'superiores' | 'inferiores' | 'conjuntos' | 'calzado';
 
 export interface CategoryApiResponse {
   id: number;

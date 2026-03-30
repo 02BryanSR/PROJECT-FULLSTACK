@@ -102,6 +102,7 @@ export class CatalogService {
           .map((category) => ({
             label: category.name.trim().toUpperCase(),
             route: category.route!,
+            categorySlug: category.slug,
           }));
 
         if (!dynamicLinks.length) {

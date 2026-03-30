@@ -26,8 +26,7 @@ export class AdminLayout {
 
   readonly navItems: readonly AdminNavItem[] = [
     { label: 'Resumen', note: 'Vista general', route: '/admin/dashboard' },
-    { label: 'Productos', note: 'Catalogo y fotos', route: '/admin/products' },
-    { label: 'Categorias', note: 'Estructura tienda', route: '/admin/categories' },
+    { label: 'Categorias', note: 'Categorias, subcategorias y productos', route: '/admin/categories' },
     { label: 'Clientes', note: 'Usuarios y roles', route: '/admin/customers' },
     { label: 'Pedidos', note: 'Estados y detalle', route: '/admin/orders' },
   ];

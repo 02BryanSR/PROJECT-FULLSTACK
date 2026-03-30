@@ -1,6 +1,8 @@
-@let content = showcase();
+@let state = showcaseState();
+@let content = state.content;
 
 <app-category-showcase
+  [selectedSubcategory]="state.selectedSubcategory"
   [eyebrow]="content.eyebrow"
   [title]="content.title"
   [description]="content.description"

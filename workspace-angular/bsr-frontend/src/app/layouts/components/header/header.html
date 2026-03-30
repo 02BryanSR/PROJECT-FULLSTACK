@@ -4,21 +4,57 @@
     [class.text-white]="isHome()"
     [class.text-black]="!isHome()"
   >
-    <nav aria-label="Navegacion principal">
+    <nav #navShell aria-label="Navegacion principal">
       <ul class="flex items-center gap-5">
         @for (link of navLinks(); track link.route) {
-          <li>
-            <a
-              [routerLink]="link.route"
-              routerLinkActive="after:scale-x-100"
-              class="relative inline-flex items-center py-2 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
-              [class.text-white]="isHome()"
-              [class.text-black]="!isHome()"
-              [class.after:bg-white]="isHome()"
-              [class.after:bg-black]="!isHome()"
-            >
-              {{ link.label }}
-            </a>
+          <li class="relative">
+            @if (hasSubcategoryMenu(link)) {
+              <button
+                type="button"
+                class="inline-flex items-center gap-2 py-2"
+                [attr.aria-expanded]="openNavRoute() === link.route"
+                [class.text-white]="isHome()"
+                [class.text-black]="!isHome()"
+                (click)="toggleNavDropdown(link.route)"
+              >
+                <span>{{ link.label }}</span>
+                <span
+                  class="text-[10px] transition-transform duration-200"
+                  [class.rotate-180]="openNavRoute() === link.route"
+                >
+                  v
+                </span>
+              </button>
+
+              @if (openNavRoute() === link.route) {
+                <div
+                  class="absolute left-0 top-[calc(100%+0.75rem)] z-50 min-w-52 overflow-hidden rounded-[1.5rem] border border-black/10 bg-white p-2 text-black shadow-[0_24px_60px_rgba(15,23,42,0.18)]"
+                >
+                  @for (subcategory of subcategoryOptions; track subcategory.slug) {
+                    <a
+                      [routerLink]="link.route"
+                      [queryParams]="getSubcategoryQueryParams(subcategory.slug)"
+                      class="flex items-center rounded-[1rem] px-3 py-3 text-[11px] uppercase tracking-[0.18em] text-neutral-900 transition hover:bg-black/4"
+                      (click)="closeNavDropdown()"
+                    >
+                      {{ subcategory.label }}
+                    </a>
+                  }
+                </div>
+              }
+            } @else {
+              <a
+                [routerLink]="link.route"
+                routerLinkActive="after:scale-x-100"
+                class="relative inline-flex items-center py-2 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100"
+                [class.text-white]="isHome()"
+                [class.text-black]="!isHome()"
+                [class.after:bg-white]="isHome()"
+                [class.after:bg-black]="!isHome()"
+              >
+                {{ link.label }}
+              </a>
+            }
           </li>
         }
       </ul>
@@ -150,7 +186,7 @@
         <app-icon name="icon-bag" class="h-5 w-5"></app-icon>
         @if (authService.isAuthenticated() && cartItemCount() > 0) {
           <span
-            class="absolute -right-2 -top-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-accent-amber-600 px-1 text-[10px] font-semibold text-white"
+            class="absolute -right-2 -top-1 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-black px-1 text-[10px] font-semibold text-white"
           >
             {{ cartItemCount() }}
           </span>

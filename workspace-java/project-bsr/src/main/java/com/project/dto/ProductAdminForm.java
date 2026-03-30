@@ -24,7 +24,7 @@ public class ProductAdminForm {
     private String description;
 
     @NotNull(message = "Price is required")
-    @DecimalMin(value = "0.0", inclusive = true, message = "Price must be >= 0")
+    @DecimalMin(value = "0.01", inclusive = true, message = "Price must be greater than 0")
     private BigDecimal price;
 
     @Min(value = 0, message = "Stock cannot be negative")

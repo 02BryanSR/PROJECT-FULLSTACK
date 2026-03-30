@@ -62,15 +62,46 @@
     <nav class="mt-10 text-lg uppercase tracking-[0.22em]" aria-label="Navegacion movil">
       <ul class="flex flex-col gap-6">
         @for (link of navLinks(); track link.route) {
-          <li>
-            <a
-              [routerLink]="link.route"
-              routerLinkActive="border-white text-white"
-              class="border-b border-transparent pb-2 text-white/85 transition hover:border-white hover:text-white"
-              (click)="close()"
-            >
-              {{ link.label }}
-            </a>
+          <li class="space-y-3">
+            @if (hasSubcategoryMenu(link)) {
+              <button
+                type="button"
+                class="flex w-full items-center justify-between border-b border-transparent pb-2 text-left text-white/85 transition hover:border-white hover:text-white"
+                (click)="toggleSubcategories(link.route)"
+              >
+                <span>{{ link.label }}</span>
+                <span
+                  class="text-sm transition-transform duration-200"
+                  [class.rotate-180]="expandedNavRoute() === link.route"
+                >
+                  v
+                </span>
+              </button>
+
+              @if (expandedNavRoute() === link.route) {
+                <div class="flex flex-col gap-3 pl-4 text-sm uppercase tracking-[0.18em]">
+                  @for (subcategory of subcategoryOptions; track subcategory.slug) {
+                    <a
+                      [routerLink]="link.route"
+                      [queryParams]="getSubcategoryQueryParams(subcategory.slug)"
+                      class="text-white/65 transition hover:text-white"
+                      (click)="close()"
+                    >
+                      {{ subcategory.label }}
+                    </a>
+                  }
+                </div>
+              }
+            } @else {
+              <a
+                [routerLink]="link.route"
+                routerLinkActive="border-white text-white"
+                class="border-b border-transparent pb-2 text-white/85 transition hover:border-white hover:text-white"
+                (click)="close()"
+              >
+                {{ link.label }}
+              </a>
+            }
           </li>
         }
       </ul>
@@ -106,7 +137,7 @@
           <app-icon name="icon-bag" class="h-5 w-5"></app-icon>
           @if (authService.isAuthenticated() && cartItemCount() > 0) {
             <span
-              class="absolute -right-2 -top-2 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-accent-amber-600 px-1 text-[10px] font-semibold text-white"
+              class="absolute -right-2 -top-2 inline-flex min-h-5 min-w-5 items-center justify-center rounded-full bg-black px-1 text-[10px] font-semibold text-white"
             >
               {{ cartItemCount() }}
             </span>

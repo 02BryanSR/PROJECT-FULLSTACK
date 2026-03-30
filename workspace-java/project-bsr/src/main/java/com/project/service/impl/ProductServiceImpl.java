@@ -151,7 +151,7 @@ public class ProductServiceImpl implements ProductService {
         if (form.getDescription() == null || form.getDescription().isBlank()) {
             throw new IllegalArgumentException("Product description is required");
         }
-        if (form.getPrice() == null || form.getPrice().signum() < 0) {
+        if (form.getPrice() == null || form.getPrice().signum() <= 0) {
             throw new IllegalArgumentException("Price is invalid");
         }
         if (form.getStock() != null && form.getStock() < 0) {
@@ -352,7 +352,7 @@ public class ProductServiceImpl implements ProductService {
         if (dto.getCategoryId() == null) {
             throw new RuntimeException("categoryId is required");
         }
-        if (dto.getPrice() == null || dto.getPrice() < 0) {
+        if (dto.getPrice() == null || dto.getPrice() <= 0) {
             throw new RuntimeException("Price is invalid");
         }
         if (dto.getStock() != null && dto.getStock() < 0) {

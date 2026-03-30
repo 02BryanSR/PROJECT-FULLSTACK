@@ -1,15 +1,16 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
-import { type CatalogProduct } from '../../core/interfaces/catalog.interface';
+import { type CatalogProduct, type CatalogSubcategorySlug } from '../../core/interfaces/catalog.interface';
 import { AuthService } from '../../core/services/auth.service';
 import { ShopService } from '../../core/services/shop.service';
+import { ToastService } from '../../core/services/toast.service';
 import {
   CatalogProductCardComponent,
   CatalogProductCardVariant,
 } from '../../shared/components/catalog-product-card/catalog-product-card';
+import { CategorySubcategoryNavComponent } from '../../shared/components/category-subcategory-nav/category-subcategory-nav';
 import { SurfaceCardComponent } from '../../shared/components/surface-card/surface-card';
-import { ToastService } from '../../core/services/toast.service';
 
 export interface CategoryShowcasePanel {
   eyebrow: string;
@@ -26,7 +27,7 @@ export interface CategoryShowcaseImage {
 @Component({
   selector: 'app-category-showcase',
   standalone: true,
-  imports: [CatalogProductCardComponent, SurfaceCardComponent],
+  imports: [CatalogProductCardComponent, CategorySubcategoryNavComponent, SurfaceCardComponent],
   templateUrl: './category-showcase.html',
 })
 export class CategoryShowcaseComponent {
@@ -45,7 +46,24 @@ export class CategoryShowcaseComponent {
   readonly panels = input.required<readonly CategoryShowcasePanel[]>();
   readonly gallery = input.required<readonly CategoryShowcaseImage[]>();
   readonly products = input.required<readonly CatalogProduct[]>();
+  readonly selectedSubcategory = input<CatalogSubcategorySlug>('all');
   readonly addingProductId = signal<number | null>(null);
+  readonly currentPath = this.router.url.split('?')[0] || '/home';
+  readonly supportsSubcategories = computed(() => this.currentPath !== '/accessories');
+  readonly selectedSubcategoryLabel = computed(() => {
+    switch (this.selectedSubcategory()) {
+      case 'superiores':
+        return 'Superiores';
+      case 'inferiores':
+        return 'Inferiores';
+      case 'conjuntos':
+        return 'Conjuntos';
+      case 'calzado':
+        return 'Calzado';
+      default:
+        return 'Ver todo';
+    }
+  });
 
   readonly responsiveGallery = computed(() => {
     const heroSrc = this.heroImage().trim();

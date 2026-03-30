@@ -2,8 +2,13 @@ import { Component, ElementRef, HostListener, ViewChild, computed, effect, injec
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs';
-import { PRIMARY_NAV_LINKS } from '../../../core/constants/navigation.constants';
-import { type CatalogSearchItem } from '../../../core/interfaces/catalog.interface';
+import {
+  CATEGORY_SUBCATEGORY_OPTIONS,
+  buildSubcategoryQueryParams,
+  supportsCategorySubcategories,
+} from '../../../core/constants/category-subcategories.constants';
+import { PRIMARY_NAV_LINKS, type NavigationLink } from '../../../core/constants/navigation.constants';
+import { type CatalogSearchItem, type CatalogSubcategorySlug } from '../../../core/interfaces/catalog.interface';
 import { AuthService } from '../../../core/services/auth.service';
 import { CatalogService } from '../../../core/services/catalog.service';
 import { ShopService } from '../../../core/services/shop.service';
@@ -24,11 +29,14 @@ export class Header {
 
   @ViewChild('searchShell') private searchShell?: ElementRef<HTMLElement>;
   @ViewChild('searchInput') private searchInput?: ElementRef<HTMLInputElement>;
+  @ViewChild('navShell') private navShell?: ElementRef<HTMLElement>;
 
   readonly currentUrl = signal(this.router.url);
   readonly isHome = computed(() => this.currentUrl() === '/home');
   readonly cartItemCount = this.shopService.cartItemCount;
   readonly searchOpen = signal(false);
+  readonly openNavRoute = signal<string | null>(null);
+  readonly subcategoryOptions = CATEGORY_SUBCATEGORY_OPTIONS;
   readonly searchQuery = signal('');
   readonly navLinks = toSignal(this.catalogService.getNavigationLinks(), {
     initialValue: PRIMARY_NAV_LINKS,
@@ -61,6 +69,7 @@ export class Header {
       .subscribe((event) => {
         this.currentUrl.set(event.urlAfterRedirects);
         this.closeSearch();
+        this.closeNavDropdown();
       });
 
     effect(() => {
@@ -78,22 +87,27 @@ export class Header {
   @HostListener('document:keydown.escape')
   protected handleEscape(): void {
     this.closeSearch();
+    this.closeNavDropdown();
   }
 
   @HostListener('document:click', ['$event'])
   protected handleClickOutside(event: MouseEvent): void {
-    const shell = this.searchShell?.nativeElement;
+    const target = event.target as Node;
+    const searchShell = this.searchShell?.nativeElement;
+    const navShell = this.navShell?.nativeElement;
 
-    if (!this.searchOpen() || !shell) {
-      return;
+    if (this.searchOpen() && searchShell && !searchShell.contains(target)) {
+      this.closeSearch();
     }
 
-    if (!shell.contains(event.target as Node)) {
-      this.closeSearch();
+    if (this.openNavRoute() && navShell && !navShell.contains(target)) {
+      this.closeNavDropdown();
     }
   }
 
   toggleSearch(): void {
+    this.closeNavDropdown();
+
     if (this.searchOpen()) {
       if (!this.searchQuery().trim()) {
         this.closeSearch();
@@ -106,6 +120,23 @@ export class Header {
 
     this.searchOpen.set(true);
     this.focusSearchInput();
+  }
+
+  hasSubcategoryMenu(link: NavigationLink): boolean {
+    return supportsCategorySubcategories(link.categorySlug);
+  }
+
+  toggleNavDropdown(route: string): void {
+    this.closeSearch();
+    this.openNavRoute.update((currentRoute) => (currentRoute === route ? null : route));
+  }
+
+  closeNavDropdown(): void {
+    this.openNavRoute.set(null);
+  }
+
+  getSubcategoryQueryParams(subcategory: CatalogSubcategorySlug): Record<string, string> {
+    return buildSubcategoryQueryParams(subcategory);
   }
 
   onSearchInput(value: string): void {

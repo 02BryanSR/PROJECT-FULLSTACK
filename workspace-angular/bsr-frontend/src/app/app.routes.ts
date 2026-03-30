@@ -95,6 +95,13 @@ export const routes: Routes = [
           import('./features/admin/products/products').then((m) => m.AdminProducts),
       },
       {
+        path: 'categories/:categoryId/subcategories/:subcategorySlug/products',
+        loadComponent: () =>
+          import('./features/admin/subcategory-products/subcategory-products').then(
+            (m) => m.AdminSubcategoryProducts,
+          ),
+      },
+      {
         path: 'categories',
         loadComponent: () =>
           import('./features/admin/categories/categories').then((m) => m.AdminCategories),

@@ -47,6 +47,13 @@ export interface AdminProductInput {
   imageFile: File | null;
 }
 
+export interface AdminSubcategory {
+  categoryId: number;
+  slug: string;
+  label: string;
+  createdAt: string | null;
+}
+
 export interface AdminCustomer {
   id: number;
   email: string;

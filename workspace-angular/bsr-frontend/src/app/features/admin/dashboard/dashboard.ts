@@ -44,20 +44,6 @@ export class AdminDashboard {
 
   readonly stats = computed(() => [
     {
-      label: 'Productos',
-      value: this.dashboard().productCount,
-      displayValue: String(this.dashboard().productCount),
-      note: 'Catalogo listo para la tienda',
-      tone: 'neutral' as const,
-    },
-    {
-      label: 'Categorias',
-      value: this.dashboard().categoryCount,
-      displayValue: String(this.dashboard().categoryCount),
-      note: 'Secciones activas del menu',
-      tone: 'neutral' as const,
-    },
-    {
       label: 'Clientes',
       value: this.dashboard().customerCount,
       displayValue: String(this.dashboard().customerCount),
@@ -99,17 +85,26 @@ export class AdminDashboard {
       note: this.getMonthDeltaNote(this.dashboard().salesMonthDelta),
       tone: this.getMonthDeltaTone(this.dashboard().salesMonthDelta),
     },
+    {
+      label: 'Pedidos pendientes',
+      value: this.dashboard().pendingOrderCount,
+      displayValue: String(this.dashboard().pendingOrderCount),
+      note: 'Pedidos en estado creado',
+      tone: 'neutral' as const,
+    },
+    {
+      label: 'Stock bajo',
+      value: this.dashboard().lowStockCount,
+      displayValue: String(this.dashboard().lowStockCount),
+      note: 'Productos por debajo del minimo',
+      tone: 'neutral' as const,
+    },
   ]);
 
   readonly quickLinks = [
     {
-      title: 'Gestionar productos',
-      note: 'Crear, editar stock y cargar imagenes',
-      route: '/admin/products',
-    },
-    {
-      title: 'Gestionar categorias',
-      note: 'Ordenar la navegacion y el catalogo',
+      title: 'Gestionar catalogo',
+      note: 'Categorias, subcategorias y productos conectados',
       route: '/admin/categories',
     },
     {

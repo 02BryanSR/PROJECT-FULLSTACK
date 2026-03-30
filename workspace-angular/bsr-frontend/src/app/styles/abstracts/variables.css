@@ -1,4 +1,20 @@
 @theme {
+  --font-family-primary: sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+
   --color-black: #000000;
   --color-white: #ffffff;
 
@@ -6,7 +22,7 @@
   --color-primary-500: #245970;
   --color-primary-700: #12384d;
 
-  --color-danger-600: #b42318;
+  --color-danger-600: #e10600;
 
   --color-ink-900: #1e1f2e;
 
@@ -32,8 +48,6 @@
   --color-shell-960: #0c0c0c;
   --color-shell-975: #0b0b0b;
   --color-shell-990: #050505;
-
-  --color-accent-amber-600: #d97706;
 
   --color-toast-danger-50: #fdeaea;
   --color-toast-danger-200: #e9b8b5;
